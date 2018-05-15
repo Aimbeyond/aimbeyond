@@ -22,9 +22,6 @@ include("header.php");
 
 </header>
 
-
-       
-
         <div class="content mt-3">
             <div class="animated fadeIn">
 
@@ -73,7 +70,7 @@ include("header.php");
                              <div class="col-lg-4 col-md-12 col-sm-12">
                               
                              <table class="table table-responsive table-detail division">
-                             <thead><th><strong>Job Title</strong></th></thead>
+                             <thead><th><p>Job Title</strong></p></thead>
                                 <tbody>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
@@ -101,7 +98,7 @@ include("header.php");
                             <div class="col-lg-4 col-md-12 col-sm-12">
                            
                             <table class="table table-responsive table-detail division">
-                            <thead><th><strong>Job Title</strong></th></thead>
+                            <thead><th><p>Job Title</strong></p></thead>
                                 <tbody>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
@@ -129,7 +126,7 @@ include("header.php");
                              <div class="col-lg-4 col-md-12 col-sm-12 ">
                              
                              <table class="table table-responsive table-detail division">
-                             <thead><th><strong>Job Title</strong></th></thead>
+                             <thead><th><p>Job Title</strong></p></thead>
                                 <tbody>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
@@ -162,7 +159,7 @@ include("header.php");
                              <div class="col-lg-4 col-md-12 col-sm-12">
                               
                              <table class="table table-responsive table-detail division">
-                             <thead><th><strong>Job Title</strong></th></thead>
+                             <thead><th><p>Job Title</strong></p></thead>
                                 <tbody>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
@@ -190,7 +187,7 @@ include("header.php");
                             <div class="col-lg-4 col-md-12 col-sm-12">
                            
                             <table class="table table-responsive table-detail division">
-                            <thead><th><strong>Job Title</strong></th></thead>
+                            <thead><th><p>Job Title</strong></p></thead>
                                 <tbody>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
@@ -218,7 +215,7 @@ include("header.php");
                              <div class="col-lg-4 col-md-12 col-sm-12 ">
                              
                              <table class="table table-responsive table-detail division">
-                             <thead><th><strong>Job Title</strong></th></thead>
+                             <thead><th><p>Job Title</strong></p></thead>
                                 <tbody>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
