@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -49,34 +52,51 @@
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
+       
             <div class="login-content">
                <div class="login-form form1">
                 <div class="login-logo">
                     <a href="">
                         <img class="align-content" src="images/logo.png" alt="logo">
                         <p>Human Resources Management</p>
+                       
                     </a>
+                    <h2>Create an account</h2>
                 </div>
                     <form action = "" method = "POST">
+                     
+                    <div class="form-group">
+                            <br>
+                            <input type="text" class="form-control fullName" placeholder="Full Name" name="name">
+                        </div>
                         <div class="form-group">
                     
-                            <input type="email" class="form-control newEmail" placeholder="Email Address" name="email_id">
+                            <input type="email" class="form-control Mail" placeholder="Email Address" name="email_id">
                         </div>
                         <div class="form-group">
                            
-                            <input type="password" class="form-control newPass" placeholder="Password" name="psw">
+                            <input type="password" class="form-control Pass" placeholder="Password" name="psw">
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="password" class="form-control confirmPassword" placeholder="Confirm Password" name="psw">
                         </div>
                         
-                        <button type="submit" class="btn btn signinbtn btn-flat m-b-30 m-t-30 ">Login</button>
-                        
-                        <div class="register-link m-t-15 text-center">
-                       <p> <a href="signup.php">Forgot password?</a>or no account ?then <a href="signup.php"> Sign Up </a></p>
+                        <button type="submit" class="btn btn btn-flat m-b-30 m-t-30 btn1">Cancel</button>
+                        <button type="submit" class="btn btn btn-flat m-b-30 m-t-30 btn2">Register</button>
+                       
+
+                      <div class="register-link m-t-15 text-center">
+                            <br>
+                            <p class="ptag2">Already have account? then please<a href="login.php" class="href1"> Sign in</a></p>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+        
 
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>

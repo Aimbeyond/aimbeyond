@@ -1,0 +1,578 @@
+/* addProfile */
+ @font-face {
+    font-family: NotoSansRegular;
+    src: url(../fonts/noto-sans/NotoSans-Regular.ttf);
+    }
+    @font-face {
+      font-family: NotoSansBold;
+      src: url(../fonts/noto-sans/NotoSans-Bold.ttf);
+      }
+      @font-face {
+        font-family: NotoSansItalic;
+        src: url(../fonts/noto-sans/NotoSans-Italic.ttf);
+        }
+        @font-face {
+          font-family: NotoSansLight;
+          src: url(../fonts/noto-sans/NotoSans-Light.ttf);
+          }
+
+          body{
+              background-color: #e3e6f7;
+          }
+          
+.header-menu p{
+    font-size: 24px;
+    font-family: NotoSansBold;
+    color:#000;
+}
+
+.card-header{
+    font-size: 14px;
+    font-family: NotoSansBold;
+    color:#ce5215;
+    background-color:white !important;
+}
+.top{
+    margin-left: 1%;
+}
+.form-control-label{
+    color:#000;
+    font-size: 14px;
+    font-family: NotoSansBold;
+}
+    
+span{
+    color:#000;
+    font-size: 18px;
+    font-family: NotoSansBold;
+} 
+
+
+.experienceDetail{
+    margin-bottom: 1%;
+}
+.qualificationDetail{
+    margin-bottom: 1%;
+}
+.experience{
+    margin-top: 2%;
+}
+
+.experienceyear{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.yop1{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.yop2{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.form-control{
+    border-radius: 0%;
+}
+ .cancel{
+   
+    width:26%;
+    border: none !important;
+    font-family: NotoSansBold;
+    background-color: #939498;
+    color:#ffffff ;
+    border-radius: 0px;
+    float: right;
+    margin-right: -22px;
+    height: 38px;
+    font-size: 14px;
+  
+}
+
+.update{
+   
+    width:26%;
+    border: none !important;
+    font-family: NotoSansBold;
+    background-color: #3e64af;
+    color:#ffffff ;
+    border-radius: 0px;
+    float: left;
+    height: 38px;
+    font-size: 14px;
+    
+   }
+   .addmore{
+       margin-bottom: 4%;
+       width:8%;
+       background-color: #3e64af;
+       color:#ffffff ;
+       font-size: 14px;
+       height: 30px;
+       border-radius: 0px;
+       border: none !important;
+    font-family: NotoSansBold;
+   }
+
+   .editProfile{
+    
+    width:8%;
+    background-color: #3e64af;
+    color:#ffffff ;
+    font-size: 14px;
+    height: 30px;
+    border-radius: 0px;
+    border: none !important;
+    font-family: NotoSansBold;
+}
+
+
+
+   /*Add Resume*/
+   .form-group .resume{
+   
+    background-color: #3e64af !important;
+    font-size: 14px !important;
+   }
+   .bootstrap-filestyle .form-control {
+        background: #fff;
+   }
+   .buttonText{
+       color:#fff;
+       font-size: 14px;
+   }
+   .icon-span-filestyle{
+    font-size: 14px;
+   }
+   .group-span-filestyle label{
+       margin-bottom: 0px !important;
+   }
+   .attachment{
+    color:#939498;
+    font-family: NotoSansRegular;
+   
+}
+
+/* master */
+
+.master{
+    margin: 0px auto;
+}
+
+.submitmaster{
+   
+    width:26%;
+    border: none !important;
+    font-family: NotoSansBold;
+    background-color: #3e64af;
+    color:#ffffff ;
+    border-radius: 0px;
+    float: left;
+    height: 38px;
+    font-size: 14px;
+    
+   }
+   .cancelmaster{
+   
+    width:26%;
+    border: none !important;
+    font-family: NotoSansBold;
+    background-color: #939498;
+    color:#ffffff ;
+    border-radius: 0px;
+    float: right;
+    margin-right: -22px;
+    height: 38px;
+    font-size: 14px;
+  
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+       width: 100%;
+    } 
+
+.submitmaster{
+   
+    width:44%;
+   }
+   .cancelmaster{
+   
+    width:44%;
+   }
+ 
+   }
+
+@media screen  and (min-width: 1024px) and (max-width: 1024px) {
+    
+   .cardmaster{
+    width: 162%;
+    margin-left: -32%;
+}
+   }
+    
+    
+
+
+@media screen  and  (max-width: 414px) {
+    body {
+       width: 100%;
+    } 
+
+.submitmaster{
+   
+    width:26%;
+    margin-left: 49%;
+    margin-top: -10%;
+   }
+   .cancelmaster{
+   
+    width:26%;
+    margin-right: 54%;
+   }
+    
+    
+}
+
+
+@media screen  and  (max-width: 375px) {
+    body {
+       width: 100%;
+    } 
+    .editProfile{
+       
+        margin-top:-9% !important;
+    }
+
+.submitmaster{
+    margin-top: -11%;
+   }
+    
+}
+
+
+   /* header */
+   .loginname{
+       font-size: 15px;
+       color:#fff ;
+       margin-left: 8%;
+       font-family: NotoSansBold;
+   }
+   .logout{
+    font-size: 11px;
+    color:#fff ;
+    margin-left: 32%;
+    font-family: NotoSansBold;
+}
+.userimg img{
+    margin-top: 60%;
+
+}
+label{
+    margin-bottom: -1.5rem !important;
+}
+.user-area img{
+    margin-right: -135% !important;
+}
+.imgshowhide{
+    display: none;
+}
+.navbar{
+    background:#062e46 !important;
+
+font-size: 13px;
+}
+aside.left-panel {
+    background:#062e46 !important;
+}
+.right-panel header.header {
+    background: none !important;
+   
+}
+.menutoggle {
+    background: none !important;
+    
+    margin: -2px 20px 0 -90px !important;
+    
+}
+.navbar .navbar-nav li > a {
+   
+    font-family:NotoSansRegular;
+    font-size: 12px;
+    width: 100%;
+}
+.navbar .navbar-nav li.menu-item-has-children .sub-menu {
+background:#062e46;
+}
+
+@media screen and (max-width: 414px) {
+    body {
+       width: 100%;
+    }
+    .userimg img{
+        margin-top: -23% !important;
+        width: 62% !important;
+    }
+    .loginname{
+        margin-left:-4% !important;
+    }
+    .logout{
+        float: right !important;
+    }
+    
+    /* addrecords new changes */
+
+
+    .yop1{
+        padding-right: 0px!important;
+        padding-left: 0px!important;
+    }
+    .yop2{
+        padding-right: 0px!important;
+        padding-left: 0px!important;
+    }
+    .experienceyear{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .addmore{
+        width: 28% !important ;
+        font-size: 11px !important ;
+        height: 20px !important ;
+        margin-bottom: 8% !important ;
+    }
+    .cancel{
+        margin-right: 148px !important;
+        height: 25px !important;
+        font-size: 13px !important;
+        width: 28% !important;
+    }
+    .update{
+        height: 25px !important;
+        font-size: 13px !important;
+        margin-top: -25px !important;
+        margin-right: 40px !important;
+        float: right !important;
+        width: 28% !important;
+    }
+
+
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+       width: 100%;
+    }
+    .userimg img{
+        margin-top: 40%;
+        width: 85% ;
+    }
+    .loginname{
+        margin-left:-4%;
+    }
+    .logout{
+        margin-left:35%;
+    }
+    
+    .navbar{
+        
+        margin: -2px 20px 0 -10px !important;
+        
+    }
+    .menutoggle {
+      
+        margin: -6px 20px 0 -80px!important;
+        
+    }
+    .hidemenubar{
+        margin-left: -106px!important;
+    }
+    .addmore{
+        width: 12% ;
+        font-size: 12px ;
+       }
+}
+
+   /* addrecords new changes */
+
+
+@media screen and (max-width: 768px) {
+    body {
+       width: 100%;
+    }
+    .experienceDetail{
+
+        margin-bottom: 1%;
+    }
+    .qualificationDetail{
+        margin-bottom: 1%;
+    }
+    .experience{
+        margin-top: 6%;
+    }
+    .addmore{
+        width:20% ;
+        font-size: 11px ;
+        height: 25px ;
+    }
+    .cancel{
+        font-size: 13px;
+        width: 40%;
+        height: 32px;
+    }
+    .update
+    {
+        font-size: 13px ;
+        width: 40% ;
+        height: 32px ;
+    }
+    .top{
+        font-size:20px;
+    }
+    
+}
+
+
+/* candidateprofile */
+
+
+
+.table-detail td {
+    border-top: 0px solid #dee2e6;
+}
+
+
+
+.table-detail td p{
+   font-size: 14px;
+   color:#000;
+   font-family:  NotoSansRegular;
+}
+
+
+@media screen and (min-width: 350px) and (max-width: 768px){
+   
+
+    .editProfile{
+        width: 35%;
+        font-size: 12px;
+        margin-top:-7%;
+    }
+    .menutoggle {
+        background: none !important;
+        
+        margin: -2px 20px 0 -90px;
+        
+    }
+    
+    
+    
+}
+
+
+
+
+
+@media screen and  (max-width: 684px){
+   
+   
+    
+    .header-menu p {
+        
+        margin-right: -18%;
+    }
+    
+    
+    
+}
+
+
+
+
+
+@media screen and (min-width: 768px)  and (max-width: 768px){
+   
+    
+    .form-control-label{
+        margin-right: -250%;
+    }
+    
+    
+
+}
+
+
+
+@media screen and (min-width: 1024px)  and (max-width: 1024px){
+   
+ 
+    
+    .editProfile{
+        width: 16% ;
+        margin-top:-4%;
+    }
+    
+
+}
+
+
+/* job apply */
+.division{
+    border: 1px solid #bebebe;
+    border-width: 1.5px;
+
+}
+
+.apply{
+     width:91%;
+    border: none !important;
+    font-family: NotoSansBold;
+    background-color: #3e64af;
+    color:#ffffff ;
+    border-radius: 0px;
+    float: left;
+    height: 32px;
+    font-size: 14px;
+}
+
+.table thead th {
+    
+    border-bottom: 0px solid #dee2e6;
+    color: #ce5215;
+    font-size:14px;
+    font-family: NotoSansBold;
+}
+
+.searchbtn{
+    width:16%;
+   border: none !important;
+   font-family: NotoSansBold;
+   background-color: #3e64af;
+   color:#ffffff ;
+   border-radius: 0px;
+   float: left;
+   height: 37px;
+   font-size: 14px;
+}
+
+@media (min-width: 375px) and (max-width: 768px) { 
+    .searchfield{
+        margin-bottom:12px;
+        
+    }
+    .searchbtn{
+       
+        margin-top:5px;
+    }
+    
+     }
+
+
+@media (min-width: 375px) and (max-width: 1024px) { 
+    .searchbtn{
+        width:26%;
+       
+    }
+    
+     }

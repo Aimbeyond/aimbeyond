@@ -1,0 +1,172 @@
+ 
+ @font-face {
+    font-family: NotoSansRegular;
+    src: url(../fonts/noto-sans/NotoSans-Regular.ttf);
+    }
+    @font-face {
+      font-family: NotoSansBold;
+      src: url(../fonts/noto-sans/NotoSans-Bold.ttf);
+      }
+      @font-face {
+        font-family: NotoSansItalic;
+        src: url(../fonts/noto-sans/NotoSans-Italic.ttf);
+        }
+        @font-face {
+          font-family: NotoSansLight;
+          src: url(../fonts/noto-sans/NotoSans-Light.ttf);
+          }
+.tbhead{
+    background: #7f85a7;
+    font-family: NotoSansRegular;
+    font-size: 14px;
+    color:#e8e8e8 !important;
+     
+}
+.table-bordered th {
+    border: 2px solid #e8e8e8 !important;
+}
+tr{
+    font-family:NotoSansRegular !important;
+    color:#000000 !important;
+    font-size: 14px;
+    
+}
+.email-link{
+    color:#3e64af;
+}
+.th1{
+    width:7%;
+    padding-left:1.5% !important;
+}
+.th2{
+    width:12%;
+    padding-left:1.5% !important;
+}
+.th3{
+    width:27%;
+    padding-left:1.5% !important;
+}
+.th4{
+    width:20%;
+    padding-left:1.5% !important;
+}
+.th5{
+    width:15%;
+    padding-left:1.5% !important;
+}
+.th6{
+    width:12%;
+    padding-left:1.5% !important;
+}
+.th7{
+    width:28%;
+    padding-left:1.5% !important;
+}
+/* pagination */
+.pagination a {
+
+    font-family:NotoSansRegular;
+    padding: 8px 16px;
+    font-size:14px;
+  
+    
+   
+}
+.pre1,.pre2{
+    color:#3e64af;
+    font-family:NotoSansBold !important;
+}
+.pag-float{
+    float:right;
+}
+td{
+    padding-left:25px !important;
+}
+.edit-tag,.view-tag{
+    padding-right:5.5px;
+}
+.table-responsive{
+    width:100% ;
+}
+@media screen and (max-width: 1024px) {
+    .edit-tag,.view-tag{
+        padding-right:0px !important;
+    }
+    
+  }
+  @media screen and (max-width: 375px) {
+   .pagination a{
+       font-size:11px;
+       float:right;
+   }
+   
+
+    
+  }
+  /* view location */
+  .loc{
+      width:43% !important;
+      margin-left:28% !important;
+      
+  }
+  .pagi{
+      margin-right:29% !important;
+  }
+  .th8{
+    width:90%!important;
+    padding-left:3.8% !important;  
+
+  }
+  @media screen and (max-width: 1024px) {
+  .pagi{
+      margin-right:24% !important;
+  }
+    .th8{
+        padding-left:7%!important;
+    }
+  
+  }
+  @media screen and (max-width: 768px) {
+    .pagi{
+        margin-right:10% !important;
+    }
+      .th8{
+          padding-left:7%!important;
+      }
+      .loc{
+          width:70% !important;
+          margin-left:15% !important;
+      }
+    }
+
+
+        
+            @media screen and (max-width: 736px) {
+                .pagi{
+                    margin-right:7% !important;
+                }   
+                }         
+                @media screen and (max-width: 684px) {
+                    .pagi{
+                        margin-right:3% !important;
+                    }   
+                    }  
+                    @media screen and (max-width: 414px) {
+                        .pagi{
+                            margin-right:-1.5% !important;
+                        }   
+                        }  
+
+                        @media screen and (max-width: 375px) {
+                            .pagi{
+                                margin-right:-3% !important;
+                            }  
+                            .th8{
+                                padding-left:10%!important;
+                            } 
+                            }  
+
+                            /* appliedCandidate */
+                            .ancon{
+                                color:#3e64af;
+                            }
