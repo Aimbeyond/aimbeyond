@@ -35,6 +35,7 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     
     
+    
 
     
    
@@ -75,7 +76,6 @@
               
             </div>
     `            
-             
                  <label><a class="userimg"><img src="images/user.png" ></label>
                  <label class=" label loginname">Username</label>
                  <label class=" label logout">Logout</label> 
@@ -86,88 +86,106 @@
                     <li class="active">
                         <a href="index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                    
-                   
+
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Candidate Records</a>
+                        
                         <ul class="sub-menu children dropdown-menu">
-
-
-                                           
-                                           <?php
-
-                            // if(($_SESSION["email_id"]=="hr@gmail.com"))
-                            // {
-
-
-
-
-                               
-                                    $USER_TYPE_ID=$row['USER_TYPE_ID'];
-                                    $EMAIL=$row['EMAIL_ID'];
-                                    
-                                    //$USER_ID=$row['USER_ID'];
-                                      //echo $TYPE_ID;  
-                                      
-                                      
-
-
-
-                                      $fetch_data= "SELECT * from APPLICANT_QUALIFICATION  WHERE REG_ID = '".$row['REG_ID']."'";
-                                      
-                                      $run_data= mysqli_query($conn, $fetch_data);
-                                     
-                                      $num = mysqli_num_rows($run_data);
-
-                                 
-
-
-
-                                if($TYPE_ID == 1)
-                                {   
-                                   
-                                    ?>
-                               
-                                <li><i class="fa fa-puzzle-piece"></i><a href="Updatedata.php?id=<?php echo $row['USER_ID']?>&regs_id=<?php echo $row['REG_ID']?>">Update Candidate Info</a></li>
-                                <?php if($num < 1) { ?>
-                                <li><i class="fa fa-id-badge"></i><a href="Addqualification.php?id=<?php echo $row['REG_ID']?>">Add Qualification </a></li>
-                                <?php } ?>
-                                <li><i class="fa fa-id-badge"></i><a href="view.php?id=<?php echo $row['REG_ID']?>">View Candidate Info </a></li>
-                                <?php
-                                    
-                                }
-
-
-                               
-
-
-                                else{
-
-                                ?>
-
-
-                                <li><i class="fa fa-puzzle-piece"></i><a href="AddCandidate.php">Add Candidates</a></li>
-                                <li><i class="fa fa-id-badge"></i><a href="ViewCandidates.php">View Candidates</a></li>
-                                <li><i class="fa fa-id-badge"></i><a href="post_job.php">Post Job</a></li>
-                                <li><i class="fa fa-id-badge"></i><a href="view_all_jobs.php">View Jobs</a></li>
-                                <?php
-
-                                }
-                                    
-                               
-                                    
-                                   
-                                    
-                                     //echo $num; print_r($run_data); die(); 
-                        ?>
-
-  
+              
+                        <li><i class="fa fa-plus"></i><a href="addProfile.php">Add Profile</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="candidateProfile.php">Candidate Profile</a></li>
                         </ul>
                     </li>
 
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Job Apply</a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="jobApply.php">Jobs</a></li>
+                        </ul>   
+                    </li>
 
-                    
-                    
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Job </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addJob.php">Add Job</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewJobs.php">View Job</a></li>
+                        </ul>   
+                    </li>
+
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Interview Schedule </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addInterviewSchedule.php">Add Interview Schedule</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewInterviewSchedule.php">View Interview Schedule</a></li>
+                        </ul>   
+                    </li>
+
+                         <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Interviewer Detail </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="interviewerDetail.php">Add Interviewer Detail</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewInterviewerDetail.php">View Interviewer Detail</a></li>
+                        </ul>   
+                    </li>
+
+                         <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Location </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addLocation.php">Add Location</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewLocation.php">View Location</a></li>
+                        </ul>   
+                    </li>
+
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Qualification </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addQualification.php">Add Qualification</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewQualification.php">View Qualification</a></li>
+                        </ul>   
+                    </li>
+
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Skills </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addSkills.php">Add Skills</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewSkill.php">View Skills</a></li>
+                        </ul>   
+                    </li>
+
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Interview Round </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addInterviewRounds.php">Add Interview Round</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewRound.php">View Interview Round</a></li>
+                        </ul>   
+                    </li>
+
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Applicant Status </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addApplicantStatus.php">Add Applicant Status</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewStatus.php">View Applicant Status</a></li>
+                        </ul>   
+                    </li>
+
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Interview Status </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addInterviewStatus.php">Add Interview Status</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewInterviewStatus.php">View Interview Status</a></li>
+                        </ul>   
+                    </li>
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
