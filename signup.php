@@ -2,10 +2,6 @@
 
 
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,23 +59,30 @@
                     </a>
                     <h2>Create an account</h2>
                 </div>
-                    <form action = "" method = "POST">
+                    <form action = "signupSource.php" method = "POST">
                      
                     <div class="form-group">
                             <br>
-                            <input type="text" class="form-control fullName" placeholder="Full Name" name="name">
+                            <input type="text" class="form-control fullName" placeholder="Full Name" name="name" required>
                         </div>
                         <div class="form-group">
                     
-                            <input type="email" class="form-control Mail" placeholder="Email Address" name="email_id">
+                            <input type="email" class="form-control Mail" placeholder="Email Address" name="emailId" required>
                         </div>
                         <div class="form-group">
                            
-                            <input type="password" class="form-control Pass" placeholder="Password" name="psw">
+                            <input type="password" class="form-control Pass" placeholder="Password" name="psw" required>
                         </div>
                         <div class="form-group">
                             
-                            <input type="password" class="form-control confirmPassword" placeholder="Confirm Password" name="psw">
+                            <input type="password" class="form-control confirmPassword" placeholder="Confirm Password" name="confirmPsw" required> 
+                        </div>
+                        <?php   $today = date("Y-m-d H:i:s"); ?>
+                        <div class="form-group">
+                        <input type="text" class="form-control"  name="lastLogin" value="<?php echo "$today"; ?>"hidden>
+                        <input type="int" class="form-control"  name="userStatus" value = "1" hidden>
+                        <input type="int" class="form-control"  name="userType" value = "1" hidden>
+                        <input type="int" class="form-control"  name="flag" value = "1" hidden>
                         </div>
                         
                         <button type="submit" class="btn btn btn-flat m-b-30 m-t-30 btn1">Cancel</button>
