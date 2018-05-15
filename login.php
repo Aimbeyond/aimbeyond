@@ -1,13 +1,9 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Aimbeyond</title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="description" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -34,12 +30,6 @@
 
 
 
-
-
-
-
-
-
 <style>
 
 
@@ -57,14 +47,14 @@
                         <p>Human Resources Management</p>
                     </a>
                 </div>
-                    <form action = "" method = "POST">
+                    <form action = "loginSource.php" method = "POST">
                         <div class="form-group">
                     
-                            <input type="email" class="form-control newEmail" placeholder="Email Address" name="email_id">
+                            <input type="email" class="form-control newEmail" placeholder="Email Address" name="emailId" required>
                         </div>
                         <div class="form-group">
                            
-                            <input type="password" class="form-control newPass" placeholder="Password" name="psw">
+                            <input type="password" class="form-control newPass" placeholder="Password" name="psw" required>
                         </div>
                         
                         <button type="submit" class="btn btn signinbtn btn-flat m-b-30 m-t-30 ">Login</button>
