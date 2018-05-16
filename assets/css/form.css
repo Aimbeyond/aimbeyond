@@ -544,6 +544,12 @@ background:#062e46;
     font-size:14px;
     font-family: NotoSansBold;
 }
+.table thead th{
+    
+    border-bottom: 0px solid #dee2e6;
+    font-size:14px;
+    font-family: NotoSansBold;
+}
 
 .searchbtn{
     width:16%;
