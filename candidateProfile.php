@@ -1,5 +1,6 @@
 <?php
 include("header.php");
+include ("candidateProfileSource.php");
 ?>
 
     <!-- Right Panel -->
@@ -39,20 +40,25 @@ include("header.php");
                         </div>
                        
                       <div class="card-body card-block">
-   <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                      <?php $row = mysqli_fetch_array($retval) ?>
+   
         <table class="table table-responsive table-detail">            
              <tbody>
                     <tr>
+                          <td><label class=" form-control-label">Resume:</label></td>
+                          <td><p><?php echo $row['APPLICANT_RESUME'] ?></p></td>
+                    </tr>
+                    <tr>
                           <td><label class=" form-control-label">Full name:</label></td>
-                          <td><p>Divyanshu Bhardwaj</p></td>
+                          <td><p><?php echo $row['APPLICANT_NAME'] ?></p></td>
                     </tr>
                     <tr>
                           <td><label class=" form-control-label">Email Address:</label></td>
-                          <td><p>Divyanshu@gmail.com</p></td>
+                          <td><p><?php echo $row['EMAIL_ID'] ?></p></td>
                     </tr> 
                     <tr>
                           <td><label class=" form-control-label">Contact No.:</label></td>
-                          <td><p>9574865847</p></td>
+                          <td><p><?php echo $row['CONTACT_NUMBER'] ?></p></td>
                     </tr>
             </tbody>
         </table>
@@ -68,48 +74,64 @@ include("header.php");
                     <tbody>
                         <tr>
                           <td><label class=" form-control-label">Experience:</label></td>
-                          <td><p>1 year</p></td>
+                          <td><p><?php echo $row['EXPERIENCE_IN_YEAR']?> year <?php echo $row['EXPERIENCE_IN_MONTH']?> month </p></td>
                         </tr>
+                        
+                        <?PHP $sql1 = "SELECT * FROM SKILL WHERE SKILL_ID='".$row['SKILL_ID']."'";
+                              $retval1 = mysqli_query($conn, $sql1);
+                              $row1 = mysqli_fetch_array($retval1)
+                         ?>
                         <tr>
                           <td><label class=" form-control-label">Skills:</label></td>
-                          <td><p>HTML, CSS, MYSQL</p></td>
+                          <td><p><?php echo $row1['SKILL_NAME']?></p></td>
                         </tr> 
                         <tr>
                           <td><label class=" form-control-label">Previous Package:</label></td>
-                          <td><p>Null</p></td>
+                          <td><p><?php echo $row['PACKAGE']?></p></td>
                         </tr>
                         <tr>
                           <td><label class=" form-control-label">Notice Period:</label></td>
-                          <td><p>Null</p></td>
+                          <td><p><?php echo $row['NOTICE_PERIOD']?></p></td>
                         </tr>
                     </tbody>
                 </table>
                           
-
+                <?PHP $select_10 = "SELECT * FROM APPLICANT_QUALIFICATION WHERE REG_ID='136'";    
+                $retval_10 = mysqli_query($conn, $select_10) or die(mysqli_error());
+                while($row_10 = mysqli_fetch_array($retval_10))
+                {                    
+                ?>
             <div class="card-header qualificationDetail">
                         <strong>Qualification Details</strong> 
             </div>
                 <table class="table table-responsive table-detail">
                     <tbody>
+                    <?php 
+                     $quali = "SELECT * FROM QUALIFICATION WHERE QUALIFICATION_ID='".$row_10['QUALIFICATION_ID']."'";                     
+                        $quali_data = mysqli_query($conn, $quali);
+                        $row_quali = mysqli_fetch_array($quali_data)
+                      ?>
                         <tr>
                             <td><label class=" form-control-label">Qualification:</label> </td>
-                            <td><p>B.Tech(Computer Science)</p></td>
+                            <td><p><?php echo $row_10['QUALIFICATION']?></p></td>
                         </tr>
                         <tr>
                             <td><label class=" form-control-label">Institution:</label></td>
-                            <td><p>VCE</p></td>
+                            <td><p><?php echo $row_10['INSTITUTION']?></p></td>
                         </tr> 
                         <tr>
                             <td><label class=" form-control-label">Year of passing:</label></td>
-                            <td><p>2017</p></td>
+                            <td><p> <?php echo $row_10['YEAR_OF_PASSING']?></p></td>
                         </tr>
                         <tr>
                             <td><label class=" form-control-label">Percentage:</label></td>
-                            <td><p>64.6%</p></td>
+                            <td><p><?php echo $row_10['PERCENTAGE'] ?></p></td>
                         </tr>
                     </tbody>
+                    
                 </table>
-    </form>
+                 <?php } ?> 
+   
                       </div>
                     </div>
             </div><!-- .animated -->
