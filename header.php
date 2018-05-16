@@ -1,3 +1,15 @@
+<?php
+session_start();
+include('connection.php');
+
+$emailId=$_SESSION['emailId'];
+
+$query = "select * from USER where EMAIL_ID = '$emailId'";
+//echo $query; die();
+$result = mysqli_query($conn,$query);
+$row=mysqli_fetch_array($result);
+
+?>
 <!doctype html>
 <html class="no-js" lang=""> 
 <head>
@@ -35,10 +47,6 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     
     
-    
-
-    
-   
     <link rel="stylesheet" href="assets/css/form.css">
     <link rel="stylesheet" href="assets/css/view.css">
 
@@ -77,7 +85,7 @@
             </div>
     `            
                  <label><a class="userimg"><img src="images/user.png" ></label>
-                 <label class=" label loginname">Username</label>
+                 <label class=" label loginname"><?php echo $row['USER_NAME'];?></label>
                 <a href="logout.php"> <label class=" label logout">Logout</label></a>
                 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
