@@ -22,9 +22,6 @@ include("header.php");
 
 </header>
 
-
-       
-
         <div class="content mt-3">
             <div class="animated fadeIn">
 
@@ -172,12 +169,7 @@ include("header.php");
                             </div>
                             <div class="col-12 col-md-6">
                             <label for="disabledSelect" class=" form-control-label">Institution</label>
-                              <select name="institution1" id="institution1" class="form-control">
-                                <option value="0"></option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
-                              </select>
+                            <input type="text" id="percentage1" name="percentage1" placeholder="" class="form-control">
                             </div>
                         </div>
 
@@ -186,12 +178,7 @@ include("header.php");
                         <div class="col-lg-6 col-md-12 col-sm-12 yop1">
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                              <select name="year_of_passing1" id="year_of_passing1" class="form-control">
-                                <option value="0"></option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
-                              </select>
+                            <input type="text" id="percentage1" name="percentage1" placeholder="" class="form-control">
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabled-input" class=" form-control-label">Percentage</label>
@@ -214,12 +201,7 @@ include("header.php");
                                 </div>
                                 <div class="col-12 col-md-6">
                                 <label for="disabledSelect" class=" form-control-label">Institution</label>
-                                <select name="institution2" id="institution2" class="form-control">
-                                    <option value="0"></option>
-                                    <option value="1">Option #1</option>
-                                    <option value="2">Option #2</option>
-                                    <option value="3">Option #3</option>
-                                </select>
+                                <input type="text" id="percentage1" name="percentage1" placeholder="" class="form-control">
                                 </div>
                             </div>
 
@@ -229,12 +211,7 @@ include("header.php");
                             <div class="col-lg-6 col-md-12 col-sm-12 yop2">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                                <select name="year_of_passing2" id="year_of_passing2" class="form-control">
-                                    <option value="0"></option>
-                                    <option value="1">Option #1</option>
-                                    <option value="2">Option #2</option>
-                                    <option value="3">Option #3</option>
-                                </select>
+                                <input type="text" id="percentage1" name="percentage1" placeholder="" class="form-control">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabled-input" class=" form-control-label">Percentage</label>
@@ -297,10 +274,10 @@ include("header.php");
 
 <script>
 $(document).ready(function(){
-	var i=1;
+	var i=2;
 	$('#add').click(function(){
 		i++; 
-		$('#dynamic_field').append('<div id="row'+i+'"><div class="row"><button type="button" style="float:right; background-color:#939498;color:#ffffff;font-size: 14px;position: absolute;right: 22px; border: none !important;font-family: NotoSansBold;" name="remove" id="'+i+'" class="btn btn-success btn_remove">DELETE</button></div><span ><br></span><div class="row form-group"><div class="col-12 col-md-6"><label for="disabledSelect" class=" form-control-label">Qualification</label><select name="qualification1" id="qualification1" class="form-control"><option value="0">select degree</option><option value="1">Option #1</option><option value="2">Option #2</option><option value="3">Option #3</option></select></div><div class="col-12 col-md-6"><label for="disabledSelect" class=" form-control-label">Institution</label><select name="institution1" id="institution1" class="form-control"><option value="0"></option><option value="1">Option #1</option><option value="2">Option #2</option><option value="3">Option #3</option></select></div></div><div class="row form-group"><div class="col-lg-6 col-md-12 col-sm-12 yop1"><div class="col-lg-6 col-md-6 col-sm-12"><label for="disabledSelect" class=" form-control-label">Year of passing</label><select name="year_of_passing1" id="year_of_passing1" class="form-control"><option value="0"></option><option value="1">Option #1</option><option value="2">Option #2</option><option value="3">Option #3</option></select></div><div class="col-lg-6 col-md-6 col-sm-12"><label for="disabled-input" class=" form-control-label">Percentage</label><input type="text" id="percentage1" name="percentage1" placeholder="" class="form-control"></div></div></div>');
+		$('#dynamic_field').append('<div id="row'+i+'"><div class="row"><button type="button" style="float:right; background-color:#939498;color:#ffffff;font-size: 14px;position: absolute;right: 22px; border: none !important;font-family: NotoSansBold;" name="remove" id="'+i+'" class="btn btn-success btn_remove">DELETE</button></div><span ><br></span><div class="row form-group"><div class="col-12 col-md-6"><label for="disabledSelect" class=" form-control-label">Qualification</label><select name="qualification1" id="qualification1" class="form-control"><option value="0">select degree</option><option value="1">Option #1</option><option value="2">Option #2</option><option value="3">Option #3</option></select></div><div class="col-12 col-md-6"><label for="disabledSelect" class=" form-control-label">Institution</label><input type="text" id="institution'+i+'" name="institution'+i+'" placeholder="" class="form-control"></div></div><div class="row form-group"><div class="col-lg-6 col-md-12 col-sm-12 yop1"><div class="col-lg-6 col-md-6 col-sm-12"><label for="disabledSelect" class=" form-control-label">Year of passing</label><input type="text" id="yop'+i+'" name="yop'+i+'" placeholder="" class="form-control"> </div><div class="col-lg-6 col-md-6 col-sm-12"><label for="disabled-input" class=" form-control-label">Percentage</label><input type="text" id="percentage1" name="percentage1" placeholder="" class="form-control"></div></div></div>');
     
 	});
 	
@@ -324,6 +301,7 @@ $(document).ready(function(){
 	
 });
 </script>
+
 
 </body>
 </html>

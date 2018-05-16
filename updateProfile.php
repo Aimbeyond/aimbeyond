@@ -130,20 +130,27 @@ include("updateProfileSource.php");
 
 <select id="multi-select-demo" name="Skills[]" multiple="multiple">
 <?php 
-$skill= explode(",", $row['SKILL_ID']);
+                        $skill= explode(",", $row['SKILL_ID']);
+
 $count=count($skill); 
+
 for($i=0;$i<$count; $i++){
+
 $fetch_dataS = "SELECT * FROM SKILL WHERE SKILL_ID='".$skill[$i]."'";
+
 //echo $fetch_dataS;die();
+
 $run_dataS = mysqli_query($conn, $fetch_dataS);
+
 $rowS = mysqli_fetch_array($run_dataS);
+
 //echo $rowS['SKILL_NAME'];echo ", ";
+
  ?>
     <option value="<?php echo $rowS['SKILL_ID'] ?>"selected><?php echo $rowS['SKILL_NAME'] ?></option>
-    <?php } 
-    while($data_skill = mysqli_fetch_array($fetch_skill))
-            { ?>
-    <option value="<?php echo $data_skill['SKILL_ID'] ?>"> <?php echo $data_skill['SKILL_NAME'] ?></option>
+<?php }  while($data_skill = mysqli_fetch_array($fetch_skill))
+            {   ?>
+    <option value="<?php echo $data_skill['SKILL_ID'] ?>"><?php echo $data_skill['SKILL_NAME'] ?></option>
             <?php } ?>
 </select>
 </div>
