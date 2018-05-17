@@ -1,7 +1,7 @@
 <?php 
 include('connection.php');
 $id=$_GET['id'];
-
+$regId=$_GET['regId'];
 $query = "select * from JOB_APPLY where REG_ID = '1'";
 //echo $q; die();
 $result = mysqli_query($conn,$query);
@@ -12,7 +12,7 @@ if($num == 1)
     echo "<script type='text/javascript'>alert('$message');document.location='jobApply.php' </script>";
 }
 else{
-$sql = "INSERT INTO JOB_APPLY (REG_ID,JOB_ID)VALUES ('1','$id')";
+$sql = "INSERT INTO JOB_APPLY (REG_ID,JOB_ID)VALUES ('$regId','$id')";
  //echo $sql; die();
 $run=mysqli_query($conn,$sql);
 

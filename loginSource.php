@@ -13,7 +13,7 @@ $num = mysqli_num_rows($result);
 if($num == 1)
 {
     $_SESSION['emailId'] = $emailId;
-    header('location: candidateProfile.php');
+    header('location: updateProfile.php');
 }
 else
 {

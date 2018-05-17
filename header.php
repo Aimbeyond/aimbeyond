@@ -9,6 +9,12 @@ $query = "select * from USER where EMAIL_ID = '$emailId'";
 $result = mysqli_query($conn,$query);
 $row=mysqli_fetch_array($result);
 
+$queryregId = "select * from APPLICANT_DETAIL where EMAIL_ID = '$emailId'";
+//echo $queryregId;die();
+$resultregId = mysqli_query($conn,$queryregId);
+$rowregId=mysqli_fetch_array($resultregId);
+$regId=$rowregId['REG_ID'];
+//echo $regId;die();
 ?>
 <!doctype html>
 <html class="no-js" lang=""> 
@@ -105,7 +111,7 @@ $row=mysqli_fetch_array($result);
                         <ul class="sub-menu children dropdown-menu">
               
                         <li><i class="fa fa-plus"></i><a href="addProfile.php">Add Profile</a></li>
-                                <li><i class="fa fa-id-badge"></i><a href="candidateProfile.php">Candidate Profile</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="candidateProfile.php?regId=<?php echo $regId?>">Candidate Profile</a></li>
                                 <li><i class="fa fa-building"></i><a href="viewProfiles.php">View Profile</a></li>
                         </ul>
                     </li>
@@ -143,7 +149,7 @@ $row=mysqli_fetch_array($result);
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Job Apply</a>
                         
                         <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="jobApply.php">Jobs</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i> <a href="jobApply.php?id=<?php echo $regId?>">Jobs</a></li>
                         </ul>   
                     </li>
 

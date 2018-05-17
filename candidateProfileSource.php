@@ -1,9 +1,7 @@
 <?php include("connection.php")?>
       <?php
- $id=$_GET['id'];
-
- 
- $sql = "SELECT * FROM APPLICANT_DETAIL WHERE REG_ID='136'";
+ $regId=$_GET['regId'];
+ $sql = "SELECT * FROM APPLICANT_DETAIL WHERE REG_ID='$regId'";
 
  $retval = mysqli_query($conn, $sql);
 

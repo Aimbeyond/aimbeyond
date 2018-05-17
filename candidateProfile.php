@@ -1,5 +1,6 @@
 <?php
 include("header.php");
+$regId=$_GET['regId'];
 include ("candidateProfileSource.php");
 ?>
 
@@ -96,7 +97,7 @@ include ("candidateProfileSource.php");
                     </tbody>
                 </table>
                           
-                <?PHP $select_10 = "SELECT * FROM APPLICANT_QUALIFICATION WHERE REG_ID='136'";    
+                <?PHP $select_10 = "SELECT * FROM APPLICANT_QUALIFICATION WHERE REG_ID='$regId'";    
                 $retval_10 = mysqli_query($conn, $select_10) or die(mysqli_error());
                 while($row_10 = mysqli_fetch_array($retval_10))
                 {                    
