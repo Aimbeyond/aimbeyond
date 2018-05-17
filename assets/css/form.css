@@ -287,6 +287,10 @@ label{
 .imgshowhide{
     display: none;
 }
+.hidemenubar{
+    margin: -17px 20px 0 -90px!important;
+    
+}
 .navbar{
     background:#062e46 !important;
 
@@ -396,7 +400,9 @@ background:#062e46;
     }
     .hidemenubar{
         margin-left: -106px!important;
+        
     }
+    
     .addmore{
         width: 12% ;
         font-size: 12px ;

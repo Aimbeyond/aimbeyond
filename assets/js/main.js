@@ -17,6 +17,7 @@ jQuery(document).ready(function($) {
 		$('.menutoggle').toggleClass('hidemenubar');
 		$('.logout').toggleClass('logouthide');
 	});
+	
 
 	$('.search-trigger').on('click', function(event) {
 		event.preventDefault();
