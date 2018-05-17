@@ -269,6 +269,10 @@ span{
     margin-top: 60%;
 
 }
+
+.logouthide{
+    display: none;
+}
 label{
     margin-bottom: -1.5rem !important;
 }
@@ -277,6 +281,10 @@ label{
 }
 .imgshowhide{
     display: none;
+}
+.hidemenubar{
+    margin: -17px 20px 0 -90px!important;
+    
 }
 .navbar{
     background:#062e46 !important;
@@ -293,7 +301,7 @@ aside.left-panel {
 .menutoggle {
     background: none !important;
     
-    margin: -2px 20px 0 -90px !important;
+    margin: -2px 20px 0 -90px ;
     
 }
 .navbar .navbar-nav li > a {
@@ -387,7 +395,9 @@ background:#062e46;
     }
     .hidemenubar{
         margin-left: -106px!important;
+        
     }
+    
     .addmore{
         width: 12% ;
         font-size: 12px ;

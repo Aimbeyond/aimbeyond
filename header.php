@@ -71,7 +71,8 @@ $row=mysqli_fetch_array($result);
 <body>
 
 
-        <!-- Left Panel -->
+
+  <!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default1">
@@ -84,9 +85,11 @@ $row=mysqli_fetch_array($result);
               
             </div>
     `            
+             
                  <label><a class="userimg"><img src="images/user.png" ></label>
                  <label class=" label loginname"><?php echo $row['USER_NAME'];?></label>
-                <a href="logout.php"> <label class=" label logout">Logout</label></a>
+               
+                 <a href="logout.php"><label class=" label logout" id="logout">Logout</label></a>
                 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
           
