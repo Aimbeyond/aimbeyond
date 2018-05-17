@@ -19,7 +19,8 @@
           body{
               background-color: #e3e6f7;
           }
-          
+
+
 .header-menu p{
     font-size: 24px;
     font-family: NotoSansBold;
@@ -269,6 +270,14 @@ span{
     margin-top: 60%;
 
 }
+.hidemenubar{
+  margin: -17px 20px 0px -90px !important;
+}
+
+.logouthide{
+  display: none;
+}
+
 label{
     margin-bottom: -1.5rem !important;
 }
@@ -293,7 +302,7 @@ aside.left-panel {
 .menutoggle {
     background: none !important;
     
-    margin: -2px 20px 0 -90px !important;
+    margin: -2px 20px 0 -90px ;
     
 }
 .navbar .navbar-nav li > a {
