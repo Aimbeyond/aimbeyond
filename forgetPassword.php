@@ -1,4 +1,8 @@
+<?php
+include("forgetPasswordSource.php");
+?>
 <!doctype html>
+
  <html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
@@ -48,7 +52,7 @@
                         <div class="form-group">
                         <input type="email" class="form-control" placeholder="Enter your email to reset password" name="email">
                         </div>
-                        <button type="submit" class="btn  continuebtn btn-flat m-b-30 m-t-30">Continue</button>
+                        <button type="submit" class="btn  continuebtn btn-flat m-b-30 m-t-30" name="submit">Continue</button>
                         
                     </form>
                 </div>
