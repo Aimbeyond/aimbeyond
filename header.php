@@ -95,9 +95,10 @@ $row=mysqli_fetch_array($result);
           
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="addProfile.php"> <i class="menu-icon fa fa-dashboard dashboard"></i>Dashboard </a>
                     </li>
 
+                    <h4 class="menu-title">CANDIDATE</h4>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Candidate Records</a>
                         
@@ -105,8 +106,38 @@ $row=mysqli_fetch_array($result);
               
                         <li><i class="fa fa-plus"></i><a href="addProfile.php">Add Profile</a></li>
                                 <li><i class="fa fa-id-badge"></i><a href="candidateProfile.php">Candidate Profile</a></li>
+                                <li><i class="fa fa-building"></i><a href="viewProfiles.php">View Profile</a></li>
                         </ul>
                     </li>
+
+                                            <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Qualification </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addQualification.php">Add Qualification</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewQualification.php">View Qualification</a></li>
+                        </ul>   
+                    </li>
+
+                                            <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Skills </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addSkills.php">Add Skills</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewSkill.php">View Skills</a></li>
+                        </ul>   
+                    </li>
+
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Applicant Status </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addApplicantStatus.php">Add Applicant Status</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewStatus.php">View Applicant Status</a></li>
+                        </ul>   
+                    </li>
+
+                        <h4 class="menu-title">JOB</h4>
 
                         <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Job Apply</a>
@@ -125,12 +156,14 @@ $row=mysqli_fetch_array($result);
                         </ul>   
                     </li>
 
+                        <h4 class="menu-title">INTERVIEW</h4>
+
                         <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Interview Schedule </a>
                         
                         <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus"></i><a href="addInterviewSchedule.php">Add Interview Schedule</a></li>
-                        <li><i class="fa fa-building"></i><a href="viewInterviewSchedule.php">View Interview Schedule</a></li>
+                        <li><i class="fa fa-plus"></i><a href="addInterviewSchedule.php">Add Schedule</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewInterviewSchedule.php">View Schedule</a></li>
                         </ul>   
                     </li>
 
@@ -138,8 +171,8 @@ $row=mysqli_fetch_array($result);
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Interviewer Detail </a>
                         
                         <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus"></i><a href="interviewerDetail.php">Add Interviewer Detail</a></li>
-                        <li><i class="fa fa-building"></i><a href="viewInterviewerDetail.php">View Interviewer Detail</a></li>
+                        <li><i class="fa fa-plus"></i><a href="interviewerDetail.php">Add Detail</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewInterviewerDetail.php">View Detail</a></li>
                         </ul>   
                     </li>
 
@@ -153,40 +186,14 @@ $row=mysqli_fetch_array($result);
                     </li>
 
                         <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Qualification </a>
-                        
-                        <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus"></i><a href="addQualification.php">Add Qualification</a></li>
-                        <li><i class="fa fa-building"></i><a href="viewQualification.php">View Qualification</a></li>
-                        </ul>   
-                    </li>
-
-                        <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Skills </a>
-                        
-                        <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus"></i><a href="addSkills.php">Add Skills</a></li>
-                        <li><i class="fa fa-building"></i><a href="viewSkill.php">View Skills</a></li>
-                        </ul>   
-                    </li>
-
-                        <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Interview Round </a>
                         
                         <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus"></i><a href="addInterviewRounds.php">Add Interview Round</a></li>
-                        <li><i class="fa fa-building"></i><a href="viewRound.php">View Interview Round</a></li>
+                        <li><i class="fa fa-plus"></i><a href="addInterviewRounds.php">Add Round</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewRound.php">View Round</a></li>
                         </ul>   
                     </li>
 
-                        <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Applicant Status </a>
-                        
-                        <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus"></i><a href="addApplicantStatus.php">Add Applicant Status</a></li>
-                        <li><i class="fa fa-building"></i><a href="viewStatus.php">View Applicant Status</a></li>
-                        </ul>   
-                    </li>
 
                         <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Interview Status </a>
