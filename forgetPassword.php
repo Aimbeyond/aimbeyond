@@ -47,7 +47,7 @@ include("forgetPasswordSource.php");
                     <h2>Reset Password</h2>
                 </div>
 
-                    <form class="form-signin" action="#" method="POST"><br>
+                    <form class="form-signin" action="" method="POST"><br>
                     
                         <div class="form-group">
                         <input type="email" class="form-control" placeholder="Enter your email to reset password" name="email">

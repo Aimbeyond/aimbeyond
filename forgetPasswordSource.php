@@ -6,10 +6,23 @@ use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require 'vendor/autoload.php';
+include 'connection.php';
+
+if(isset($_POST['submit']))
+{
+
 
 $mail = new PHPMailer(true); 
 
 // SMTP configuration
+$email= $_POST['email'];
+
+$sql= "SELECT * FROM USER WHERE EMAIL_ID = '".$email."'";
+$run=mysqli_query($conn,$sql);
+
+$data=mysqli_fetch_array($run);
+
+//echo "<pre>"; print_r($data);die();
 
 $mail->SMTPDebug = 3;
 $mail->isSMTP();
@@ -33,9 +46,7 @@ $mail->setFrom('aimbeyondinfotech@gmail.com', 'Forget Password');
 
 
 // Add a recipient
-$mail->addAddress('priya.chaudhary@aimbeyond.com');
-
-
+$mail->addAddress($data['EMAIL_ID']);
 
 
 // Email subject
@@ -45,8 +56,8 @@ $mail->Subject = 'Email for Forget Password';
 $mail->isHTML(true);
 
 // Email body content
-$mailContent = "<h3>Please find below the password</h3>
-    <p>Password: </p>";
+$mailContent = "Hi <br/><p>Please find below the password for Aimbeyond Infotech Login</p>
+    <h3>Password: ".$data['PASSWORD']." </h3><br/><br/><br/><h3>Thank you</h3>";
 $mail->Body = $mailContent;
 
 // Send email
@@ -54,16 +65,7 @@ if(!$mail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    echo 'Message has been sent';
+    echo "<script type= 'text/javascript'> alert('Password sent Successfully'); document.location='login.php'</script>";
 }
-?>
-<?php 
-if(isset($_POST['submit']))
-{
-$email= $_POST['email'];
-
-$sql= "INSERT INTO USER(EMAIL_ID) VALUES ('$email')";
-$run=mysqli_query($conn,$sql);
 }
-
 ?>

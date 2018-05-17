@@ -1,6 +1,7 @@
 <?php
-include("header.php");
+include("connection.php");
 include("addLocationSource.php");
+include("header.php");
 ?>
 
     <!-- Right Panel -->
