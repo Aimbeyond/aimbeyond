@@ -11,11 +11,26 @@ $regId=$_GET['regId'];
 if(isset($_POST['search'])) {
    
     $search=$_POST['search_keyword'];
+    $searchSkill=$_POST['search_skill'];
    
     $search=preg_replace("#[^0-9a-z]#i","",$search);
-    $result=mysqli_query($conn,"select * from JOB_DETAIL WHERE KEYWORDS LIKE '%$search%'");
-    //echo "select * from JOB_DETAIL WHERE KEYWORDS LIKE '%$search%'";
-    $count_search=mysqli_num_rows($result);
+    $searchSkill=preg_replace("#[^0-9a-z]#i","",$searchSkill);
+
+
+  $sql = "SELECT DISTINCT a.*, b.*,c.* FROM JOB_SKILL a  JOIN SKILL b ON a.SKILL_ID=b.SKILL_ID JOIN JOB_DETAIL c ON a.JOB_ID=c.JOB_ID WHERE c.KEYWORDS LIKE '%$search%' && b.SKILL_NAME LIKE '%$searchSkill%'";
+   
+  $result=mysqli_query($conn,$sql);
+  $count_search=mysqli_num_rows($result);
+  //echo $count_search;
+  //echo $sql;die(); 
+ 
+
+
+
+
+    // $result=mysqli_query($conn,"select * from JOB_DETAIL WHERE KEYWORDS LIKE '%$search%'");
+    // //echo "select * from JOB_DETAIL WHERE KEYWORDS LIKE '%$search%'";
+    // $count_search=mysqli_num_rows($result);
 
     
 }
@@ -59,14 +74,6 @@ if(isset($_POST['search'])) {
                   <div class="col-lg-12">
                     <div class="card">
                       
-                                                                            
-                                                        
-                            <?php
-
-                          
-                                
-
-                                ?>
                         <div class="card-header top">
                         <strong>Search Job</strong> 
                         </div>
@@ -81,12 +88,7 @@ if(isset($_POST['search'])) {
                             </div>
 
                             <div class="col-lg-4 col-md-6 col-sm-12">
-                               <select name="skills" id="skills" class="form-control skill">
-                                <option value="0">Select skills</option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
-                              </select>
+                            <input type="text" id="search_skill" name="search_skill" placeholder="by skills" class="form-control searchfield">
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12">
                             <button type="submit" class="searchbtn" name="search" id="search">Search</button>
