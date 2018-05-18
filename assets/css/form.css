@@ -606,3 +606,17 @@ background:#062e46;
     }
     
      }
+     .multiselect-selected-text{
+         font-size:16px ;
+     }
+     .multiselect-container>li>a>label.checkbox{
+        font-size:12px ;
+     }
+     .addpg{
+        display:none;
+     }
+     .addothers{
+        display:none;
+     }
+     
+     

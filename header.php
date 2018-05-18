@@ -53,7 +53,8 @@ $regId=$rowregId['REG_ID'];
 
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    
+    <link rel="stylesheet" href="assets/css/bootstrap-multiselect.css" type="text/css">
+        <script type="text/javascript" src="assets/js/bootstrap-multiselect.js"></script>
     
     <link rel="stylesheet" href="assets/css/form.css">
     <link rel="stylesheet" href="assets/css/view.css">

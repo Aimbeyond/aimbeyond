@@ -1,5 +1,7 @@
 <?php
 include("header.php");
+$JOB_ID=1;
+
 ?>
 
     <!-- Right Panel -->
