@@ -3,6 +3,7 @@ error_reporting(E_ALL);
  ini_set('display_errors', 1);
 session_start();
 include('connection.php');
+
 $emailId = $_POST['emailId'];
 $psw = $_POST['psw'];
 
@@ -24,7 +25,14 @@ if($userStatus == 0)
     echo "<script type='text/javascript'>  alert('$message');document.location='login.php' </script>";
 } 
 elseif($num == 1)
-{
+
+{ 
+    $queryRegId = "select * from APPLICANT_DETAIL where EMAIL_ID = '$emailId'";
+    $resultRegId = mysqli_query($conn,$queryRegId);
+    $rowRegId=mysqli_fetch_array($resultRegId);
+    $REG_ID=$rowRegId['REG_ID'];
+    $_SESSION['regId'] = $REG_ID;
+    //echo $_SESSION['regId'];die();
     $_SESSION['emailId'] = $emailId;
     header('location: updateProfile.php');
 }
