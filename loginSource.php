@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ ini_set('display_errors', 1);
 session_start();
 include('connection.php');
 $emailId = $_POST['emailId'];
@@ -6,31 +8,35 @@ $psw = $_POST['psw'];
 
 
 $query = "select * from USER where EMAIL_ID = '$emailId' && PASSWORD = '$psw'";
-//echo $q; die();
+//echo $query; die();
 $result = mysqli_query($conn,$query);
 $num = mysqli_num_rows($result);
-$row=mysqli_fetch_array($result);
+//echo $num;die();
+$queryStatus = "select * from USER where EMAIL_ID = '$emailId'";
+$resultStatus = mysqli_query($conn,$queryStatus);
+$row=mysqli_fetch_array($resultStatus);
 $userStatus=$row['USER_STATUS_ID'];
-if($userStatus == 1)
+//echo $userStatus; die();
+if($userStatus == 0)
 {
-if($num == 1)
+    $message = "USER IS INACTIVE";
+    //echo $message; die();
+    echo "<script type='text/javascript'>  alert('$message');document.location='login.php' </script>";
+} 
+elseif($num == 1)
 {
     $_SESSION['emailId'] = $emailId;
     header('location: updateProfile.php');
 }
 else
 {
+    
     $message = "EITHER EMAIL OR PASSWORD IS INCORRECT";
-   echo "<script type='text/javascript'>  alert('$message');document.location='login.php' </script>";
-     
-}}
-
- 
-else
-{
-    $message = "USER IS INACTIVE";
+    //echo $message;die();
    echo "<script type='text/javascript'>  alert('$message');document.location='login.php' </script>";
      
 }
+     
+
 
 ?>

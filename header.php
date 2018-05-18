@@ -95,10 +95,12 @@ $regId=$rowregId['REG_ID'];
     `            
              
                  <label><a class="userimg"><img src="images/user.png" ></label>
+                 <div class="name">
                  <label class=" label loginname"><?php echo $row['USER_NAME'];?></label>
-               
+                    </div>
+                    <div class="logoutbtn">
                  <a href="logout.php"><label class=" label logout" id="logout">Logout</label></a>
-                
+                 </div>
             <div id="main-menu" class="main-menu collapse navbar-collapse">
           
                 <ul class="nav navbar-nav">
