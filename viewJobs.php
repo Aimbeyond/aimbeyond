@@ -7,14 +7,9 @@ include("header.php");
 
 
 
-            // CANDIDATE APPLY JOB
 
-            $query1 = 'SELECT * FROM JOB_APPLY WHERE JOB_ID=1';
-            $result1 = mysqli_query($conn, $query1);
-            $num = mysqli_num_rows($result1)
-
-
-
+            
+            
 ?>
 
     <!-- Right Panel -->
@@ -71,7 +66,13 @@ include("header.php");
                           <td><?php echo $data['SALARY']; ?></td>
                           <td><?php echo $data['EXPERIENCE']; ?></td>
                           <td><?php echo $data['KEYWORDS']; ?></td>
-                          <td><a class="ancon" href="appliedCandidates.php">10</a></td>
+                          <?php 
+                                    $sql = "SELECT * FROM JOB_APPLY WHERE JOB_ID='".$data['JOB_ID']."'";
+                                    $result_sql = mysqli_query($conn, $sql);
+                                    $num_sql = mysqli_num_rows($result_sql);
+                                    //echo $num_sql;die();
+                             ?>
+                          <td><a class="ancon" href="appliedCandidates.php"><?php echo $num_sql; ?></a></td>
                           <td>
                                     <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
