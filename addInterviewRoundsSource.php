@@ -8,6 +8,6 @@ $run=mysqli_query($conn,$sql);
 
 if($run)
 {
-	echo "<script type= 'text/javascript'> alert('Round Inserted Successfully'); </script>";
+	echo "<script type= 'text/javascript'> alert('Round Inserted Successfully'); document.location='addInterviewRounds.php' </script>";
 }} 
 ?>
