@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('connection.php');
+
 $emailId = $_POST['emailId'];
 $psw = $_POST['psw'];
 
@@ -13,7 +14,7 @@ $num = mysqli_num_rows($result);
 if($num == 1)
 {
     $_SESSION['emailId'] = $emailId;
-    header('location: addProfile.php');
+    header('location: updateProfile.php');
 }
 else
 {

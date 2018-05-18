@@ -1,6 +1,14 @@
 <?php
+session_start();
 include("header.php");
 include("updateProfileSource.php");
+
+// if(isset($_POST['UPDATE']))
+// {
+// echo "<pre>";
+// print_r($_POST);
+// die();
+// }
 ?>
 
     <!-- Right Panel -->
@@ -40,19 +48,19 @@ include("updateProfileSource.php");
                         <strong>Personal Details</strong> 
                         </div>
                       <div class="card-body card-block">
-                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="updateButton.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                           
                           <div class="row form-group">
                           
                           <div class="form-group col-lg-6 col-md-6 col-sm-12">    
                         <label for="disabled-input" class="form-control-label">Add resume</label>
                         <div class="form-group resume">  
-                        <input type="file" id="resume">
+                        <input type="file" name="image" value="" id="resume">
                         </div>
                         <label class="attachment">(attached file should not more than 1MB)</label>
                         </div>
 
-
+                        
                             
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabled-input" class=" form-control-label">Full name</label>
@@ -85,7 +93,7 @@ include("updateProfileSource.php");
                             <label for="location" class=" form-control-label">Location</label>
             
              
-                              <select name="location"id="location" class="form-control skill">
+                              <select name="location" id="location" class="form-control skill">
       
                                 <option value="<?php echo $row_loc['LOCATION_ID'] ?>"selected><?php echo $row_loc['LOCATION'] ?></option>
                                 <?PHP 
@@ -147,6 +155,7 @@ $rowS = mysqli_fetch_array($run_dataS);
 //echo $rowS['SKILL_NAME'];echo ", ";
 
  ?>
+ 
     <option value="<?php echo $rowS['SKILL_ID'] ?>"selected><?php echo $rowS['SKILL_NAME'] ?></option>
 <?php }  while($data_skill = mysqli_fetch_array($fetch_skill))
             {   ?>
@@ -181,6 +190,18 @@ $rowS = mysqli_fetch_array($run_dataS);
                         <div class="card-header qualificationDetail">
                         <strong>Qualification Details</strong> 
                       </div>
+                      <?php  
+          $q2= "select * from APPLICANT_QUALIFICATION where REG_ID=$REG_ID ";
+          $run_q2 = mysqli_query($conn,$q2);
+          $num2 = mysqli_num_rows($run_q2);
+          if($num2 >=1)
+          {  
+              $fetch_10= "select * from APPLICANT_QUALIFICATION where QUALIFICATION_ID=1 && REG_ID=$REG_ID";
+              $fetch_10 = mysqli_query($conn,$fetch_10);
+              while($data10 = mysqli_fetch_array($fetch_10))
+     
+            { 
+                ?>
 
                         <div class="row form-group">
                        
@@ -190,12 +211,10 @@ $rowS = mysqli_fetch_array($run_dataS);
                                 <option value="<?php echo $row_qual1['QUALIFICATION_ID']; ?>"><?php echo $row_qual1['QUALIFICATION']; ?></option>
                               </select>
                             </div>
-                            <?php
-                            while($data1 = mysqli_fetch_array($fetch_qual1))
-     { ?>
+                            
                             <div class="col-12 col-md-6">
                             <label for="disabledSelect" class=" form-control-label">Institution</label>
-                            <input type="text" id="institute1" name="institute1" value="<?php echo $data1['INSTITUTION']; ?>" placeholder="" class="form-control">
+                            <input type="text" id="institute7" name="institute7" value="<?php echo $data10['INSTITUTION']; ?>" placeholder="" class="form-control">
                             </div>
                         </div>
 
@@ -204,17 +223,20 @@ $rowS = mysqli_fetch_array($run_dataS);
                         <div class="col-lg-6 col-md-12 col-sm-12 yop1">
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                            <input type="number" id="yop1" name="yop1" placeholder="" value="<?php echo $data1['YEAR_OF_PASSING']; ?>" class="form-control">
+                            <input type="number" id="yop7" name="yop7" placeholder="" value="<?php echo $data10['YEAR_OF_PASSING']; ?>" class="form-control">
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabled-input" class=" form-control-label">Percentage</label>
-                            <input type="number" id="percentage1" name="percentage1" value="<?php echo $data1['PERCENTAGE']; ?>" placeholder="" class="form-control">
-     <?php } ?>
+                            <input type="number" id="percentage7" name="percentage7" value="<?php echo $data10['PERCENTAGE']; ?>" placeholder="" class="form-control">
+     
                         </div>
                         </div>
                         </div>
-
-
+            <?php }  $fetch_12= "select * from APPLICANT_QUALIFICATION where QUALIFICATION_ID=2 && REG_ID=$REG_ID";
+                     $fetch_12 = mysqli_query($conn,$fetch_12);
+                    while($data12 = mysqli_fetch_array($fetch_12))
+              { ?>
+ 
                             <div class="row form-group">
 
                             <div class="col-12 col-md-6">
@@ -223,45 +245,94 @@ $rowS = mysqli_fetch_array($run_dataS);
                                     <option value="<?php echo $row_qual2['QUALIFICATION_ID']; ?>"><?php echo $row_qual2['QUALIFICATION']; ?></option>
                                 </select>
                                 </div>
-                                <?php
-                            while($data2 = mysqli_fetch_array($fetch_qual2))
-     { ?>
+                               
                                 <div class="col-12 col-md-6">
                                 <label for="disabledSelect" class=" form-control-label">Institution</label>
-                                <input type="text" id="institute2" name="institute2" value="<?php echo $data2['INSTITUTION']; ?>" placeholder="" class="form-control">
+                                <input type="text" id="institute8" name="institute8" value="<?php echo $data12['INSTITUTION']; ?>" placeholder="" class="form-control">
                                 </div>
                             </div>
                             <div class="row form-group">
                             <div class="col-lg-6 col-md-12 col-sm-12 yop2">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                                <input type="number" id="yop2" name="yop2" placeholder="" value="<?php echo $data2['YEAR_OF_PASSING']; ?>" class="form-control">
+                                <input type="number" id="yop8" name="yop8" placeholder="" value="<?php echo $data12['YEAR_OF_PASSING']; ?>" class="form-control">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabled-input" class=" form-control-label">Percentage</label>
-                                <input type="number" id="percentage2" name="percentage2" value="<?php echo $data2['PERCENTAGE']; ?>" placeholder="" class="form-control">
-     <?php } ?>
-                            </div>
+                                <input type="number" id="percentage8" name="percentage8" value="<?php echo $data12['PERCENTAGE']; ?>" placeholder="" class="form-control">
+  
                             </div>
                             
+                            </div>
+                            </div>
+              <?php } } else { ?>
+                <div class="row form-group">
+                       
+                        <div class="col-12 col-md-6">
+                            <label for="disabledSelect" class=" form-control-label">Qualification</label>
+                              <select name="qualification1" id="qualification1" class="form-control" disabled>
+                                <option value="<?php echo $row_qual1['QUALIFICATION_ID']; ?>"><?php echo $row_qual1['QUALIFICATION']; ?></option>
+                              </select>
+                            </div>
+                            
+                            <div class="col-12 col-md-6">
+                            <label for="disabledSelect" class=" form-control-label">Institution</label>
+                            <input type="text" id="institute1" name="institute1" value="" placeholder="" class="form-control">
+                            </div>
+                        </div>
 
 
+                        <div class="row form-group">
+                        <div class="col-lg-6 col-md-12 col-sm-12 yop1">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="disabledSelect" class=" form-control-label">Year of passing</label>
+                            <input type="number" id="yop1" name="yop1" placeholder="" value="" class="form-control">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="disabled-input" class=" form-control-label">Percentage</label>
+                            <input type="number" id="percentage1" name="percentage1" value="" placeholder="" class="form-control">
+     
+                        </div>
+                        </div>
+                        </div>
+ 
+                            <div class="row form-group">
 
+                            <div class="col-12 col-md-6">
+                                <label for="disabledSelect" class=" form-control-label">Qualification</label>
+                                <select name="qualification2" id="qualification2" class="form-control" disabled>
+                                    <option value="<?php echo $row_qual2['QUALIFICATION_ID']; ?>"><?php echo $row_qual2['QUALIFICATION']; ?></option>
+                                </select>
+                                </div>
+                               
+                                <div class="col-12 col-md-6">
+                                <label for="disabledSelect" class=" form-control-label">Institution</label>
+                                <input type="text" id="institute2" name="institute2" value="" placeholder="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                            <div class="col-lg-6 col-md-12 col-sm-12 yop2">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <label for="disabledSelect" class=" form-control-label">Year of passing</label>
+                                <input type="number" id="yop2" name="yop2" placeholder="" value="" class="form-control">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                <label for="disabled-input" class=" form-control-label">Percentage</label>
+                                <input type="number" id="percentage2" name="percentage2" value="" placeholder="" class="form-control">
+  
+                            </div>
                             
                             </div>
+                            </div>
+              <?php } ?>
+                            <div id="grad"><div>
                             <hr>
                             <div id="dynamic_field">
                               </div>
                               <button type="button" class="addmore" name="add" id="add"><i class="fa fa-plus"></i>Add More</button>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                         <button type="submit" class="cancel">CANCEL</button>
-                                </div>
-                                
-                                <div class="col-lg-6 col-md-6 col-sm-6">   
-                                    <button type="submit" class="update">UPDATE </button>
-                                </div>
-                            </div>
+                              
+
+                          
                         </form>
                       </div>
                  
@@ -299,28 +370,11 @@ $rowS = mysqli_fetch_array($run_dataS);
 
 <script>
 $(document).ready(function(){
-    var i = 2 ;
-    $('#add').click(function(){
-i++; 
-        $('#dynamic_field').append('<div id="row'+i+'"><div class="row"><button type="button" style="float:right; background-color:#939498;color:#ffffff;font-size: 14px;position: absolute;right: 22px; border: none !important;font-family: NotoSansBold;" name="remove" id="'+i+'" class="btn btn-success btn_remove">DELETE</button></div><span ><br></span><div class="row form-group"><div class="col-12 col-md-6"><label for="disabledSelect" class=" form-control-label">Qualification</label><select name="qualification'+i+'" id="qualification'+i+'" class="form-control"><option value="0">select degree</option><option value="1">Option #1</option><option value="2">Option #2</option><option value="3">Option #3</option></select></div><div class="col-12 col-md-6"><label for="disabledSelect" class=" form-control-label">Institution</label><input type="text" id="institution'+i+'" name="institution'+i+'" placeholder="" class="form-control"></div></div><div class="row form-group"><div class="col-lg-6 col-md-12 col-sm-12 yop1"><div class="col-lg-6 col-md-6 col-sm-12"><label for="disabledSelect" class=" form-control-label">Year of passing</label><input type="text" id="yop'+i+'" name="yop'+i+'" placeholder="" class="form-control"> </div><div class="col-lg-6 col-md-6 col-sm-12"><label for="disabled-input" class=" form-control-label">Percentage</label><input type="text" id="percentage'+i+'" name="percentage'+i+'" placeholder="" class="form-control"></div></div></div>');
-    });
-    $(document).on('click', '.btn_remove', function(){
-var button_id = $(this).attr("id"); 
-        $('#row'+button_id+'').remove();
-    });
-    $('#submit').click(function(){      
-        $.ajax({
-            url:"name.php",
-            method:"POST",
-            data:$('#add_name').serialize(),
-            success:function(data)
-{
-                alert(data);
-                $('#add_name')[0].reset();
-            }
-        });
-    });
+   $("#add").click(function(){
+   $("#grad").load("grad.php")    
+   });
 });
+
 $(document).ready(function() {
         $('#multi-select-demo').multiselect();
     });
