@@ -1,5 +1,36 @@
 <?php
+
+
 include("header.php");
+$regId=$_GET['regId'];
+//echo $regId;die();
+
+
+//search
+
+if(isset($_POST['search'])) {
+   
+    $search=$_POST['search_keyword'];
+   
+    $search=preg_replace("#[^0-9a-z]#i","",$search);
+    $result=mysqli_query($conn,"select * from JOB_DETAIL WHERE KEYWORDS LIKE '%$search%'");
+    //echo "select * from JOB_DETAIL WHERE KEYWORDS LIKE '%$search%'";
+    $count_search=mysqli_num_rows($result);
+
+    
+}
+ else{
+    $query = "select * from JOB_DETAIL";
+    $result = mysqli_query($conn,$query);
+    $count_search=mysqli_num_rows($result);
+    //echo $count_search;die();
+    $i=1;
+ }
+
+
+
+
+
 ?>
 
     <!-- Right Panel -->
@@ -24,25 +55,29 @@ include("header.php");
 
         <div class="content mt-3">
             <div class="animated fadeIn">
-
-
                 <div class="row">
-                  
                   <div class="col-lg-12">
                     <div class="card">
                       
-                     
+                                                                            
+                                                        
+                            <?php
+
+                          
+                                
+
+                                ?>
                         <div class="card-header top">
                         <strong>Search Job</strong> 
                         </div>
-
+                       
                       <div class="card-body card-block">
                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                           
                         <div class="row form-group">
                           
                             <div class="col-lg-4 col-md-6 col-sm-12">
-                                <input type="text" id="job_title" name="job_title" placeholder="by keyword" class="form-control searchfield">
+                                <input type="text" id="search_keyword" name="search_keyword" placeholder="by keyword" class="form-control searchfield">
                             </div>
 
                             <div class="col-lg-4 col-md-6 col-sm-12">
@@ -54,7 +89,7 @@ include("header.php");
                               </select>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-12">
-                            <button type="button" class="searchbtn" name="add" id="add">Search</button>
+                            <button type="submit" class="searchbtn" name="search" id="search">Search</button>
                             </div>
 
                             </div>
@@ -64,194 +99,79 @@ include("header.php");
                         <hr>
 
                       <div class="card-body card-block">
+                     
                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                           
                           <div class="row form-group">
+                          <?php 
+                          if($count_search > 0)
+                          {
+                                while($data=mysqli_fetch_array($result))
+                                {
+                                ?>
                              <div class="col-lg-4 col-md-12 col-sm-12">
                               
                              <table class="table table-responsive table-detail division">
-                             <thead><th><p>Job Title</strong></p></thead>
+                             <thead><th><p><?php echo $data['JOB_TITLE']; ?></p></thead>
                                 <tbody>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
-                                    <td><p>Job Title</p></td>
+                                    <td><p><?php echo $data['JOB_TITLE']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Salary</label></td>
-                                    <td><p>Salary</p></td>
+                                    <td><p><?php echo $data['SALARY']; ?></p></td>
                                     </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Skills</label></td>
-                                    <td><p>Skills</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Experience</label></td>
-                                    <td><p>Experience</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><button type="button" class="apply" name="add" id="add">APPLY</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            </div>
 
-                            <div class="col-lg-4 col-md-12 col-sm-12">
-                           
-                            <table class="table table-responsive table-detail division">
-                            <thead><th><p>Job Title</strong></p></thead>
-                                <tbody>
-                                    <tr>
-                                    <td><label class=" form-control-label">Job Title</label></td>
-                                    <td><p>Job Title</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Salary</label></td>
-                                    <td><p>Salary</p></td>
-                                    </tr>
+
+                                    <?php
+                                        $jobquery = "select * from JOB_SKILL WHERE JOB_ID='".$data['JOB_ID']."'";
+                                       // echo $query; die();
+                                        $jobresult = mysqli_query($conn,$jobquery);
+                                        ?>
                                     <tr>
                                     <td><label class=" form-control-label">Skills</label></td>
-                                    <td><p>Skills</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Experience</label></td>
-                                    <td><p>Experience</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><button type="button" class="apply" name="add" id="add">APPLY</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            </div>
-                        
-                             <div class="col-lg-4 col-md-12 col-sm-12 ">
-                             
-                             <table class="table table-responsive table-detail division">
-                             <thead><th><p>Job Title</strong></p></thead>
-                                <tbody>
-                                    <tr>
-                                    <td><label class=" form-control-label">Job Title</label></td>
-                                    <td><p>Job Title</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Salary</label></td>
-                                    <td><p>Salary</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Skills</label></td>
-                                    <td><p>Skills</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Experience</label></td>
-                                    <td><p>Experience</p></td>
+                                    <?php 
+                                    while($dataSkill=mysqli_fetch_array($jobresult))
+                                    {
+                                        $Skillquery = "select * from SKILL WHERE SKILL_ID='".$dataSkill['SKILL_ID']."'";
+                                        //echo $query; die();
+                                        $skillresult = mysqli_query($conn,$Skillquery);
+                                        $skillrow=mysqli_fetch_array($skillresult);
+                                        
+                                    ?>
+                                    <td><p><?php echo $skillrow['SKILL_NAME']; ?></p></td>
+                                    <?php 
+                                    }
+                                    ?>
+
                                    
                                     </tr>
                                     <tr>
-                                    <td><button type="button" class="apply" name="add" id="add">APPLY</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                           
-                            </div>
-
-                        </div>
-
-                                <div class="row form-group">
-                             <div class="col-lg-4 col-md-12 col-sm-12">
-                              
-                             <table class="table table-responsive table-detail division">
-                             <thead><th><p>Job Title</strong></p></thead>
-                                <tbody>
-                                    <tr>
-                                    <td><label class=" form-control-label">Job Title</label></td>
-                                    <td><p>Job Title</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Salary</label></td>
-                                    <td><p>Salary</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Skills</label></td>
-                                    <td><p>Skills</p></td>
-                                    </tr>
-                                    <tr>
                                     <td><label class=" form-control-label">Experience</label></td>
-                                    <td><p>Experience</p></td>
+                                    <td><p><?php echo $data['EXPERIENCE']; ?></p></td>
                                     </tr>
                                     <tr>
-                                    <td><button type="button" class="apply" name="add" id="add">APPLY</button></td>
+                                    <td><a href="jobApplySource.php?id=<?php echo $i;?>&regId=<?php echo $regId;?>"><button type="button" class="apply" name="add_<?php echo $i;?>" id="add">APPLY</button></a></td>
+                                    
                                     </tr>
                                 </tbody>
                             </table>
                             </div>
-
-                            <div class="col-lg-4 col-md-12 col-sm-12">
-                           
-                            <table class="table table-responsive table-detail division">
-                            <thead><th><p>Job Title</strong></p></thead>
-                                <tbody>
-                                    <tr>
-                                    <td><label class=" form-control-label">Job Title</label></td>
-                                    <td><p>Job Title</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Salary</label></td>
-                                    <td><p>Salary</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Skills</label></td>
-                                    <td><p>Skills</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Experience</label></td>
-                                    <td><p>Experience</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><button type="button" class="apply" name="add" id="add">APPLY</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            
+                            <?php $i++; } } else { ?>
+                                <p>No Result Found</p>
+                            <?php } ?>
                             </div>
-                        
-                             <div class="col-lg-4 col-md-12 col-sm-12 ">
-                             
-                             <table class="table table-responsive table-detail division">
-                             <thead><th><p>Job Title</strong></p></thead>
-                                <tbody>
-                                    <tr>
-                                    <td><label class=" form-control-label">Job Title</label></td>
-                                    <td><p>Job Title</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Salary</label></td>
-                                    <td><p>Salary</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Skills</label></td>
-                                    <td><p>Skills</p></td>
-                                    </tr>
-                                    <tr>
-                                    <td><label class=" form-control-label">Experience</label></td>
-                                    <td><p>Experience</p></td>
-                                   
-                                    </tr>
-                                    <tr>
-                                    <td><button type="button" class="apply" name="add" id="add">APPLY</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                           
-                            </div>
+                            
+                        </form>
 
-                        </div>
-
-
-
-
-                       
+                                      
+                                
                              
                             
                                 
-                        </form>
+                        
                       </div>
                  
                       

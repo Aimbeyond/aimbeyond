@@ -1,4 +1,6 @@
 <?php
+include("connection.php");
+include("addLocationSource.php");
 include("header.php");
 ?>
 
@@ -59,7 +61,7 @@ include("header.php");
                                          <button type="submit" class="cancelmaster">CANCEL</button>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">   
-                                    <button type="submit" class="submitmaster ">SUBMIT </button>
+                                    <button type="submit" class="submitmaster" name="submit">SUBMIT </button>
                                 </div>
                             </div>
                         </form>

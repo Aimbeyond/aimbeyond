@@ -15,7 +15,9 @@ jQuery(document).ready(function($) {
 		$('body').toggleClass('open');
 		$('.userimg').toggleClass('imgshowhide');
 		$('.menutoggle').toggleClass('hidemenubar');
+		$('.logout').toggleClass('logouthide');
 	});
+	
 
 	$('.search-trigger').on('click', function(event) {
 		event.preventDefault();

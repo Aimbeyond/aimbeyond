@@ -19,7 +19,8 @@
           body{
               background-color: #e3e6f7;
           }
-          
+
+
 .header-menu p{
     font-size: 24px;
     font-family: NotoSansBold;
@@ -256,7 +257,7 @@ span{
    .loginname{
        font-size: 15px;
        color:#fff ;
-       margin-left: 8%;
+       
        font-family: NotoSansBold;
    }
    .logout{
@@ -265,10 +266,26 @@ span{
     margin-left: 32%;
     font-family: NotoSansBold;
 }
+.name{
+margin-left: 25%;
+margin-top: -8%;
+}
+.logoutbtn{
+    margin-left: -11%;
+    }
+
 .userimg img{
     margin-top: 60%;
 
 }
+.hidemenubar{
+  margin: -17px 20px 0px -90px !important;
+}
+
+.logouthide{
+  display: none;
+}
+
 label{
     margin-bottom: -1.5rem !important;
 }
@@ -277,6 +294,10 @@ label{
 }
 .imgshowhide{
     display: none;
+}
+.hidemenubar{
+    margin: -17px 20px 0 -90px!important;
+    
 }
 .navbar{
     background:#062e46 !important;
@@ -293,7 +314,7 @@ aside.left-panel {
 .menutoggle {
     background: none !important;
     
-    margin: -2px 20px 0 -90px !important;
+    margin: -2px 20px 0 -90px ;
     
 }
 .navbar .navbar-nav li > a {
@@ -387,7 +408,9 @@ background:#062e46;
     }
     .hidemenubar{
         margin-left: -106px!important;
+        
     }
+    
     .addmore{
         width: 12% ;
         font-size: 12px ;
@@ -541,6 +564,12 @@ background:#062e46;
     
     border-bottom: 0px solid #dee2e6;
     color: #ce5215;
+    font-size:14px;
+    font-family: NotoSansBold;
+}
+.table thead th{
+    
+    border-bottom: 0px solid #dee2e6;
     font-size:14px;
     font-family: NotoSansBold;
 }
