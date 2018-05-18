@@ -13,7 +13,6 @@ $run_data = mysqli_query($conn,$fetch_data);
 $row=mysqli_fetch_array($run_data);
 $REG_ID=$row['REG_ID'];
 if (isset($_POST['UPDATE']))
-
 {
 //echo "<pre>"; print_r($_POST); die();
 $name=$_POST['full_name'];
