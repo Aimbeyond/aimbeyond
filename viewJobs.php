@@ -1,5 +1,20 @@
 <?php
 include("header.php");
+
+            $sql = 'SELECT * FROM JOB_DETAIL';
+
+            $result = mysqli_query($conn, $sql);
+
+
+
+            // CANDIDATE APPLY JOB
+
+            $query1 = 'SELECT * FROM JOB_APPLY WHERE JOB_ID=1';
+            $result1 = mysqli_query($conn, $query1);
+            $num = mysqli_num_rows($result1)
+
+
+
 ?>
 
     <!-- Right Panel -->
@@ -43,13 +58,19 @@ include("header.php");
                       </tr>
                     </thead>
                     <tbody>
+                       <?php 
+                       $i=1;
+                                while($data=mysqli_fetch_array($result))
+                                {
+                                  
+                                ?>
                       <tr>
                       
-                          <td>1</td>
-                          <td>1</td>
-                          <td>Amit Rana</td>
-                          <td class="email-link">amit@gmail.com</td>
-                          <td>2 yrs</td>
+                          <td><?php echo $i; ?></td>
+                          <td><?php echo $data['JOB_TITLE']; ?></td>
+                          <td><?php echo $data['SALARY']; ?></td>
+                          <td><?php echo $data['EXPERIENCE']; ?></td>
+                          <td><?php echo $data['KEYWORDS']; ?></td>
                           <td><a class="ancon" href="appliedCandidates.php">10</a></td>
                           <td>
                                     <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
@@ -64,7 +85,7 @@ include("header.php");
               
                     
                    
-                      
+                      <?php $i++; }  ?>
                     </tbody>
                     
         
