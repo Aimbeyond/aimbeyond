@@ -1,7 +1,7 @@
 <?php 
 session_start();
-$grad = $_POST['qualification5'];
-$pgrad = $_POST['qualification6'];
+//$grad = $_POST['qualification5'];
+//$pgrad = $_POST['qualification6'];
 //echo $_POST['qualification5'];
 //echo $_POST['qualification6'];die();
 include("connection.php");
@@ -45,6 +45,10 @@ $DROPDOWN_M=$_POST['qualification4'];
 $Institution_M=$_POST['institute4'];
 $YOP_M=$_POST['yop4'];
 $Percentage_M=$_POST['percentage4'];
+$DROPDOWN_O=$_POST['qualification5'];
+$Institution_O=$_POST['institute5'];
+$YOP_O=$_POST['yop5'];
+$Percentage_O=$_POST['percentage5'];
 // loop 
 $Institution_10_1=$_POST['institute7'];
 $YOP_10_1=$_POST['yop7'];
@@ -52,14 +56,18 @@ $Percentage_10_1=$_POST['percentage7'];
 $Institution_12_1=$_POST['institute8'];
 $YOP_12_1=$_POST['yop8'];
 $Percentage_12_1=$_POST['percentage8'];
-$DROPDOWN_G_1=$_POST['qualification5'];
-$Institution_G_1=$_POST['institute5'];
-$YOP_G_1=$_POST['yop5'];
-$Percentage_G_1=$_POST['percentage5'];
-$DROPDOWN_M_1=$_POST['qualification6'];
-$Institution_M_1=$_POST['institute6'];
-$YOP_M_1=$_POST['yop6'];
-$Percentage_G_1=$_POST['percentage5'];
+$DROPDOWN_G_1=$_POST['qualification9'];
+$Institution_G_1=$_POST['institute9'];
+$YOP_G_1=$_POST['yop9'];
+$Percentage_G_1=$_POST['percentage9'];
+$DROPDOWN_M_1=$_POST['qualification10'];
+$Institution_M_1=$_POST['institute10'];
+$YOP_M_1=$_POST['yop10'];
+$Percentage_M_1=$_POST['percentage10'];
+$DROPDOWN_O_1=$_POST['qualification11'];
+$Institution_O_1=$_POST['institute11'];
+$YOP_O_1=$_POST['yop11'];
+$Percentage_O_1=$_POST['percentage11'];
 
 $insert_10 = "INSERT INTO APPLICANT_QUALIFICATION (REG_ID, QUALIFICATION_ID, INSTITUTION, PERCENTAGE, YEAR_OF_PASSING )VALUES ('$REG_ID','1','$Institution_10','$Percentage_10','$YOP_10')";
 $run10=mysqli_query($conn,$insert_10);
@@ -71,18 +79,30 @@ $insert_G = "INSERT INTO APPLICANT_QUALIFICATION (REG_ID, QUALIFICATION_ID, INST
 $rung=mysqli_query($conn,$insert_G);
 $insert_M = "INSERT INTO APPLICANT_QUALIFICATION (REG_ID, QUALIFICATION_ID, INSTITUTION, PERCENTAGE, YEAR_OF_PASSING )VALUES ('$REG_ID','$DROPDOWN_M','$Institution_M','$Percentage_M','$YOP_M')";
 $runM=mysqli_query($conn,$insert_M);
+$insert_O = "INSERT INTO APPLICANT_QUALIFICATION (REG_ID, QUALIFICATION_ID, INSTITUTION, PERCENTAGE, YEAR_OF_PASSING )VALUES ('$REG_ID','$DROPDOWN_O','$Institution_O','$Percentage_O','$YOP_O')";
+$runO=mysqli_query($conn,$insert_O);
 $update_data2 ="UPDATE APPLICANT_QUALIFICATION SET PERCENTAGE='$Percentage_10_1' ,YEAR_OF_PASSING='$YOP_10_1', INSTITUTION='$Institution_10_1'  WHERE REG_ID=$REG_ID && QUALIFICATION_ID=1";
 $run_data2 = mysqli_query($conn, $update_data2);
 //echo $update_data2 ; die();
 $update_data3 ="UPDATE APPLICANT_QUALIFICATION SET PERCENTAGE='$Percentage_12_1' ,YEAR_OF_PASSING='$YOP_12_1', INSTITUTION='$Institution_12_1'  WHERE REG_ID=$REG_ID && QUALIFICATION_ID=2";
 $run_data3 = mysqli_query($conn, $update_data3);
-
-$update_data4 ="UPDATE APPLICANT_QUALIFICATION SET PERCENTAGE='$Percentage_G_1' ,YEAR_OF_PASSING='$YOP_G_1', INSTITUTION='$Institution_G_1',QUALIFICATION_ID='$DROPDOWN_G_1'  WHERE REG_ID=$REG_ID && QUALIFICATION_ID='".$_POST['qualification5']."' ";
+//echo $update_data3;die();
+$update_data4 ="UPDATE APPLICANT_QUALIFICATION AQ JOIN QUALIFICATION Q ON  AQ.QUALIFICATION_ID = Q.QUALIFICATION_ID 
+SET AQ.PERCENTAGE='$Percentage_G_1' ,AQ.YEAR_OF_PASSING='$YOP_G_1', AQ.INSTITUTION='$Institution_G_1',AQ.QUALIFICATION_ID='$DROPDOWN_G_1'
+WHERE Q.QUALIFICATION_TYPE = 'Graduation' && AQ.REG_ID=$REG_ID";
 $run_data4 = mysqli_query($conn, $update_data4);
-//echo $update_data4;
-$update_data5 ="UPDATE APPLICANT_QUALIFICATION SET PERCENTAGE='$Percentage_M_1' ,YEAR_OF_PASSING='$YOP_M_1', INSTITUTION='$Institution_M_1',QUALIFICATION_ID='$DROPDOWN_M_1'  WHERE REG_ID=$REG_ID && QUALIFICATION_ID='".$_POST['qualification6']."' ";
+//echo $update_data4;die();
+$update_data5 ="UPDATE APPLICANT_QUALIFICATION AQ JOIN QUALIFICATION Q ON  AQ.QUALIFICATION_ID = Q.QUALIFICATION_ID 
+SET AQ.PERCENTAGE='$Percentage_M_1' ,AQ.YEAR_OF_PASSING='$YOP_M_1', AQ.INSTITUTION='$Institution_M_1',AQ.QUALIFICATION_ID='$DROPDOWN_M_1'
+WHERE Q.QUALIFICATION_TYPE = 'Post Graduation' && AQ.REG_ID=$REG_ID";
 $run_data5 = mysqli_query($conn, $update_data5);
-//echo $update_data5; die();
+//echo $update_data5;
+$update_data6 ="UPDATE APPLICANT_QUALIFICATION AQ JOIN QUALIFICATION Q ON  AQ.QUALIFICATION_ID = Q.QUALIFICATION_ID 
+SET AQ.PERCENTAGE='$Percentage_O_1' ,AQ.YEAR_OF_PASSING='$YOP_O_1', AQ.INSTITUTION='$Institution_O_1',AQ.QUALIFICATION_ID='$DROPDOWN_O_1'
+WHERE Q.QUALIFICATION_TYPE = 'Others' && AQ.REG_ID=$REG_ID";
+$run_data6 = mysqli_query($conn, $update_data6);
+//echo $update_data6; die();
+
 if ($run_ad) {
   $message = "RECORD UPDATED SUCCESSFULLY";
   echo "<script type='text/javascript'>  alert('$message');document.location='updateProfile.php' </script>";

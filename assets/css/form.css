@@ -583,5 +583,11 @@ background:#062e46;
      .multiselect-container>li>a>label.checkbox{
         font-size:12px ;
      }
+     .addpg{
+        display:none;
+     }
+     .addothers{
+        display:none;
+     }
      
      

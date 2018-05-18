@@ -325,20 +325,28 @@ $rowS = mysqli_fetch_array($run_dataS);
                             </div>
                             </div>
               <?php } ?>
-                            <div id="grad"><div>
+                            <div id="grad"></div>
                             <hr>
+                            <div id="pgrad"></div>
+                            <div id="ograd"></div>
                             <div id="dynamic_field">
                               </div>
-                              <button type="button" class="addmore" name="add" id="add"><i class="fa fa-plus"></i>Add More</button>
+                              <button type="button" class="addmore" name="addgrad" id="addgrad"><i class="fa fa-plus"></i>Add UG</button>
+                              <button type="button" class="addmore addpg" name="addpg" onclick="getPG()" id="addpg"><i class="fa fa-plus"></i>Add PG</button>
+                              <button type="button" class="addmore addothers" name="addothers" onclick="getOTH()" id="addothers"><i class="fa fa-plus"></i>Add Others</button>
                               
-
+                              <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                         <button type="submit" class="cancel">CANCEL</button>
+                                </div>
+                                
+                                <div class="col-lg-6 col-md-6 col-sm-6">   
+                                    <button type="submit" name="UPDATE" class="update">UPDATE </button>
+                                </div>
+                            </div>
                           
                         </form>
                       </div>
-                 
-                      
-                        
-                     
                     </div>
                    
                  
@@ -370,14 +378,35 @@ $rowS = mysqli_fetch_array($run_dataS);
 
 <script>
 $(document).ready(function(){
-   $("#add").click(function(){
-   $("#grad").load("grad.php")    
+   $("#addgrad").click(function(){
+    // $.get("grad1.php", function (data) {
+    //                 $("#appendToThis").append(data);
+    //             });
+   $("#grad").load("grad.php");
+   $("#addgrad").hide();  
+   $("#addpg").show();   
    });
 });
+// $(document).ready(function(){
+//    $("#addp").click(function(){
+//    $("#pgrad").load("postgrad.php");
+//    $("#addp").hide(); 
+//    $("#addo").show();   
+//    });
+// });
 
 $(document).ready(function() {
         $('#multi-select-demo').multiselect();
     });
+    function getPG(){
+        $("#pgrad").load("postgrad.php");
+        $("#addpg").hide(); 
+        $("#addothers").show();
+    }
+    function getOTH(){
+        $("#ograd").load("others.php");
+        $("#addothers").hide(); 
+     }
 </script>
 
 </body>
