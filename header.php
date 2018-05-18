@@ -137,7 +137,7 @@ $regId=$rowregId['REG_ID'];
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Job Apply</a>
                         
                         <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i> <a href="jobApply.php?id=<?php echo $regId?>">Jobs</a></li>
+                        <li><i class="fa fa-puzzle-piece"></i> <a href="jobApply.php?regId=<?php echo $regId?>">Jobs</a></li>
                         </ul>   
                     </li>
 
