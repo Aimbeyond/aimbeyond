@@ -60,7 +60,7 @@
                         <button type="submit" class="btn btn signinbtn btn-flat m-b-30 m-t-30 ">Login</button>
                         
                         <div class="register-link m-t-15 text-center">
-                       <p> <a href="signup.php">Forgot password?</a>or no account ?then <a href="signup.php"> Sign Up </a></p>
+                       <p> <a href="forgetPassword.php">Forgot password?</a>or no account ?then <a href="signup.php"> Sign Up </a></p>
                         </div>
                     </form>
                 </div>
