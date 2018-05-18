@@ -112,7 +112,7 @@ if(isset($_POST['search'])) {
                              <div class="col-lg-4 col-md-12 col-sm-12">
                               
                              <table class="table table-responsive table-detail division">
-                             <thead><th><p>Job Title</strong></p></thead>
+                             <thead><th><p><?php echo $data['JOB_TITLE']; ?></p></thead>
                                 <tbody>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
