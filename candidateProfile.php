@@ -1,6 +1,7 @@
 <?php
 include("header.php");
 $regId=$_GET['regId'];
+
 include ("candidateProfileSource.php");
 ?>
 
