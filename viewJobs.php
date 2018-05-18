@@ -1,5 +1,15 @@
 <?php
 include("header.php");
+
+            $sql = 'SELECT * FROM JOB_DETAIL';
+
+            $result = mysqli_query($conn, $sql);
+
+
+
+
+            
+            
 ?>
 
     <!-- Right Panel -->
@@ -43,14 +53,26 @@ include("header.php");
                       </tr>
                     </thead>
                     <tbody>
+                       <?php 
+                       $i=1;
+                                while($data=mysqli_fetch_array($result))
+                                {
+                                  
+                                ?>
                       <tr>
                       
-                          <td>1</td>
-                          <td>1</td>
-                          <td>Amit Rana</td>
-                          <td class="email-link">amit@gmail.com</td>
-                          <td>2 yrs</td>
-                          <td><a class="ancon" href="appliedCandidates.php">10</a></td>
+                          <td><?php echo $i; ?></td>
+                          <td><?php echo $data['JOB_TITLE']; ?></td>
+                          <td><?php echo $data['SALARY']; ?></td>
+                          <td><?php echo $data['EXPERIENCE']; ?></td>
+                          <td><?php echo $data['KEYWORDS']; ?></td>
+                          <?php 
+                                    $sql = "SELECT * FROM JOB_APPLY WHERE JOB_ID='".$data['JOB_ID']."'";
+                                    $result_sql = mysqli_query($conn, $sql);
+                                    $num_sql = mysqli_num_rows($result_sql);
+                                    //echo $num_sql;die();
+                             ?>
+                          <td><a class="ancon" href="appliedCandidates.php"><?php echo $num_sql; ?></a></td>
                           <td>
                                     <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
@@ -64,7 +86,7 @@ include("header.php");
               
                     
                    
-                      
+                      <?php $i++; }  ?>
                     </tbody>
                     
         
