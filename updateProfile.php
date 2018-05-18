@@ -337,7 +337,7 @@ $rowS = mysqli_fetch_array($run_dataS);
                               
                               <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                         <button type="submit" class="cancel">CANCEL</button>
+                                         <button type="submit" onclick="window.history.go(-1); return false;" class="cancel">CANCEL</button>
                                 </div>
                                 
                                 <div class="col-lg-6 col-md-6 col-sm-6">   
