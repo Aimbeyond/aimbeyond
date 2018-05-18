@@ -257,7 +257,7 @@ span{
    .loginname{
        font-size: 15px;
        color:#fff ;
-       margin-left: 8%;
+       
        font-family: NotoSansBold;
    }
    .logout{
@@ -266,6 +266,14 @@ span{
     margin-left: 32%;
     font-family: NotoSansBold;
 }
+.name{
+margin-left: 25%;
+margin-top: -8%;
+}
+.logoutbtn{
+    margin-left: -11%;
+    }
+
 .userimg img{
     margin-top: 60%;
 
