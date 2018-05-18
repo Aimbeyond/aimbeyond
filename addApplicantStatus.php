@@ -1,4 +1,6 @@
 <?php
+include("connection.php");
+include("addApplicantStatusSource.php");
 include("header.php");
 ?>
 
@@ -44,22 +46,39 @@ include("header.php");
                           <div class="row form-group">
                           
                           <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label for="apllicantName" class=" form-control-label">Applicant Name</label>
-                              <select name="apllicantName" id="apllicantName" class="form-control">
-                                <option value="0"></option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
-                              </select>
+                            <label for="applicantName" class=" form-control-label">Applicant Name</label>
+                            <select name="applicantName" id="applicantName" class="form-control">
+                            <option value="0" selected>Select Applicant Name</option>
+                            <?PHP 
+                             $fetch_name = "SELECT * FROM APPLICANT_DETAIL";
+
+                             $fetch_name = mysqli_query($conn, $fetch_name);
+                           
+                             while($data_name = mysqli_fetch_array($fetch_name))
+                            {    
+                              
+                              ?>
+                                    <option value="<?php echo $data_name['REG_ID'] ?>" ><?php echo $data_name['APPLICANT_NAME'] ?></option>
+                            <?php }  ?>
+                            </select>
                             </div>
+
 
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="status" class=" form-control-label">Status</label>
-                              <select name="status" id="status" class="form-control">
-                                <option value="0"></option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
+                            <select name="status" id="status" class="form-control">
+                            <option value="0" selected>Select Interview Status</option>
+                            <?PHP 
+                             $fetch_status = "SELECT * FROM INTERVIEW_STATUS";
+
+                             $fetch_status = mysqli_query($conn, $fetch_status);
+                           
+                             while($data_status = mysqli_fetch_array($fetch_status))
+                            {    
+                              
+                              ?>
+                                    <option value="<?php echo $data_status['STATUS_ID'] ?>" ><?php echo $data_status['STATUS'] ?></option>
+                            <?php }  ?>
                               </select>
                             </div>
 
@@ -69,10 +88,18 @@ include("header.php");
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="roundName" class=" form-control-label">Round</label>
                               <select name="roundName" id="roundName" class="form-control ">
-                                <option value="0"></option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
+                            <option value="0" selected>Select Interview Round</option>
+                            <?PHP 
+                             $fetch_round = "SELECT * FROM INTERVIEW_ROUND";
+
+                             $fetch_round = mysqli_query($conn, $fetch_round);
+                           
+                             while($data_round = mysqli_fetch_array($fetch_round))
+                            {    
+                              
+                              ?>
+                                    <option value="<?php echo $data_round['ROUND_ID'] ?>" ><?php echo $data_round['ROUND_NAME'] ?></option>
+                            <?php }  ?>
                               </select>
                             </div>
                             
@@ -81,10 +108,18 @@ include("header.php");
                           <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="jobTitle" class=" form-control-label">Job Title</label>
                               <select name="jobTitle" id="jobTitle" class="form-control">
-                                <option value="0"></option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
+                            <option value="0" selected>Select Job Title</option>
+                            <?PHP 
+                             $fetch_job = "SELECT * FROM JOB_DETAIL";
+
+                             $fetch_job = mysqli_query($conn, $fetch_job);
+                           
+                             while($data_job = mysqli_fetch_array($fetch_job))
+                            {    
+                              
+                              ?>
+                                    <option value="<?php echo $data_job['JOB_ID'] ?>" ><?php echo $data_job['JOB_TITLE'] ?></option>
+                            <?php }  ?>
                               </select>
                             </div>
 
@@ -101,8 +136,8 @@ include("header.php");
                         </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             
-                            <label for="interviewDate" class=" form-control-label">Status Date</label>
-                            <input type="text" id="interviewDate" name="interviewDate" placeholder="" class="form-control">
+                            <label for="statusDate" class=" form-control-label">Status Date</label>
+                            <input type="date" id="statusDate" name="statusDate" placeholder="" class="form-control">
                             </div>
                            
                             
@@ -111,11 +146,11 @@ include("header.php");
                         
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                         <button type="submit" class="cancelmaster">CANCEL</button>
+                                <button type="cancel" name="cancel" class="cancelmaster" onclick="window.history.go(-1); return false;">CANCEL</button>
                                 </div>
                                 
                                 <div class="col-lg-6 col-md-6 col-sm-6">   
-                                    <button type="submit" class="submitmaster">SUBMIT </button>
+                                    <button type="submit" class="submitmaster" name="submit">SUBMIT </button>
                                 </div>
                             </div>
                         </form>
