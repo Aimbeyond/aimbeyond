@@ -89,7 +89,7 @@ include("header.php");
                           <td><?php echo $rowStatusDetail['STATUS']; ?></td>
                           <td><?php echo $data['STATUS_DATE']; ?></td>
                           <td>
-                                    <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
+                                 <a href="candidateProfile.php?regId=<?php echo $data['REG_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
                           
                                     <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
