@@ -72,7 +72,7 @@ include("header.php");
                                     $num_sql = mysqli_num_rows($result_sql);
                                     //echo $num_sql;die();
                              ?>
-                          <td><a class="ancon" href="appliedCandidates.php"><?php echo $num_sql; ?></a></td>
+                          <td><a class="ancon" href="appliedCandidates.php?jobId=<?php echo $data['JOB_ID'];?>">Applied Candidate - <?php echo $num_sql; ?></a></td>
                           <td>
                                     <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
