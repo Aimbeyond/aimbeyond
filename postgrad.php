@@ -58,8 +58,8 @@ $grad_quali="select * from QUALIFICATION where QUALIFICATION_TYPE ='Post Graduat
                        
                        <div class="col-12 col-md-6">
                            <label for="disabledSelect" class=" form-control-label">Qualification</label>
-                             <select name="qualification5" id="qualification5" class="form-control">
-                               <option value="0">Select Other Qualification</option>
+                             <select name="qualification4" id="qualification4" class="form-control">
+                               <option value="0">Select Post Graduation</option>
                                <?php
                                while($row_grad=mysqli_fetch_array($grad_query)){ ?>
 <option value="<?php echo $row_grad['QUALIFICATION_ID']; ?>"><?php echo $row_grad['QUALIFICATION']; ?></option>
@@ -70,7 +70,7 @@ $grad_quali="select * from QUALIFICATION where QUALIFICATION_TYPE ='Post Graduat
                            
                            <div class="col-12 col-md-6">
                            <label for="disabledSelect" class=" form-control-label">Institution</label>
-                           <input type="text" id="institute5" name="institute5" value="" placeholder="" class="form-control">
+                           <input type="text" id="institute4" name="institute4" value="" placeholder="" class="form-control">
                            </div>
                        </div>
 
@@ -79,11 +79,11 @@ $grad_quali="select * from QUALIFICATION where QUALIFICATION_TYPE ='Post Graduat
                        <div class="col-lg-6 col-md-12 col-sm-12 yop1">
                        <div class="col-lg-6 col-md-6 col-sm-12">
                            <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                           <input type="number" id="yop5" name="yop5" placeholder="" value="" class="form-control">
+                           <input type="number" id="yop4" name="yop4" placeholder="" value="" class="form-control">
                            </div>
                            <div class="col-lg-6 col-md-6 col-sm-12">
                            <label for="disabled-input" class=" form-control-label">Percentage</label>
-                           <input type="number" id="percentage5" name="percentage5" value="" placeholder="" class="form-control">
+                           <input type="number" id="percentage4" name="percentage4" value="" placeholder="" class="form-control">
     
                        </div>
                        </div>

@@ -8,7 +8,7 @@ $run=mysqli_query($conn,$sql);
 }
 if($run)
 {
-	echo "<script type= 'text/javascript'> alert('Location Inserted Successfully'); </script>";
+	echo "<script type= 'text/javascript'> alert('Location Inserted Successfully'); document.location='addLocation.php'</script>";
 } 
 ?>
 

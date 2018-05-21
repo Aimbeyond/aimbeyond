@@ -74,12 +74,12 @@ include("updateProfileSource.php");
                         
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabled-input" class=" form-control-label">Email address</label>
-                            <input type="text" id="email_address" name="email_address" value="<?php echo $row['EMAIL_ID'] ?>" placeholder="" class="form-control">
+                            <input type="Email" id="email_address" name="email_address" value="<?php echo $row['EMAIL_ID'] ?>" placeholder="" class="form-control" required>
                         </div>
                         
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabled-input" class=" form-control-label">Contact no.</label>
-                            <input type="text" id="contact_no" name="contact_no" value="<?php echo $row['CONTACT_NUMBER'] ?>" placeholder="" class="form-control">
+                            <input type="text" id="contact_no" name="contact_no" value="<?php echo $row['CONTACT_NUMBER'] ?>" placeholder="" class="form-control" required>
                         </div>
 
                         </div>
@@ -94,7 +94,7 @@ include("updateProfileSource.php");
                             <label for="location" class=" form-control-label">Location</label>
             
              
-                              <select name="location" id="location" class="form-control skill">
+                              <select name="location" id="location" class="form-control skill" required>
       
                                 <option value="<?php echo $row_loc['LOCATION_ID'] ?>"selected><?php echo $row_loc['LOCATION'] ?></option>
                                 <?PHP 
@@ -249,18 +249,18 @@ $rowS = mysqli_fetch_array($run_dataS);
                                
                                 <div class="col-12 col-md-6">
                                 <label for="disabledSelect" class=" form-control-label">Institution</label>
-                                <input type="text" id="institute8" name="institute8" value="<?php echo $data12['INSTITUTION']; ?>" placeholder="" class="form-control">
+                                <input type="text" id="institute8" name="institute8" value="<?php echo $data12['INSTITUTION']; ?>" placeholder="" class="form-control" >
                                 </div>
                             </div>
                             <div class="row form-group">
                             <div class="col-lg-6 col-md-12 col-sm-12 yop2">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                                <input type="number" id="yop8" name="yop8" placeholder="" value="<?php echo $data12['YEAR_OF_PASSING']; ?>" class="form-control">
+                                <input type="number" id="yop8" name="yop8" placeholder="" value="<?php echo $data12['YEAR_OF_PASSING']; ?>" class="form-control" >
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabled-input" class=" form-control-label">Percentage</label>
-                                <input type="number" id="percentage8" name="percentage8" value="<?php echo $data12['PERCENTAGE']; ?>" placeholder="" class="form-control">
+                                <input type="number" id="percentage8" name="percentage8" value="<?php echo $data12['PERCENTAGE']; ?>" placeholder="" class="form-control" >
   
                             </div>
                             
@@ -278,7 +278,7 @@ $rowS = mysqli_fetch_array($run_dataS);
                             
                             <div class="col-12 col-md-6">
                             <label for="disabledSelect" class=" form-control-label">Institution</label>
-                            <input type="text" id="institute1" name="institute1" value="" placeholder="" class="form-control">
+                            <input type="text" id="institute1" name="institute1" value="" placeholder="" class="form-control" required>
                             </div>
                         </div>
 
@@ -287,11 +287,11 @@ $rowS = mysqli_fetch_array($run_dataS);
                         <div class="col-lg-6 col-md-12 col-sm-12 yop1">
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                            <input type="number" id="yop1" name="yop1" placeholder="" value="" class="form-control">
+                            <input type="number" id="yop1" name="yop1" placeholder="" value="" class="form-control" required>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabled-input" class=" form-control-label">Percentage</label>
-                            <input type="number" id="percentage1" name="percentage1" value="" placeholder="" class="form-control">
+                            <input type="number" id="percentage1" name="percentage1" value="" placeholder="" class="form-control" required>
      
                         </div>
                         </div>
@@ -308,18 +308,18 @@ $rowS = mysqli_fetch_array($run_dataS);
                                
                                 <div class="col-12 col-md-6">
                                 <label for="disabledSelect" class=" form-control-label">Institution</label>
-                                <input type="text" id="institute2" name="institute2" value="" placeholder="" class="form-control">
+                                <input type="text" id="institute2" name="institute2" value="" placeholder="" class="form-control" required>
                                 </div>
                             </div>
                             <div class="row form-group">
                             <div class="col-lg-6 col-md-12 col-sm-12 yop2">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                                <input type="number" id="yop2" name="yop2" placeholder="" value="" class="form-control">
+                                <input type="number" id="yop2" name="yop2" placeholder="" value="" class="form-control" required>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabled-input" class=" form-control-label">Percentage</label>
-                                <input type="number" id="percentage2" name="percentage2" value="" placeholder="" class="form-control">
+                                <input type="number" id="percentage2" name="percentage2" value="" placeholder="" class="form-control" required>
   
                             </div>
                             
