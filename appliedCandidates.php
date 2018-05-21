@@ -1,5 +1,13 @@
 <?php
 include("header.php");
+$jobId=$_GET['jobId'];
+//echo $jobId;die();
+
+$sql = "SELECT * FROM JOB_APPLY WHERE JOB_ID=$jobId";
+//echo $sql;die();
+
+$result = mysqli_query($conn, $sql);
+
 ?>
 
     <!-- Right Panel -->
@@ -43,43 +51,42 @@ include("header.php");
                       </tr>
                     </thead>
                     <tbody>
+
+                    <?php 
+                       $i=1;
+                     while($dataJobApply=mysqli_fetch_array($result))
+                     {     
+
+                        $sqlApplicantDetail = "SELECT * FROM APPLICANT_DETAIL WHERE REG_ID='".$dataJobApply['REG_ID']."'";
+                        //echo $sqlApplicantDetail;die();
+
+                        $resultApplicantDetail = mysqli_query($conn, $sqlApplicantDetail);
+                        while($data=mysqli_fetch_array($resultApplicantDetail))
+                        {     
+   
+                                  
+                      ?>
                       <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>Amit Rana</td>
-                          <td class="email-link">amit@gmail.com</td>
-                          <td>2 yrs</td>
-                          <td>898978979</td>
+                          <td><?php echo $i; ?></td>
+                          <td><?php echo $data['REG_ID']; ?></td>
+                          <td><?php echo $data['APPLICANT_NAME']; ?></td>
+                          <td class="email-link"><?php echo $data['EMAIL_ID']; ?></td>
+                          <td><?php echo $data['EXPERIENCE_IN_MONTH']; ?> Month <?php echo $data['EXPERIENCE_IN_YEAR']; ?> Year </td>
+                          <td><?php echo $data['CONTACT_NUMBER']; ?></td>
                           <td>
-                                    <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
+                          <a href="candidateProfile.php?regId=<?php echo $data['REG_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
                           
-                                    <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
+                                    <a href="updateProfile.php?regId=<?php echo $data['REG_ID'];?>" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
                           
                         
                                     <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
-                      <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>Amit Rana</td>
-                          <td class="email-link">amit@gmail.com</td>
-                          <td>2 yrs</td>
-                          <td>898978979</td>
-                          <td>
-                                    <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
-                          
-                          
-                                    <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
-                          
-                        
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
-                          </td>
-                      </tr>
+                     
                     
                    
-                      
+                      <?php $i++; } } ?>
                     </tbody>
                     
         

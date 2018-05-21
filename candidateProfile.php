@@ -79,13 +79,29 @@ include ("candidateProfileSource.php");
                           <td><p><?php echo $row['EXPERIENCE_IN_YEAR']?> year <?php echo $row['EXPERIENCE_IN_MONTH']?> month </p></td>
                         </tr>
                         
-                        <?PHP $sql1 = "SELECT * FROM SKILL WHERE SKILL_ID='".$row['SKILL_ID']."'";
-                              $retval1 = mysqli_query($conn, $sql1);
-                              $row1 = mysqli_fetch_array($retval1)
-                         ?>
+                       
+                        
+                        
+                        
                         <tr>
                           <td><label class=" form-control-label">Skills:</label></td>
-                          <td><p><?php echo $row1['SKILL_NAME']?></p></td>
+                          <?PHP 
+                         $skill= explode(",", $row['SKILL_ID']);
+                         $count=count($skill);  
+                                         //echo $count;die();                             
+                                         for($i=0;$i<$count; $i++){
+                                         $fetch_dataS = "SELECT * FROM SKILL WHERE SKILL_ID='".$skill[$i]."'";
+                                         //echo $fetch_dataS;die();
+                                         $run_dataS = mysqli_query($conn, $fetch_dataS);
+                                         $rowS = mysqli_fetch_array($run_dataS);
+                         ?>
+                          <td><p><?php echo $rowS['SKILL_NAME'];
+                                         $x=$count-1;
+                                         if($x==$i){echo " ";}
+                                         else{
+                                            echo ", ";
+                                         }
+                                         } ?></p></td>
                         </tr> 
                         <tr>
                           <td><label class=" form-control-label">Previous Package:</label></td>
@@ -115,7 +131,7 @@ include ("candidateProfileSource.php");
                       ?>
                         <tr>
                             <td><label class=" form-control-label">Qualification:</label> </td>
-                            <td><p><?php echo $row_10['QUALIFICATION']?></p></td>
+                            <td><p><?php echo $row_quali['QUALIFICATION']?></p></td>
                         </tr>
                         <tr>
                             <td><label class=" form-control-label">Institution:</label></td>

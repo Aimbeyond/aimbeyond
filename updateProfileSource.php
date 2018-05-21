@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 include("connection.php");
 $_SESSION['emailId'] == $emailId;
 $fetch_data = "select * from APPLICANT_DETAIL where EMAIL_ID = '".$_SESSION['emailId']."'";
