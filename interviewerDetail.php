@@ -46,20 +46,28 @@ include("header.php");
                           <div class="row form-group">
                           
                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                <label for="job_title" class=" form-control-label">Employer Name</label>
-                                <input type="text" id="job_title" name="job_title" placeholder="" class="form-control">
+                                <label for="employer_name" class=" form-control-label">Employer Name</label>
+                                <input type="text" id="employer_name" name="employer_name" placeholder="" class="form-control">
                             </div>
 
                             
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             
-                            <label for="disabledSelect" class=" form-control-label">Skills</label>
-                              <select name="skills" id="skills" class="form-control skill">
-                                <option value="0"></option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
-                              </select>
+                            <label for="skills" class=" form-control-label">Skills</label>
+                            <select name="skills" id="skills" class="form-control">
+                            <option value="0" selected>Select Skill</option>
+                            <?PHP 
+                             $fetch_skill = "SELECT * FROM SKILL";
+
+                             $fetch_skill = mysqli_query($conn, $fetch_skill);
+                           
+                             while($data_skill = mysqli_fetch_array($fetch_skill))
+                            {    
+                              
+                              ?>
+                                    <option value="<?php echo $data_skill['SKILL_ID'] ?>" ><?php echo $data_skill['SKILL_NAME'] ?></option>
+                            <?php }  ?>
+                            </select>
                             
                             </div>
 
