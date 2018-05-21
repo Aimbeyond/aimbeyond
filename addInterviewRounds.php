@@ -87,37 +87,5 @@ include("header.php");
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
 
-
-
-<script>
-$(document).ready(function(){
-	var i=1;
-	$('#add').click(function(){
-		i++; 
-		$('#dynamic_field').append('<div id="row'+i+'"><button type="button" style="float:right; background-color:#939498;color:#ffffff;font-size: 14px; border: none !important;font-family: NotoSansBold;" name="remove" id="'+i+'" class="btn btn-success btn_remove">DELETE</button><div class="row form-group"><div class="col-12 col-md-6"><label for="disabledSelect" class=" form-control-label">Qualification</label><select name="qualification'+i+'" id="qualification2" class="form-control"><option value="0">select degree</option> <option value="1">Option #1</option> <option value="2">Option #2</option> <option value="3">Option #3</option></select> </div><div class="col-12 col-md-6"> <label for="disabledSelect" class=" form-control-label">Institution</label><select name="institution2" id="institution2" class="form-control"><option value="0"></option> <option value="1">Option #1</option> <option value="2">Option #2</option> <option value="3">Option #3</option></select></div></div><div class="row form-group"><div class="col-12 col-md-2"><label for="disabledSelect" class=" form-control-label">Year of passing</label><select name="year_of_passing2" id="year_of_passing2" class="form-control"> <option value="0"></option> <option value="1">Option #1</option> <option value="2">Option #2</option><option value="3">Option #3</option> </select></div><div class="col-8 col-md-2"><label for="disabled-input" class=" form-control-label">Percentage</label> <input type="text" id="percentage2" name="percentage2" placeholder="" class="form-control"></div></div></div>');
-    
-	});
-	
-	$(document).on('click', '.btn_remove', function(){
-		var button_id = $(this).attr("id"); 
-		$('#row'+button_id+'').remove();
-	});
-	
-	$('#submit').click(function(){		
-		$.ajax({
-			url:"name.php",
-			method:"POST",
-			data:$('#add_name').serialize(),
-			success:function(data)
-			{
-				alert(data);
-				$('#add_name')[0].reset();
-			}
-		});
-	});
-	
-});
-</script>
-
 </body>
 </html>
