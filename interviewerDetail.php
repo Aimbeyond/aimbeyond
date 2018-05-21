@@ -53,22 +53,26 @@ include("header.php");
                             
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             
-                            <label for="skills" class=" form-control-label">Skills</label>
-                            <select name="skills" id="skills" class="form-control">
-                            <option value="0" selected>Select Skill</option>
-                            <?PHP 
-                             $fetch_skill = "SELECT * FROM SKILL";
+                            <label for="disabledSelect" class=" form-control-label">Skills</label>
+                            <div class="container">
+                            <div class="example">
 
-                             $fetch_skill = mysqli_query($conn, $fetch_skill);
-                           
-                             while($data_skill = mysqli_fetch_array($fetch_skill))
-                            {    
-                              
-                              ?>
-                                    <option value="<?php echo $data_skill['SKILL_ID'] ?>" ><?php echo $data_skill['SKILL_NAME'] ?></option>
-                            <?php }  ?>
+                            <select id="multi-select-demo" name="Skills[]" multiple="multiple">
+
+ 
+                            <option value="0"selected></option>
+                            <?php   
+                            $fetch_skill= "select * from SKILL";
+                            $fetch_skill= mysqli_query($conn,$fetch_skill);
+                            while ($data_skill = mysqli_fetch_array($fetch_skill))
+                            {   ?>
+                            <option value="<?php echo $data_skill['SKILL_ID'] ?>"><?php echo $data_skill['SKILL_NAME'] ?></option>
+                            <?php } ?>
                             </select>
-                            
+                            </div>
+                            </div>
+
+
                             </div>
 
                             </div>
@@ -97,7 +101,7 @@ include("header.php");
                                 </div>
                                 
                                 <div class="col-lg-6 col-md-6 col-sm-6">   
-                                    <button type="submit" class="submitmaster" name= "submit">SUBMIT</button>
+                                    <button type="submit" class="submitmaster" name="submit">SUBMIT</button>
                                 </div>
                             </div>
                         </form>
@@ -124,6 +128,10 @@ include("header.php");
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
-
+<script>
+    $(document).ready(function() {
+        $('#multi-select-demo').multiselect();
+    });
+</script>
 </body>
 </html>
