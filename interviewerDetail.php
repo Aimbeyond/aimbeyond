@@ -1,4 +1,6 @@
 <?php
+include("connection.php");
+include("interviewerDetailSource.php");
 include("header.php");
 ?>
 
