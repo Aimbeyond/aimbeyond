@@ -1,9 +1,4 @@
 <?php 
-<<<<<<< HEAD
-=======
-session_start();
-
->>>>>>> master
 include("connection.php");
 $id=$_GET['id'];
  //echo $id;
