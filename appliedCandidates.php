@@ -74,7 +74,7 @@ $result = mysqli_query($conn, $sql);
                           <td><?php echo $data['EXPERIENCE_IN_MONTH']; ?> Month <?php echo $data['EXPERIENCE_IN_YEAR']; ?> Year </td>
                           <td><?php echo $data['CONTACT_NUMBER']; ?></td>
                           <td>
-                                    <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
+                          <a href="candidateProfile.php?regId=<?php echo $data['REG_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
                           
                                     <a href="updateProfile.php?regId=<?php echo $data['REG_ID'];?>" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
