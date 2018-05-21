@@ -277,8 +277,7 @@ $rowS = mysqli_fetch_array($run_dataS);
                             </div>
                             
                             <div class="col-12 col-md-6">
-                            <label for="disabledSelect" class=" form-control-label">Inrcentage2" name="percentage2" value="" placeholder="" class="form-control" required>
-stitution</label>
+                            <label for="disabledSelect" class=" form-control-label">Institution</label>
                             <input type="text" id="institute1" name="institute1" value="" placeholder="" class="form-control" required>
                             </div>
                         </div>
