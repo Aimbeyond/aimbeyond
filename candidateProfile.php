@@ -115,7 +115,7 @@ include ("candidateProfileSource.php");
                       ?>
                         <tr>
                             <td><label class=" form-control-label">Qualification:</label> </td>
-                            <td><p><?php echo $row_10['QUALIFICATION']?></p></td>
+                            <td><p><?php echo $row_quali['QUALIFICATION']?></p></td>
                         </tr>
                         <tr>
                             <td><label class=" form-control-label">Institution:</label></td>
