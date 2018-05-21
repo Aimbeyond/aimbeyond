@@ -5,8 +5,8 @@ if(isset($_POST['submit']))
 $job_title=$_POST['job_title'];
 $salary=$_POST['salary'];
 //echo $salary;die();
-$skills=$_POST['skills'];
-//echo $skills;die();
+$Skills=$_POST['Skills'];
+$Skills_arr=implode(",",$Skills);
 $experience=$_POST['experience'];
 $location=$_POST['location'];
 $keywords=$_POST['keywords'];
@@ -17,7 +17,7 @@ $sql = "INSERT INTO JOB_DETAIL (JOB_TITLE, SALARY, EXPERIENCE, KEYWORDS, ROLES_A
 $run=mysqli_query($conn,$sql);
 $JOB_ID=mysqli_insert_id($conn);
 
-$insert_skill = "INSERT INTO JOB_SKILL (JOB_ID, SKILL_ID )VALUES ('$JOB_ID','$skills')";
+$insert_skill = "INSERT INTO JOB_SKILL (JOB_ID, SKILL_ID )VALUES ('$JOB_ID','$Skills_arr')";
 //echo $insert_skill; die();
 $run1=mysqli_query($conn,$insert_skill);
 //echo $insert_10; 
@@ -27,7 +27,7 @@ $run2=mysqli_query($conn,$insert_location);
 
 if ($run) 
 {
-echo "<script type= 'text/javascript'> alert('Record Inserted Successfully'); document.location='viewLocation.php' </script>";
+echo "<script type= 'text/javascript'> alert('Record Inserted Successfully'); document.location='viewJobs.php' </script>";
 
 }   
 ?>
