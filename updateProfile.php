@@ -56,7 +56,7 @@ include("updateProfileSource.php");
                           <div class="form-group col-lg-6 col-md-6 col-sm-12">    
                         <label for="disabled-input" class="form-control-label">Add resume</label>
                         <div class="form-group resume">  
-                        <input type="file" name="image" value="" id="resume">
+                        <input type="file" name="image" value="<?php echo $row['APPLICANT_RESUME'] ?>" id="resume">
                         </div>
                         <label class="attachment">(attached file should not more than 1MB)</label>
                         </div>
