@@ -1,45 +1,33 @@
 <?php 
+session_start();
+//$regId=$_GET['regId'];
 include("connection.php");
-$id=$_GET['id'];
- //echo $id;
+$_SESSION['emailId'] == $emailId;
+$fetch_data = "select * from APPLICANT_DETAIL where EMAIL_ID = '".$_SESSION['emailId']."'";  
 
- $sql = "SELECT * FROM JOB_DETAIL WHERE JOB_ID='".$id."'";
- //echo $sql;
- $retval = mysqli_query($conn, $sql);
- $data=mysqli_fetch_array($retval);
+   //echo $fetch_data; die();
+   //echo $emailId; die();
+$run_data = mysqli_query($conn,$fetch_data);
+$row=mysqli_fetch_array($run_data);
+$REG_ID=$row['REG_ID'];
+$fetch_location = "SELECT * FROM LOCATION";
+$fetch_location = mysqli_query($conn, $fetch_location);
+$fetch_loction = "select L.LOCATION, AD.REG_ID,AD.APPLICANT_NAME,AD.LOCATION_ID from APPLICANT_DETAIL AD JOIN LOCATION L ON L.LOCATION_ID = AD.LOCATION_ID && REG_ID=$REG_ID";
+//echo $sql; die();
+$fetch_loction = mysqli_query($conn,$fetch_loction);
+$row_loc=mysqli_fetch_array($fetch_loction);
+$fetch_skill = "SELECT * FROM SKILL";
+$fetch_skill = mysqli_query($conn, $fetch_skill);
+$fetch_qualification1 = "SELECT * FROM QUALIFICATION where QUALIFICATION_ID = 1";
+$fetch_qualification1 = mysqli_query($conn, $fetch_qualification1);
+$row_qual1=mysqli_fetch_array($fetch_qualification1);
+$fetch_qualification2 = "SELECT * FROM QUALIFICATION where QUALIFICATION_ID = 2";
+$fetch_qualification2 = mysqli_query($conn, $fetch_qualification2);
+$row_qual2=mysqli_fetch_array($fetch_qualification2);
+$fetch_qualification = "SELECT * FROM QUALIFICATION";
+$fetch_qualification = mysqli_query($conn, $fetch_qualification);
+$q= "select * from APPLICANT_QUALIFICATION where REG_ID=$REG_ID ";
+$run_q = mysqli_query($conn,$q);
+$num = mysqli_num_rows($run_q);
 
- if(! $retval ) {
-    die('Could not get data: ' . mysqli_error());
- }
- if (isset($_POST['SUBMIT']))
-{
- 
-$id = $_POST['id'];
-//echo $id;
-$JOB_TITLE = $_POST['job_title'];
-//echo $JOB_TITLE;
-$SALARY = $_POST['salary'];
-$EXPERIENCE = $_POST['experience'];
-$ROLES_AND_RESPONSIBLITIES = $_POST['roles_and_responsiblities'];
-$KEYWORDS = $_POST['keywords'];
-$location=$_POST['location'];
-$Skills=$_POST['Skills'];
-$Skills_arr=implode(",",$Skills);
-//echo $Skills;
-$query1="UPDATE JOB_DETAIL SET JOB_TITLE='$JOB_TITLE', SALARY='$SALARY', EXPERIENCE='$EXPERIENCE',ROLES_AND_RESPONSIBLITIES='$ROLES_AND_RESPONSIBLITIES', KEYWORDS='$KEYWORDS' WHERE JOB_ID='".$_GET['id']."'";
-$query2="UPDATE JOB_LOCATION SET LOCATION_ID='$location' WHERE JOB_ID='".$_GET['id']."'";
-$query3="UPDATE JOB_SKILL SET SKILL_ID='$Skills_arr' WHERE JOB_ID='".$_GET['id']."'";
-//echo $query1;
-//echo $query2;
-//echo $query3;die();
-$run1= mysqli_query($conn, $query1);
-$run2= mysqli_query($conn, $query2);
-$run3= mysqli_query($conn, $query3);
-if ($run1) {
-  $message = "JOB UPDATED SUCCESSFULLY";
-  echo "<script type='text/javascript'>  alert('$message');document.location='viewJobs.php' </script>";
-} else {
-    echo "Error: " . $update_ad . "<br>" . $conn->error;
-}
-}
 ?>
