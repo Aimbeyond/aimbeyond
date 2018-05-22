@@ -1,6 +1,9 @@
 <?php
 include("header.php");
-$sql = 'SELECT * FROM APPLICANT_STATUS';
+$regId=$_GET['regId'];
+//echo $regId;die();
+$sql = "SELECT * FROM APPLICANT_STATUS WHERE REG_ID='$regId'";
+//echo $sql;die();
 
 $result = mysqli_query($conn, $sql);
 
