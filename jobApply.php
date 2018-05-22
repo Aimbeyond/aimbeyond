@@ -13,12 +13,13 @@ if(isset($_POST['search'])) {
     $search=$_POST['search_keyword'];
     $searchSkill=$_POST['search_skill'];
    
-    $search=preg_replace("#[^0-9a-z]#i","",$search);
-    $searchSkill=preg_replace("#[^0-9a-z]#i","",$searchSkill);
+    // $search=preg_replace("#[^0-9a-z]#i","",$search);
+    // $searchSkill=preg_replace("#[^0-9a-z]#i","",$searchSkill);
 
 
   $sql = "SELECT DISTINCT a.*, b.*,c.* FROM JOB_SKILL a  JOIN SKILL b ON a.SKILL_ID=b.SKILL_ID JOIN JOB_DETAIL c ON a.JOB_ID=c.JOB_ID WHERE c.KEYWORDS LIKE '%$search%' && b.SKILL_NAME LIKE '%$searchSkill%'";
   
+ // echo $sql; die();
   $result=mysqli_query($conn,$sql);
   $count_search=mysqli_num_rows($result);
   //echo $count_search;
@@ -130,25 +131,35 @@ if(isset($_POST['search'])) {
                                         $jobquery = "select * from JOB_SKILL WHERE JOB_ID='".$data['JOB_ID']."'";
                                        // echo $query; die();
                                         $jobresult = mysqli_query($conn,$jobquery);
+                                        $dataSkill=mysqli_fetch_array($jobresult);
                                         ?>
-                                    <tr>
-                                    <td><label class=" form-control-label">Skills</label></td>
-                                    <?php 
-                                    while($dataSkill=mysqli_fetch_array($jobresult))
-                                    {
-                                        $Skillquery = "select * from SKILL WHERE SKILL_ID='".$dataSkill['SKILL_ID']."'";
-                                        //echo $query; die();
-                                        $skillresult = mysqli_query($conn,$Skillquery);
-                                        $skillrow=mysqli_fetch_array($skillresult);
-                                        
-                                    ?>
-                                    <td><p><?php echo $skillrow['SKILL_NAME']; ?></p></td>
-                                    <?php 
-                                    }
-                                    ?>
 
-                                   
-                                    </tr>
+
+
+                                         <tr>
+                          <td><label class=" form-control-label">Skills:</label></td>
+                          <?PHP 
+                         $skill= explode(",", $dataSkill['SKILL_ID']);
+                         $count=count($skill);  
+                                         //echo $count;die();                             
+                                         for($i=0;$i<$count; $i++){
+                                         $fetch_dataS = "SELECT * FROM SKILL WHERE SKILL_ID='".$skill[$i]."'";
+                                         //echo $fetch_dataS;die();
+                                         $run_dataS = mysqli_query($conn, $fetch_dataS);
+                                         $rowS = mysqli_fetch_array($run_dataS);
+                         ?>
+                          <td><p><?php echo $rowS['SKILL_NAME'];
+                                         $x=$count-1;
+                                         if($x==$i){echo " ";}
+                                         else{
+                                            echo ", ";
+                                         }
+                                         } ?></p></td>
+                        </tr> 
+
+
+
+
                                     <tr>
                                     <td><label class=" form-control-label">Experience</label></td>
                                     <td><p><?php echo $data['EXPERIENCE']; ?></p></td>
