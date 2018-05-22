@@ -97,9 +97,9 @@ include ("candidateProfileSource.php");
                          ?>
                           <td><p><?php echo $rowS['SKILL_NAME'];
                                          $x=$count-1;
-                                         if($x==$i){echo " ";}
+                                         if($x==$i){echo "";}
                                          else{
-                                            echo ", ";
+                                            echo ",";
                                          }
                                          } ?></p></td>
                         </tr> 
