@@ -14,7 +14,7 @@ $row=mysqli_fetch_array($run_data);
 $REG_ID=$row['REG_ID'];
 if (isset($_POST['UPDATE']))
 {
-//echo "<pre>"; print_r($_POST); die();
+echo "<pre>"; print_r($_POST); die();
 $name=$_POST['full_name'];
 $contact_number=$_POST['contact_no'];
 $email_id=$_POST['email_address'];

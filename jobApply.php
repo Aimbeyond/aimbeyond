@@ -13,11 +13,13 @@ if(isset($_POST['search'])) {
     $search=$_POST['search_keyword'];
     $searchSkill=$_POST['search_skill'];
    
-    $search=preg_replace("#[^0-9a-z]#i","",$search);
-    $searchSkill=preg_replace("#[^0-9a-z]#i","",$searchSkill);
+    // $search=preg_replace("#[^0-9a-z]#i","",$search);
+    // $searchSkill=preg_replace("#[^0-9a-z]#i","",$searchSkill);
 
 
   $sql = "SELECT DISTINCT a.*, b.*,c.* FROM JOB_SKILL a  JOIN SKILL b ON a.SKILL_ID=b.SKILL_ID JOIN JOB_DETAIL c ON a.JOB_ID=c.JOB_ID WHERE c.KEYWORDS LIKE '%$search%' && b.SKILL_NAME LIKE '%$searchSkill%'";
+
+ //echo $sql; die();
   
   $result=mysqli_query($conn,$sql);
   $count_search=mysqli_num_rows($result);
