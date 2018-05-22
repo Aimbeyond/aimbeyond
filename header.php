@@ -162,7 +162,6 @@ $regId=$rowregId['REG_ID'];
                         <ul class="sub-menu children dropdown-menu">
               
                         <li><i class="fa fa-plus"></i><a href="addProfile.php">Add Profile</a></li>
-                                <li><i class="fa fa-id-badge"></i><a href="candidateProfile.php?regId=<?php echo $regId?>">Candidate Profile</a></li>
                                 <li><i class="fa fa-building"></i><a href="viewProfiles.php">View Profile</a></li>
                         </ul>
                     </li>

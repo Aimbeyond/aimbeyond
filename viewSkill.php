@@ -1,5 +1,9 @@
 <?php
 include("header.php");
+$sql = 'SELECT * FROM SKILL';
+
+$result = mysqli_query($conn, $sql);
+
 ?>
 
     <!-- Right Panel -->
@@ -39,10 +43,14 @@ include("header.php");
                       </tr>
                     </thead>
                     <tbody>
+                    <?php 
+                             
+                                while($data=mysqli_fetch_array($result))
+                                {
+                                  
+                                ?>
                       <tr>
-                     
-                        
-                          <td>Java</td>
+                          <td><?php echo $data['SKILL_NAME']; ?></td>
                           <td>
                          <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
@@ -59,7 +67,7 @@ include("header.php");
                       </tr>
                     
                    
-                      
+                      <?php  }  ?>
                     </tbody>
                     
         

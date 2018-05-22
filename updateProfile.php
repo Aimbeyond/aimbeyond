@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$regId=$_GET['regId'];
 include("header.php");
 include("updateProfileSource.php");
 

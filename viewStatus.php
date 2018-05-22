@@ -48,7 +48,7 @@ include("header.php");
                       </tr>
                     </thead>
                     <tbody>
-                              <?php 
+                    <?php 
                                 $i=1;
                                 while($data=mysqli_fetch_array($result))
                                 {
@@ -89,7 +89,7 @@ include("header.php");
                           <td><?php echo $rowStatusDetail['STATUS']; ?></td>
                           <td><?php echo $data['STATUS_DATE']; ?></td>
                           <td>
-                                 <a href="candidateProfile.php?regId=<?php echo $data['REG_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
+                                 <a href="applicantStatusDetail.php?regId=<?php echo $data['REG_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
                           
                                     <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
