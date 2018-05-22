@@ -77,7 +77,7 @@ include("header.php");
                           <a href="jobDescriptionDetail.php?jobId=<?php echo $data['JOB_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
                           
-                                    <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
+                                    <a href="updateJob.php?id=<?php echo $data['JOB_ID']?>" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
                           
                         
                                     <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>

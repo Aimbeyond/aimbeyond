@@ -1,14 +1,10 @@
 <?php 
 session_start();
-$regId=$_GET['regId'];
+//$regId=$_GET['regId'];
 include("connection.php");
 $_SESSION['emailId'] == $emailId;
-if(isset($_GET['regId'])){
-$fetch_data = "select * from APPLICANT_DETAIL where REG_ID = '".$_GET['regId']."'";
-}
-else{
-    $fetch_data = "select * from APPLICANT_DETAIL where EMAIL_ID = '".$_SESSION['emailId']."'";  
-}
+$fetch_data = "select * from APPLICANT_DETAIL where EMAIL_ID = '".$_SESSION['emailId']."'";  
+
    //echo $fetch_data; die();
    //echo $emailId; die();
 $run_data = mysqli_query($conn,$fetch_data);

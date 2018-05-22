@@ -1,4 +1,6 @@
 <?php
+include("connection.php");
+include("interviewerDetailSource.php");
 include("header.php");
 ?>
 
@@ -44,21 +46,33 @@ include("header.php");
                           <div class="row form-group">
                           
                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                <label for="job_title" class=" form-control-label">Employer Name</label>
-                                <input type="text" id="job_title" name="job_title" placeholder="" class="form-control">
+                                <label for="employer_name" class=" form-control-label">Employer Name</label>
+                                <input type="text" id="employer_name" name="employer_name" placeholder="" class="form-control">
                             </div>
 
                             
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             
                             <label for="disabledSelect" class=" form-control-label">Skills</label>
-                              <select name="skills" id="skills" class="form-control skill">
-                                <option value="0"></option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
-                              </select>
-                            
+                            <div class="container">
+                            <div class="example">
+
+                            <select id="multi-select-demo" name="Skills[]" multiple="multiple">
+
+ 
+                            <option value="0"selected></option>
+                            <?php   
+                            $fetch_skill= "select * from SKILL";
+                            $fetch_skill= mysqli_query($conn,$fetch_skill);
+                            while ($data_skill = mysqli_fetch_array($fetch_skill))
+                            {   ?>
+                            <option value="<?php echo $data_skill['SKILL_ID'] ?>"><?php echo $data_skill['SKILL_NAME'] ?></option>
+                            <?php } ?>
+                            </select>
+                            </div>
+                            </div>
+
+
                             </div>
 
                             </div>
@@ -87,7 +101,7 @@ include("header.php");
                                 </div>
                                 
                                 <div class="col-lg-6 col-md-6 col-sm-6">   
-                                    <button type="submit" class="submitmaster">SUBMIT</button>
+                                    <button type="submit" class="submitmaster" name="submit">SUBMIT</button>
                                 </div>
                             </div>
                         </form>
@@ -114,6 +128,10 @@ include("header.php");
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
-
+<script>
+    $(document).ready(function() {
+        $('#multi-select-demo').multiselect();
+    });
+</script>
 </body>
 </html>
