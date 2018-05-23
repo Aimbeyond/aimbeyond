@@ -1,5 +1,12 @@
 <?php
 include("header.php");
+
+$sql = 'SELECT * FROM LOCATION';
+
+$result = mysqli_query($conn, $sql);
+
+
+
 ?>
 
     <!-- Right Panel -->
@@ -39,24 +46,21 @@ include("header.php");
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                    <?php 
                      
-                        
-                          <td>Delhi</td>
+                                while($data=mysqli_fetch_array($result))
+                                {
+                                  
+                                ?>
+                      <tr>                    
+                          <td><?php echo $data['LOCATION']; ?></td>
                           <td>
                          <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
-                      <tr>
-                         
-                          <td>Gujarat</td>
-                          <td>
-                                    
-                          
-                        
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
-                          </td>
-                      </tr>
+                      <?php 
+                                }
+                                ?>
                     
                    
                       

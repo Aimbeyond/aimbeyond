@@ -5,6 +5,22 @@ $sql = 'SELECT * FROM APPLICANT_DETAIL';
 
 $result = mysqli_query($conn, $sql);
 
+$record_per_page = 5;
+
+if(isset($_GET["page"]))
+{
+ $page = $_GET["page"];
+}
+else
+{
+ $page = 1;
+}
+
+$start_from = ($page-1)*$record_per_page;
+
+$query = "SELECT * FROM APPLICANT_DETAIL order by REG_ID DESC LIMIT $start_from, $record_per_page";
+
+$result = mysqli_query($conn, $query);
 
 
 
@@ -82,9 +98,53 @@ $result = mysqli_query($conn, $sql);
                     
         
                   </table>
+
+     
+     <div class="pag-float">
+                  
+<?php
+    $page_query = "SELECT * FROM APPLICANT_DETAIL ORDER BY REG_ID ASC";
+    $page_result = mysqli_query($conn, $page_query);
+    $total_records = mysqli_num_rows($page_result);
+    $total_pages = ceil($total_records/$record_per_page);
+    $start_loop = $page;
+    $difference = $total_pages - $page;
+    if($difference <= 5)
+    {
+     $start_loop = $total_pages - 5;
+    }
+    $end_loop = $start_loop + 4;?>
+    <ul class="pagination">
+    <?php
+    if($page > 1)
+    {?>
+   
+    <li><?php echo "<a href='viewProfiles.php?page=1'>First</a>"?></li>
+     
+     <li><?php  echo "<a href='viewProfiles.php?page=".($page - 1)."'><<</a>";?></li>
+         <?php
+    }
+    for($i=$start_loop; $i<=$end_loop; $i++)
+    {      ?>
+     <li><?php echo "<a href='viewProfiles.php?page=".$i."'>".$i."</a>"; ?></li>
+     <?php 
+    }
+    if($page <= $end_loop)
+    {?>
+      <li> <?php echo "<a href='viewProfiles.php?page=".($page + 1)."'>>></a>";?> </li>
+      <li>  <?php echo "<a href='viewProfiles.php?page=".$total_pages."'>Last</a>";?> </li></ul
+      <?php
+    }
+    ?>
+
+</div>
+
+
+
+
                   <!-- pagination -->
                  
-                    <div class="pag-float">
+                    <!-- <div class="pag-float">
                   <div class="pagination">
   <a class="pre1" href="#">Previous</a>
   <a href="#">1</a>
@@ -94,11 +154,9 @@ $result = mysqli_query($conn, $sql);
   <a href="#">5</a>
   <a href="#">6</a>
   <a class="pre2" href="#">Next</a>
-</div>
-</div>
 
                         </div>
-                    </div>
+                    </div> -->
                 </div>
       
 
