@@ -332,14 +332,15 @@ background:#062e46;
        width: 100%;
     }
     .userimg img{
-        margin-top: -23% !important;
-        width: 62% !important;
+        margin-top: -54% !important;
+        width: 54% !important;
     }
     .loginname{
-        margin-left:-4% !important;
+        margin-left:-16% !important;
     }
     .logout{
         float: right !important;
+        margin-top: -5%;
     }
     
     /* addrecords new changes */
@@ -386,14 +387,14 @@ background:#062e46;
        width: 100%;
     }
     .userimg img{
-        margin-top: 40%;
+        margin-top: 75%;
         width: 85% ;
     }
     .loginname{
-        margin-left:-4%;
+        margin-left: 14%;;
     }
     .logout{
-        margin-left:35%;
+        margin-left: 43%;
     }
     
     .navbar{
