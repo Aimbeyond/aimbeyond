@@ -59,7 +59,7 @@ $countTotalInterviewer= mysqli_num_rows($resultTotalInterviewer);
 
             
 
-
+ <a class="ancon" href="viewProfiles.php">
 <div class="col-sm-6 col-lg-4">
      <div class="card text-white bg-flat-color-1">
          <div class="card-body pb-0">
@@ -67,7 +67,7 @@ $countTotalInterviewer= mysqli_num_rows($resultTotalInterviewer);
                  
              </div>
              <h4 class="mb-0">
-                 <span class="count badge badge-success pull-right"><?php echo $countTotalCandidate;?></span>
+            <span class="count badge badge-success pull-right"><?php echo $countTotalCandidate;?></span>
              </h4>
              <p class="text-light">Total Number Of Candidates</p>
 
@@ -78,9 +78,9 @@ $countTotalInterviewer= mysqli_num_rows($resultTotalInterviewer);
          </div>
 
      </div>
- </div>
+ </div></a>
  <!--/.col-->
-
+ <a class="ancon" href="viewJobs.php">
  <div class="col-sm-6 col-lg-4">
      <div class="card text-white bg-flat-color-2">
          <div class="card-body pb-0">
@@ -98,9 +98,9 @@ $countTotalInterviewer= mysqli_num_rows($resultTotalInterviewer);
 
          </div>
      </div>
- </div>
+ </div></a>
  <!--/.col-->
-
+ <a class="ancon" href="viewInterviewerDetail.php">
  <div class="col-sm-6 col-lg-4">
      <div class="card text-white bg-flat-color-3">
          <div class="card-body pb-0">
@@ -119,7 +119,7 @@ $countTotalInterviewer= mysqli_num_rows($resultTotalInterviewer);
                  <canvas id="widgetChart3"></canvas>
              </div>
      </div>
- </div>
+ </div></a>
  <!--/.col-->
 
  <!--/.col-->
