@@ -74,7 +74,7 @@ include("header.php");
                              ?>
                           <td><a class="ancon" href="appliedCandidates.php?jobId=<?php echo $data['JOB_ID'];?>">Applied Candidate - <?php echo $num_sql; ?></a></td>
                           <td>
-                                    <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
+                          <a href="jobDescriptionDetail.php?jobId=<?php echo $data['JOB_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
                           
                                     <a href="updateJob.php?id=<?php echo $data['JOB_ID']?>" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>

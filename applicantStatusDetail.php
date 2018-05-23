@@ -1,5 +1,12 @@
 <?php
 include("header.php");
+$regId=$_GET['regId'];
+//echo $regId;die();
+$sql = "SELECT * FROM APPLICANT_STATUS WHERE REG_ID='$regId'";
+//echo $sql;die();
+
+$result = mysqli_query($conn, $sql);
+
 ?>
 
     <!-- Right Panel -->
@@ -42,29 +49,57 @@ include("header.php");
                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                             <table class="table table-responsive table-detail">
                                 <tbody>
+                                <?php 
+                                
+                                $row = mysqli_fetch_array($result) 
+                                ?>
                                     <tr>
                                     <td><label class=" form-control-label">Applicant Name</label></td>
-                                    <td><p>Applicant Name</p></td>
+                                    <?php 
+                                        $sqlDetail = "SELECT * FROM APPLICANT_DETAIL WHERE REG_ID='".$row['REG_ID']."'";
+
+                                        $resultDetail = mysqli_query($conn, $sqlDetail);
+                                        $rowDetail = mysqli_fetch_array($resultDetail)
+                                        ?>
+                                    <td><p><?php echo $rowDetail['APPLICANT_NAME']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Status</label></td>
-                                    <td><p>Status</p></td>
+                                    <?php 
+                                    $sqlStatusDetail = "SELECT * FROM INTERVIEW_STATUS WHERE STATUS_ID='".$row['STATUS_ID']."'";
+
+                                    $resultStatusDetail = mysqli_query($conn, $sqlStatusDetail);
+                                    $rowStatusDetail = mysqli_fetch_array($resultStatusDetail)
+                                    ?>
+                                    <td><p><?php echo $rowStatusDetail['STATUS']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Round</label></td>
-                                    <td><p>Round</p></td>
+                                    <?php 
+                                        $sqlRoundDetail = "SELECT * FROM INTERVIEW_ROUND WHERE ROUND_ID='".$row['ROUND_ID']."'";
+
+                                        $resultRoundDetail = mysqli_query($conn, $sqlRoundDetail);
+                                        $rowRoundDetail = mysqli_fetch_array($resultRoundDetail)
+                                        ?>
+                                    <td><p><?php echo $rowRoundDetail['ROUND_NAME']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
-                                    <td><p>Job Title</p></td>
+                                     <?php 
+                                    $sqlJobDetail = "SELECT * FROM JOB_DETAIL WHERE JOB_ID='".$row['JOB_ID']."'";
+
+                                    $resultJobDetail = mysqli_query($conn, $sqlJobDetail);
+                                    $rowJobDetail = mysqli_fetch_array($resultJobDetail)
+                                    ?>
+                                    <td><p><?php echo $rowJobDetail['JOB_TITLE']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Reason</label></td>
-                                    <td><p>Reason</p></td>
+                                    <td><p><?php echo $row['REASON']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Status Date</label></td>
-                                    <td><p>Status Date</p></td>
+                                    <td><p><?php echo $row['STATUS_DATE']; ?></p></td>
                                     </tr>
                                 </tbody>
                             </table>

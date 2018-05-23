@@ -1,5 +1,10 @@
 <?php
 include("header.php");
+
+$sql = 'SELECT * FROM INTERVIEW_ROUND';
+
+$result = mysqli_query($conn, $sql);
+
 ?>
 
     <!-- Right Panel -->
@@ -39,26 +44,20 @@ include("header.php");
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                    <?php 
                      
-                        
-                          <td>Cleared</td>
-                          <td>
-                         <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
-                          </td>
-                      </tr>
-                      <tr>
-                         
-                          <td>Not Cleared</td>
-                          <td>
-                                    
-                          
-                        
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
-                          </td>
-                      </tr>
+                     while($data=mysqli_fetch_array($result))
+                     {
+                       
+                     ?>
+                        <tr>
+                           <td><?php echo $data['ROUND_NAME']; ?></td>
+                          <td><a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a></td>
+                        </tr>
                     
-                   
+                        <?php 
+                                }
+                                ?>
                       
                     </tbody>
                     

@@ -102,14 +102,11 @@ $regId=$rowregId['REG_ID'];
                     <div class="logoutbtn">
                  <a href="logout.php"><label class=" label logout" id="logout">Logout</label></a>
                  </div>
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-          
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="addProfile.php"> <i class="menu-icon fa fa-dashboard dashboard"></i>Dashboard </a>
-                    </li>
 
-
+                    <div id="main-menu" class="main-menu collapse navbar-collapse">
+                            
+                    <ul class="nav navbar-nav">
+                                
                     <?php  
                     if($userType==1)
                     {
@@ -153,6 +150,10 @@ $regId=$rowregId['REG_ID'];
                     ?>
 
 
+                 <li class="active">
+                  <a href="index.php"> <i class="menu-icon fa fa-dashboard dashboard"></i>Dashboard </a>
+                 </li>
+            
 
 
                     <h4 class="menu-title">CANDIDATE</h4>
@@ -162,7 +163,6 @@ $regId=$rowregId['REG_ID'];
                         <ul class="sub-menu children dropdown-menu">
               
                         <li><i class="fa fa-plus"></i><a href="addProfile.php">Add Profile</a></li>
-                                <li><i class="fa fa-id-badge"></i><a href="candidateProfile.php?regId=<?php echo $regId?>">Candidate Profile</a></li>
                                 <li><i class="fa fa-building"></i><a href="viewProfiles.php">View Profile</a></li>
                         </ul>
                     </li>
@@ -196,8 +196,7 @@ $regId=$rowregId['REG_ID'];
 
                         <h4 class="menu-title">JOB</h4>
 
-                        <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Job Apply</a>
+                       
                         
                         <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-puzzle-piece"></i> <a href="jobApply.php?id=<?php echo $regId?>">Jobs</a></li>

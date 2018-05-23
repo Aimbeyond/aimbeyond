@@ -33,30 +33,28 @@ include("header.php");
                   <table id="bootstrap-data-table" class="table table-striped table-bordered loc">
                     <thead>
                       <tr class="tbhead">
-                        
+  
                         <th class="th8">Qualification</th>
                         <th class="th9" >Action</th>
                       </tr>
                     </thead>
                     <tbody>
+                    <?PHP 
+                      $fetchQual="select * from QUALIFICATION";
+                      $fetchQual=mysqli_query($conn,$fetchQual);
+  while($rowQual = mysqli_fetch_array($fetchQual))
+{    ?>
                       <tr>
-                     
+   
                         
-                          <td>10th</td>
+                          <td><?php echo $rowQual['QUALIFICATION'] ?></td>
                           <td>
                          <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
                       <tr>
+<?php } ?>
                          
-                          <td>12th</td>
-                          <td>
-                                    
-                          
-                        
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
-                          </td>
-                      </tr>
                     
                    
                       
