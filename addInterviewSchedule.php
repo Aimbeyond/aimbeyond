@@ -1,17 +1,39 @@
 <?php
 include("header.php");
+if (isset($_POST['submit']))
+{
+  $apllicantName=$_POST['apllicantName'];
+  $jobTitle=$_POST['jobTitle'];
+  $roundName=$_POST['roundName'];
+  $interviewerName=$_POST['interviewerName'];
+  $interviewDate=$_POST['interviewDate'];
+  $interviewDate=date ("Y-m-d H:i:s", strtotime($interviewDate));
+
+  $insert_data ="insert into INTERVIEW_SCHEDULE (REG_ID,JOB_ID,ROUND_ID,INTERVIEW_DATE) VALUES ('$apllicantName','$jobTitle','$roundName','$interviewDate')";
+  //echo $insert_data; die();
+  $run_data= mysqli_query($conn, $insert_data);
+  $SCHEDULE_ID= mysqli_insert_id($conn);
+  //echo $SCHEDULE_ID;die();
+  
+
+  $insert_employer ="insert into INTERVIEWER_SCHEDULE (SCHEDULE_ID,EMPLOYER_ID) VALUES ('$apllicantName','$interviewerName')";
+  //echo $insert_data; die();
+  $run_employer= mysqli_query($conn, $insert_employer);
+ 
+
+
+}
+
+
 ?>
 <script type="text/javascript">
 $(document).ready(function()
 {
-	// $("#loding1").hide();
 	$("#apllicantName").change(function()
 	{
-		// $("#loding1").show();
 		var id=$(this).val();
 		var dataString = 'id='+ id;
 		$("#jobTitle").find('option').remove();
-		// $(".city").find('option').remove();
 		$.ajax
 		({
 			type: "POST",
@@ -20,32 +42,11 @@ $(document).ready(function()
 			cache: false,
 			success: function(html)
 			{
-			//	$("#loding1").hide();
+
 				$("#jobTitle").html(html);
 			} 
 		});
 	});
-	
-	
-	// $(".state").change(function()
-	// {
-	// 	$("#loding2").show();
-	// 	var id=$(this).val();
-	// 	var dataString = 'id='+ id;
-	
-	// 	$.ajax
-	// 	({
-	// 		type: "POST",
-	// 		url: "get_city.php",
-	// 		data: dataString,
-	// 		cache: false,
-	// 		success: function(html)
-	// 		{
-	// 			$("#loding2").hide();
-	// 			$(".city").html(html);
-	// 		} 
-	// 	});
-	// });
 	
 });
 </script>
@@ -107,17 +108,10 @@ $(document).ready(function()
                               <option>Select a Name</option>
                               <?php
                                 while( $row=mysqli_fetch_array($run_data))
-                                {//echo $row['APPLICANT_NAME'];
-                                  // $fetch_jobApply= "Select * from JOB_APPLY WHERE REG_ID=101";
-                                  // echo $fetch_jobApply;die();
-                                  // $run_jobApply= mysqli_query($conn, $fetch_jobApply);
-                                 
+                                {
                                 ?>
-           
-                        
-                              <option value="<?php echo $row['REG_ID'] ?>" ><?php echo $row['APPLICANT_NAME'] ?></option>
+                              <option value="<?php echo $row['REG_ID'] ?>"><?php echo $row['APPLICANT_NAME'] ?></option>
                                           <?php 
-                                        
                                         }  ?>
 
                               </select>
@@ -219,7 +213,7 @@ $(document).ready(function()
                                 </div>
                                 
                                 <div class="col-lg-6 col-md-6 col-sm-6">   
-                                    <button type="submit" class="submitmaster">SUBMIT </button>
+                                    <button type="submit" class="submitmaster" name="submit" >SUBMIT </button>
                                 </div>
                             </div>
                         </form>
