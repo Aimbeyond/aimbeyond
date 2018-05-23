@@ -17,7 +17,17 @@ if(isset($_POST['search'])) {
     // $searchSkill=preg_replace("#[^0-9a-z]#i","",$searchSkill);
 
 
-  $sql = "SELECT DISTINCT a.*, b.*,c.* FROM JOB_SKILL a  JOIN SKILL b ON a.SKILL_ID=b.SKILL_ID JOIN JOB_DETAIL c ON a.JOB_ID=c.JOB_ID WHERE c.KEYWORDS LIKE '%$search%' && b.SKILL_NAME LIKE '%$searchSkill%'";
+  //$sql = "SELECT DISTINCT a.*, b.*,c.* FROM JOB_SKILL a  JOIN SKILL b ON a.SKILL_ID=b.SKILL_ID JOIN JOB_DETAIL c ON a.JOB_ID=c.JOB_ID WHERE c.KEYWORDS LIKE '%$search%' && b.SKILL_NAME LIKE '%$searchSkill%'";
+    if($_POST['search_keyword'] != ""){
+      $sql="SELECT DISTINCT  b.*,c.* FROM JOB_DETAIL as b JOIN  JOB_SKILL as c ON b.JOB_ID=c.JOB_ID WHERE b.KEYWORDS LIKE '%$search%'";
+    }
+    if($_POST['search_skill']!=""){  
+      $sql1="select * from SKILL where SKILL_NAME LIKE '%$searchSkill%'" ;
+        $skillresult=mysqli_query($conn,$sql1);
+        $skillrow=mysqli_fetch_array($skillresult);
+        $skillid=$skillrow['SKILL_ID'];
+      $sql="SELECT DISTINCT  b.*,c.* FROM JOB_DETAIL as b JOIN  JOB_SKILL as c ON b.JOB_ID=c.JOB_ID WHERE c.SKILL_ID LIKE '%$skillid%'";
+    }
 
  //echo $sql; die();
   
@@ -140,6 +150,7 @@ if(isset($_POST['search'])) {
 
                                          <tr>
                           <td><label class=" form-control-label">Skills:</label></td>
+                          <td>
                           <?PHP 
                          $skill= explode(",", $dataSkill['SKILL_ID']);
                          $count=count($skill);  
@@ -150,13 +161,16 @@ if(isset($_POST['search'])) {
                                          $run_dataS = mysqli_query($conn, $fetch_dataS);
                                          $rowS = mysqli_fetch_array($run_dataS);
                          ?>
-                          <td><p><?php echo $rowS['SKILL_NAME'];
-                                         $x=$count-1;
-                                         if($x==$i){echo " ";}
+                          <?php echo $rowS['SKILL_NAME'];
+                                          $x=$count-1;
+                                         if($x==$i){echo "";}
                                          else{
-                                            echo ", ";
+                                            echo ",  ";
                                          }
-                                         } ?></p></td>
+                                         } 
+                                         ?>
+                                           
+                                         </td>
                         </tr> 
 
 
@@ -167,7 +181,7 @@ if(isset($_POST['search'])) {
                                     <td><p><?php echo $data['EXPERIENCE']; ?></p></td>
                                     </tr>
                                     <tr>
-                                    <td><a href="jobApplySource.php?id=<?php echo $i;?>&regId=<?php echo $regId;?>"><button type="button" class="apply" name="add_<?php echo $i;?>" id="add">APPLY</button></a></td>
+                                    <td><a href="jobApplySource.php?id=<?php echo $data['JOB_ID'];?>&regId=<?php echo $regId;?>"><button type="button" class="apply" name="add_<?php echo $i;?>" id="add">APPLY</button></a></td>
                                     
                                     </tr>
                                 </tbody>
