@@ -1,5 +1,7 @@
 <?php
 include("header.php");
+$sql = 'SELECT * FROM INTERVIEWER';
+$result = mysqli_query($conn, $sql);
 ?>
 
     <!-- Right Panel -->
@@ -35,21 +37,43 @@ include("header.php");
                       <tr class="tbhead">
                         <th class="th1">S No.</th>
                         <th class="th3">Interviewer Name</th>
-                        <th class="th3">Designation</th>
+                        <th class="th9">Designation</th>
                         <th class="th3">Proficiency</th>
-                        <th class="th2">Skills</th>
-                       
-                        <th class="th2" >Action</th>
+                        <th class="th3">Skills</th>                       
+                        <th class="th1" >Action</th>
                       </tr>
                     </thead>
                     <tbody>
+                    <?php 
+                    $j=1;
+                    while($data=mysqli_fetch_array($result))
+                    {
+                                  
+                    ?>
                       <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>Amit Rana</td>
-                          <td class="email-link">amit@gmail.com</td>
-                          <td>2 yrs</td>
-                          
+                          <td><?php echo  $j; ?></td>
+                          <td><?php echo $data['EMPLOYER_NAME']; ?></td>
+                          <td><?php echo $data['DESIGNATION']; ?></td>
+                          <?php 
+                          $sqlProficiency = "SELECT * FROM INTERVIEWER_SKILL WHERE EMPLOYER_ID='".$data['EMPLOYER_ID']."'";
+                          $resultProficiency = mysqli_query($conn, $sqlProficiency);
+                          $dataProficiency=mysqli_fetch_array($resultProficiency);
+                          ?>
+                          <td><?php echo $dataProficiency['PROFICIENCY']; ?></td>
+
+                          <td><?php      
+                          $sql_skill = "SELECT * FROM INTERVIEWER_SKILL where EMPLOYER_ID='".$data['EMPLOYER_ID']."'";
+                          $sql_skill = mysqli_query($conn, $sql_skill);
+                          $row_skill=mysqli_fetch_array($sql_skill);
+                          $skill= explode(",", $row_skill['SKILL_ID']);
+                       
+                           $count=count($skill); 
+                          for($i=0;$i<$count; $i++){
+                          $fetch_dataS = "SELECT * FROM SKILL WHERE SKILL_ID='".$skill[$i]."'";
+                          $run_dataS = mysqli_query($conn, $fetch_dataS);
+                          $rowS = mysqli_fetch_array($run_dataS);
+                          echo $rowS['SKILL_NAME']; }  ?></td>
+                        
                           <td>
                                    
                           
@@ -59,25 +83,9 @@ include("header.php");
                                     <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
-                      <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>Amit Rana</td>
-                          <td class="email-link">amit@gmail.com</td>
-                          <td>2 yrs</td>
-                          
-                          <td>
-                          
-                          
-                                    <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
-                          
-                        
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
-                          </td>
-                      </tr>
-                    
-                   
                       
+                   
+                      <?php $j++; }  ?>
                     </tbody>
                     
         
