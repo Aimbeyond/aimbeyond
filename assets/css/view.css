@@ -65,12 +65,11 @@ tr{
 /* pagination */
 .pagination a {
 
-    font-family:NotoSansRegular;
     padding: 8px 16px;
     font-size:14px;
+    color: #3e64af;
+    font-family: NotoSansBold;
   
-    
-   
 }
 .pre1,.pre2{
     color:#3e64af;

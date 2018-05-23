@@ -102,14 +102,11 @@ $regId=$rowregId['REG_ID'];
                     <div class="logoutbtn">
                  <a href="logout.php"><label class=" label logout" id="logout">Logout</label></a>
                  </div>
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-          
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="addProfile.php"> <i class="menu-icon fa fa-dashboard dashboard"></i>Dashboard </a>
-                    </li>
 
-
+                    <div id="main-menu" class="main-menu collapse navbar-collapse">
+                            
+                    <ul class="nav navbar-nav">
+                                
                     <?php  
                     if($userType==1)
                     {
@@ -153,6 +150,10 @@ $regId=$rowregId['REG_ID'];
                     ?>
 
 
+                 <li class="active">
+                  <a href="index.php"> <i class="menu-icon fa fa-dashboard dashboard"></i>Dashboard </a>
+                 </li>
+            
 
 
                     <h4 class="menu-title">CANDIDATE</h4>

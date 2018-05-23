@@ -141,7 +141,7 @@ if(isset($_POST['search'])) {
 
                                     <?php
                                         $jobquery = "select * from JOB_SKILL WHERE JOB_ID='".$data['JOB_ID']."'";
-                                       // echo $query; die();
+                                        //echo $jobquery; die();
                                         $jobresult = mysqli_query($conn,$jobquery);
                                         $dataSkill=mysqli_fetch_array($jobresult);
                                         ?>
