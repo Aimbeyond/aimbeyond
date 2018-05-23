@@ -36,14 +36,14 @@ include("header.php");
                         <strong>Personal Details</strong> 
                         </div>
                       <div class="card-body card-block">
-                        <form action="addButton.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="addButton.php" method="post" name ="filterform" enctype="multipart/form-data" class="form-horizontal" onsubmit="return(validate())";>
                           
                           <div class="row form-group">
                           
                           <div class="form-group col-lg-6 col-md-6 col-sm-12">    
                         <label for="disabled-input" class="form-control-label">Add resume</label>
                         <div class="form-group resume">  
-                        <input type="file" name="image" value="<?php echo $row['APPLICANT_RESUME'] ?>" id="resume" required>
+                        <input type="file" name="image" value="<?php echo $row['APPLICANT_RESUME'] ?>" id="resume">
                         </div>
                         <label class="attachment">(attached file should not more than 1MB)</label>
                         </div>
@@ -52,7 +52,7 @@ include("header.php");
                             
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabled-input" class=" form-control-label">Full name</label>
-                                <input type="text" id="full_name" name="full_name" value="" placeholder="" class="form-control" required>
+                                <input type="text" id="full_name" name="full_name" value="" placeholder="" class="form-control">
                             </div>
 
                             </div>
@@ -61,12 +61,12 @@ include("header.php");
                         
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabled-input" class=" form-control-label">Email address</label>
-                            <input type="Email" id="email_address" name="email_address" value="" placeholder="" class="form-control" required>
+                            <input type="Email" id="email_address" name="email_address" value="" placeholder="" class="form-control">
                         </div>
                         
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabled-input" class=" form-control-label">Contact no.</label>
-                            <input type="number" id="contact_no" name="contact_no" value="" placeholder="" class="form-control" required>
+                            <input type="number" id="contact_no" name="contact_no" value="" placeholder="" class="form-control" >
                         </div>
 
                         </div>
@@ -81,15 +81,15 @@ include("header.php");
                             <label for="location" class=" form-control-label">Location</label>
             
              
-                              <select name="location" id="location" class="form-control skill" required>
+                              <select name="location" id="location" class="form-control skill" >
       
                                 <option value=""selected></option>
                                 <?PHP $fetch_location = "SELECT * FROM LOCATION";
                             $fetch_location = mysqli_query($conn, $fetch_location);
                             while($data_loc = mysqli_fetch_array($fetch_location))
-            {    ?>
+                           {    ?>
                                 <option value="<?php echo $data_loc['LOCATION_ID'] ?>"><?php echo $data_loc['LOCATION'] ?></option>
-            <?php } ?>
+                             <?php } ?>
                               </select>
                             </div>
                         </div>
@@ -123,18 +123,18 @@ include("header.php");
                             
                             <label for="disabledSelect" class=" form-control-label">Skills</label>
                             <div class="container">
-<div class="example">
+                            <div class="example">
 
-<select id="multi-select-demo" name="Skills[]" multiple="multiple">
-<?php  $fetch_skill = "SELECT * FROM SKILL";
-$fetch_skill = mysqli_query($conn, $fetch_skill); 
-while($data_skill = mysqli_fetch_array($fetch_skill))
-            {   ?>
-    <option value="<?php echo $data_skill['SKILL_ID'] ?>"><?php echo $data_skill['SKILL_NAME'] ?></option>
-            <?php } ?>
-</select>
-</div>
-</div>
+                            <select id="multi-select-demo" name="Skills[]" multiple="multiple">
+                            <?php  $fetch_skill = "SELECT * FROM SKILL";
+                            $fetch_skill = mysqli_query($conn, $fetch_skill); 
+                            while($data_skill = mysqli_fetch_array($fetch_skill))
+                            {   ?>
+                            <option value="<?php echo $data_skill['SKILL_ID'] ?>"><?php echo $data_skill['SKILL_NAME'] ?></option>
+                            <?php } ?>
+                            </select>
+                            </div>
+                            </div>
 
 
                             </div>
@@ -167,15 +167,15 @@ while($data_skill = mysqli_fetch_array($fetch_skill))
                             <label for="disabledSelect" class=" form-control-label">Qualification</label>
                               <select name="qualification1" id="qualification1" class="form-control" disabled>
                               <?php $fetch_qualification1 = "SELECT * FROM QUALIFICATION where QUALIFICATION_ID = 1";
-$fetch_qualification1 = mysqli_query($conn, $fetch_qualification1);
-$row_qual1=mysqli_fetch_array($fetch_qualification1);  ?>
+                                $fetch_qualification1 = mysqli_query($conn, $fetch_qualification1);
+                                $row_qual1=mysqli_fetch_array($fetch_qualification1);  ?>
                                 <option value="<?php echo $row_qual1['QUALIFICATION_ID']; ?>"><?php echo $row_qual1['QUALIFICATION']; ?></option>
                               </select>
                             </div>
                             
                             <div class="col-12 col-md-6">
                             <label for="disabledSelect" class=" form-control-label">Institution</label>
-                            <input type="text" id="institute1" name="institute1" value="" placeholder="" class="form-control">
+                            <input type="text" id="institute1" name="institute1" value="" placeholder="" class="form-control" >
                             </div>
                         </div>
 
@@ -184,11 +184,11 @@ $row_qual1=mysqli_fetch_array($fetch_qualification1);  ?>
                         <div class="col-lg-6 col-md-12 col-sm-12 yop1">
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                            <input type="number" id="yop1" name="yop1" placeholder="" value="" class="form-control">
+                            <input type="number" id="yop1" name="yop1" placeholder="" value="" class="form-control" >
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="disabled-input" class=" form-control-label">Percentage</label>
-                            <input type="number" id="percentage1" name="percentage1" value="" placeholder="" class="form-control">
+                            <input type="number" id="percentage1" name="percentage1" value="" placeholder="" class="form-control" >
      
                         </div>
                         </div>
@@ -200,26 +200,26 @@ $row_qual1=mysqli_fetch_array($fetch_qualification1);  ?>
                                 <label for="disabledSelect" class=" form-control-label">Qualification</label>
                                 <select name="qualification2" id="qualification2" class="form-control" disabled>
                                 <?php $fetch_qualification2 = "SELECT * FROM QUALIFICATION where QUALIFICATION_ID = 2";
-$fetch_qualification2 = mysqli_query($conn, $fetch_qualification2);
-$row_qual2=mysqli_fetch_array($fetch_qualification2); ?>
+                                    $fetch_qualification2 = mysqli_query($conn, $fetch_qualification2);
+                                    $row_qual2=mysqli_fetch_array($fetch_qualification2); ?>
                                     <option value="<?php echo $row_qual2['QUALIFICATION_ID']; ?>"><?php echo $row_qual2['QUALIFICATION']; ?></option>
                                 </select>
                                 </div>
                                
                                 <div class="col-12 col-md-6">
                                 <label for="disabledSelect" class=" form-control-label">Institution</label>
-                                <input type="text" id="institute2" name="institute2" value="" placeholder="" class="form-control">
+                                <input type="text" id="institute2" name="institute2" value="" placeholder="" class="form-control" >
                                 </div>
                             </div>
                             <div class="row form-group">
                             <div class="col-lg-6 col-md-12 col-sm-12 yop2">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabledSelect" class=" form-control-label">Year of passing</label>
-                                <input type="number" id="yop2" name="yop2" placeholder="" value="" class="form-control">
+                                <input type="number" id="yop2" name="yop2" placeholder="" value="" class="form-control" >
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabled-input" class=" form-control-label">Percentage</label>
-                                <input type="number" id="percentage2" name="percentage2" value="" placeholder="" class="form-control">
+                                <input type="number" id="percentage2" name="percentage2" value="" placeholder="" class="form-control" >
   
                             </div>
                             
@@ -241,7 +241,7 @@ $row_qual2=mysqli_fetch_array($fetch_qualification2); ?>
                                 </div>
                                 
                                 <div class="col-lg-6 col-md-6 col-sm-6">   
-                                    <button type="submit" name="SUBMIT" class="update">SUBMIT </button>
+                                    <button type="submit" name="SUBMIT" id="SUBMIT" class="update">SUBMIT </button>
                                 </div>
                             </div>
                           
@@ -259,6 +259,137 @@ $row_qual2=mysqli_fetch_array($fetch_qualification2); ?>
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
+
+<!------------------------------------------VALIDATION------------------------------------------------------>
+
+
+<script type="text/javascript"> 
+      function validate()
+      {
+        
+         if( document.filterform.full_name.value == "" )
+         {
+            alert( "Please provide your name!" );
+            document.filterform.full_name.focus() ;
+            return false;
+         }
+
+                  if( document.filterform.email_address.value == "" )
+         {
+            alert( "Please provide your email address!" );
+            document.filterform.email_address.focus() ;
+            return false;
+         }
+
+                  if( document.filterform.contact_no.value == "" )
+         {
+            alert( "Please provide your contact number!" );
+            document.filterform.contact_no.focus() ;
+            return false;
+         }
+
+                  if( document.filterform.location.value == "" )
+         {
+            alert( "Please provide your Location!" );
+            return false;
+         }
+
+                           if( document.filterform.experience_year.value == "" )
+         {
+            alert( "Please provide your experience in year!" );
+            document.filterform.experience_year.focus() ;
+            return false;
+         }
+
+
+                           if( document.filterform.institute1.value == "" )
+         {
+            alert( "Please provide your 10th institution" );
+            document.filterform.institute1.focus() ;
+            return false;
+         }
+
+                                    if( document.filterform.yop1.value == "0" )
+         {
+            alert( "Please provide your 10th year of passing!" );
+            document.filterform.yop1.focus() ;
+            return false;
+         }
+
+                           if( document.filterform.percentage1.value == "" )
+         {
+            alert( "Please provide your 10th percentage" );
+            document.filterform.percentage1.focus() ;
+            return false;
+         }
+
+
+                           if( document.filterform.institute2.value == "" )
+         {
+            alert( "Please provide your 12th institution!" );
+            document.filterform.institute2.focus() ;
+            return false;
+         }
+
+                                    if( document.filterform.yop2.value == "0" )
+         {
+            alert( "Please provide your 12th year of passing!" );
+            document.filterform.yop2.focus() ;
+            return false;
+         }
+
+                                    if( document.filterform.percentage2.value == "" )
+         {
+            alert( "Please provide your 12th percentage!" );
+            document.filterform.percentage2.focus() ;
+            return false;
+         }
+
+            var yop1= $("#yop1").val();
+
+            var yop2 = $("#yop2").val();
+
+            var yop3 = $("#yop3").val();
+
+            var yop4 = $("#yop4").val();
+
+            var yop5 = $("#yop5").val();
+
+            if(yop1 >= yop2 )
+            {
+
+            alert('invalid year of passing ');
+
+            return false;
+            }
+            if(yop2 >= yop3 )
+            {
+
+            alert('invalid year of passing ');
+
+            return false;
+            }
+            if(yop3 >= yop4 )
+            {
+
+            alert('invalid year of passing ');
+
+            return false;
+            }
+            if(yop2 >= yop5 )
+            {
+
+            alert('invalid year of passing ');
+
+            return false;
+            }
+
+
+           return( true );     
+        
+    } 
+             
+</script>
 
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
