@@ -102,7 +102,7 @@ $result = mysqli_query($conn, $sql);
                           </td>
                       </tr>
                       <?php 
-                         }
+                        $j++; }
                         ?>
                     
                    
