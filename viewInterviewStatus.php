@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 
-$sql = 'SELECT * FROM INTERVIEW_ROUND';
+$sql = 'SELECT * FROM INTERVIEW_STATUS';
 
 $result = mysqli_query($conn, $sql);
 
@@ -51,7 +51,7 @@ $result = mysqli_query($conn, $sql);
                        
                      ?>
                         <tr>
-                           <td><?php echo $data['ROUND_NAME']; ?></td>
+                           <td><?php echo $data['STATUS']; ?></td>
                           <td><a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a></td>
                         </tr>
                     
