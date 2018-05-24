@@ -101,9 +101,7 @@ $result = mysqli_query($conn, $sql);
                                     <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
-                      <?php 
-                         }
-                        ?>
+                      <?php $j++; }  ?>
                     
                    
                       
