@@ -1,4 +1,5 @@
 <?php
+
 include("header.php");
 if (isset($_POST['submit']))
 {
@@ -20,6 +21,11 @@ if (isset($_POST['submit']))
   //echo $insert_data; die();
   $run_employer= mysqli_query($conn, $insert_employer);
  
+
+  // if($run_data)
+  // {
+  //   echo "<script type='text/javascript'> alert('interview Schedule Successfully');</script>";
+  // }
 
 
 }
@@ -193,10 +199,6 @@ $(document).ready(function()
                             </div>
 
                         </div>
-
-
-
-
                          <div class="row form-group">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             
