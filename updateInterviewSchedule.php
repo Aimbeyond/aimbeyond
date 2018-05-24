@@ -1,6 +1,7 @@
 <?php
 //include("updateInterviewScheduleSource.php");
 include("header.php");
+$id=$_GET['id'];
 ?>
 
     <!-- Right Panel -->
@@ -48,7 +49,7 @@ include("header.php");
                             <label for="apllicantName" class=" form-control-label">Applicant Name</label>
                             <select name="applicant_id" id="applicant_id" class="form-control">
                             <?php 
-                            $fetch_app1 = "select * from INTERVIEW_SCHEDULE where REG_ID =16";
+                            $fetch_app1 = "select * from INTERVIEW_SCHEDULE where SCHEDULE_ID ='".$id."'";
                             $fetch_app1= mysqli_query($conn,$fetch_app1);
                             $row1= mysqli_fetch_array($fetch_app1);
                             $fetch_app2 = "select * from  APPLICANT_DETAIL where REG_ID='".$row1['REG_ID']."'";
@@ -97,7 +98,7 @@ include("header.php");
 
                           <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="interviewerName" class=" form-control-label">Interviewer Name</label>
-                              <select name="interviewer_id" id="interviewer_id" class="form-control">
+                              <select name="interviewer_id" id="interviewer_id" class="form-control" required>
                               <?php 
                               $fetchInt = "select * from  INTERVIEWER_SCHEDULE where SCHEDULE_ID='".$row1['SCHEDULE_ID']."'";
                               $fetchInt= mysqli_query($conn,$fetchInt);
@@ -105,7 +106,7 @@ include("header.php");
                               $fetchIntName = "select * from  INTERVIEWER where EMPLOYER_ID='".$row6['EMPLOYER_ID']."'";
                               $fetchIntName= mysqli_query($conn,$fetchIntName);
                               $row7= mysqli_fetch_array($fetchIntName);
-?>
+                          ?>
                               <option value="<?php echo $row6['EMPLOYER_ID'] ?>"selected><?php echo $row7['EMPLOYER_NAME'] ?></option>
       <?PHP 
       $fetchInterviewer = "select * from  INTERVIEWER";
@@ -163,24 +164,68 @@ include("header.php");
                     <thead>
                       <tr class="tbhead">
                         <th class="th1">S No.</th>
-                        <th class="th2">Candidate Id</th>
-                        <th class="th3">Name</th>
-                        <th class="th4">Email Address</th>
-                        <th class="th5">Experience</th>
-                        <th class="th6">Contact No.</th>
-                        <th class="th7" >Action</th>
+                        <th class="th2">Name</th>
+                        <th class="th2">Job Title</th>
+                        <th class="th4">Round Name</th>
+                        <th class="th5">Interviewer Name</th>
+                        <th class="th6">Interview Date</th>
                       </tr>
                     </thead>
                     <tbody>
-                    <tr> 
-                    <td>hsgajh</td>
-                    <td>hsgajh</td>
-                    <td>hsgajh</td>
-                    <td>hsgajh</td>
-                    <td>hsgajh</td>
-                   
-                    </tr>
+                    <?php 
+                      $j=1;
+                      $result= "select *from INTERVIEW_SCHEDULE where REG_ID='".$row1['REG_ID']."'";
+                      $result = mysqli_query($conn, $result);
+                      
+                     while($data=mysqli_fetch_array($result))
+                     {  
+                     ?>
+                      <tr>
+                         <td><?php echo $j; ?></td>
+                         <?php 
+                          $sqlApplicant = "SELECT * FROM APPLICANT_DETAIL WHERE REG_ID='".$data['REG_ID']."'";
+                         // echo $sqlApplicant;die();
+                          $resultApplicant = mysqli_query($conn, $sqlApplicant);
+                          $dataApplicant=mysqli_fetch_array($resultApplicant);
+                          ?>
+                          <td><?php echo $dataApplicant['APPLICANT_NAME'];?></td>
+                          <?php 
+                          $sqlJob = "SELECT * FROM JOB_DETAIL WHERE JOB_ID='".$data['JOB_ID']."'";
+                         // echo $sqlApplicant;die();
+                          $resultJob = mysqli_query($conn, $sqlJob);
+                          $dataJob=mysqli_fetch_array($resultJob);
+                          ?>
+                          <td><?php echo $dataJob['JOB_TITLE'];?></td>
+                          <?php 
+                          $sqlRound = "SELECT * FROM INTERVIEW_ROUND WHERE ROUND_ID='".$data['ROUND_ID']."'";
+                         // echo $sqlApplicant;die();
+                          $resultRound = mysqli_query($conn, $sqlRound);
+                          $dataRound=mysqli_fetch_array($resultRound);
+                          ?>
+                          <td><?php echo $dataRound['ROUND_NAME'];?></td>
+                          <?php 
+
+                            $sqlEmployer = "SELECT * FROM INTERVIEWER_SCHEDULE WHERE SCHEDULE_ID='".$data['SCHEDULE_ID']."'";
+                            // echo $sqlEmployer;die();
+                            $resultEmployer = mysqli_query($conn, $sqlEmployer);
+                            $dataEmployer=mysqli_fetch_array($resultEmployer);
+
+
+                          $sqlEmp = "SELECT * FROM INTERVIEWER WHERE EMPLOYER_ID='".$dataEmployer['EMPLOYER_ID']."'";
+                         // echo $sqlApplicant;die();
+                          $resultEmp = mysqli_query($conn, $sqlEmp);
+                          $dataEmp=mysqli_fetch_array($resultEmp);
+                          ?>
+
+                          <td><?php echo $dataEmp['EMPLOYER_NAME'];?></td>
+                          <td><?php echo $data['INTERVIEW_DATE'];?></td>
+                          
+                      </tr>
+                      <?php 
+                        $j++; }
+                        ?>
                     
+                   
                     </tbody>
                     
         
