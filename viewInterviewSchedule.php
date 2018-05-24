@@ -1,5 +1,10 @@
 <?php
 include("header.php");
+
+$sql = 'SELECT * FROM INTERVIEW_ROUND';
+
+$result = mysqli_query($conn, $sql);
+
 ?>
 
     <!-- Right Panel -->

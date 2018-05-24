@@ -21,6 +21,11 @@ if (isset($_POST['submit']))
   $run_employer= mysqli_query($conn, $insert_employer);
  
 
+  if($rundata)
+  {
+    echo"<script>alert('Interview Schedule successfully')</script>";
+  }
+
 
 }
 
@@ -193,15 +198,11 @@ $(document).ready(function()
                             </div>
 
                         </div>
-
-
-
-
                          <div class="row form-group">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             
                             <label for="interviewDate" class=" form-control-label">Interview Date</label>
-                            <input type="text" id="interviewDate" name="interviewDate" placeholder="" class="form-control">
+                            <input type="datetime-local" id="interviewDate" name="interviewDate" placeholder="" class="form-control">
                             </div>
                             
                         
