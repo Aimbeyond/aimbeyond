@@ -35,21 +35,21 @@ if (isset($_POST['submit']))
 <script type="text/javascript">
 $(document).ready(function()
 {
-	$("#apllicantName").change(function()
+	$("#jobTitle").change(function()
 	{
 		var id=$(this).val();
 		var dataString = 'id='+ id;
-		$("#jobTitle").find('option').remove();
+		$("#apllicantName").find('option').remove();
 		$.ajax
 		({
 			type: "POST",
-			url: "getJobTitle.php",
+			url: "getApplicantName.php",
 			data: dataString,
 			cache: false,
 			success: function(html)
 			{
 
-				$("#jobTitle").html(html);
+				$("#apllicantName").html(html);
 			} 
 		});
 	});
@@ -103,25 +103,7 @@ $(document).ready(function()
                           
 
                           ?>
-                             <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label for="apllicantName" class=" form-control-label">Applicant Name</label>
-                              <select name="apllicantName" id="apllicantName" class="form-control">
-                              <?php 
-                              $fetch_data= "Select * from APPLICANT_DETAIL";
-                              $run_data= mysqli_query($conn, $fetch_data);
-                              ?>
-                           
-                              <option>Select a Name</option>
-                              <?php
-                                while( $row=mysqli_fetch_array($run_data))
-                                {
-                                ?>
-                              <option value="<?php echo $row['REG_ID'] ?>"><?php echo $row['APPLICANT_NAME'] ?></option>
-                                          <?php 
-                                        }  ?>
 
-                              </select>
-                            </div>
 
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="jobTitle" class=" form-control-label">Job Title</label>
@@ -149,6 +131,28 @@ $(document).ready(function()
                               </select>
                             </div>
 
+
+                             <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="apllicantName" class=" form-control-label">Applicant Name</label>
+                              <select name="apllicantName" id="apllicantName" class="form-control">
+                              <?php 
+                              $fetch_data= "Select * from APPLICANT_DETAIL";
+                              $run_data= mysqli_query($conn, $fetch_data);
+                              ?>
+                           
+                              <option>Select a Name</option>
+                              <?php
+                                while( $row=mysqli_fetch_array($run_data))
+                                {
+                                ?>
+                              <option value="<?php echo $row['REG_ID'] ?>"><?php echo $row['APPLICANT_NAME'] ?></option>
+                                          <?php 
+                                        }  ?>
+
+                              </select>
+                            </div>
+
+                            
                             </div>
 
                             <div class="row form-group">
