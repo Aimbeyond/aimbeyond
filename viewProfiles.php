@@ -87,7 +87,7 @@ $result = mysqli_query($conn, $query);
                           <a href="updateProfile.php?regId=<?php echo $data['REG_ID'];?>"  class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
                           
                         
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
+                          <a href="#" onclick="myFunction(<?php echo $data['REG_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
                         
@@ -137,7 +137,7 @@ $result = mysqli_query($conn, $query);
     }
     ?>
 
-</div>
+
 
 
 
@@ -168,6 +168,9 @@ $result = mysqli_query($conn, $query);
  </div><!-- /#right-panel -->
 
 <!-- Right Panel -->
+</div>
+</div>
+</div>
 
 
 <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
@@ -175,6 +178,18 @@ $result = mysqli_query($conn, $query);
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/main.js"></script>
 
+        <script type="text/javascript">
+        function myFunction(i) {
+        if (confirm("Are you sure you want to delete data!!!!")) {
+
+            window.location='deleteApplicant.php?id='+i;
+                
+            } else {
+                window.location='viewProfiles.php';
+            }
+            
+        }
+        </script>
 
 
 </body>

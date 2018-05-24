@@ -55,7 +55,7 @@ $result = mysqli_query($conn, $sql);
                       <tr>                    
                           <td><?php echo $data['LOCATION']; ?></td>
                           <td>
-                         <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
+                         <a href="#" onclick="myFunction(<?php echo $data['LOCATION_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
                       <?php 
@@ -108,3 +108,16 @@ $result = mysqli_query($conn, $sql);
 
 </body>
 </html>
+
+<script type="text/javascript">
+        function myFunction(i) {
+        if (confirm("Are you sure you want to delete data!!!!")) {
+
+            window.location='deleteLocation.php?id='+i;
+                
+            } else {
+                window.location='viewLocation.php';
+            }
+            
+        }
+        </script>
