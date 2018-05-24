@@ -106,7 +106,7 @@ $id=$_GET['id'];
                               $fetchIntName = "select * from  INTERVIEWER where EMPLOYER_ID='".$row6['EMPLOYER_ID']."'";
                               $fetchIntName= mysqli_query($conn,$fetchIntName);
                               $row7= mysqli_fetch_array($fetchIntName);
-?>
+                          ?>
                               <option value="<?php echo $row6['EMPLOYER_ID'] ?>"selected><?php echo $row7['EMPLOYER_NAME'] ?></option>
       <?PHP 
       $fetchInterviewer = "select * from  INTERVIEWER";

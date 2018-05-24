@@ -92,7 +92,7 @@ include("header.php");
                                  <a href="applicantStatusDetail.php?regId=<?php echo $data['REG_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
                           
-                                    <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
+                                    <a href="updateApplicantStatus.php?id=<?php echo $data['REG_ID']?>" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
                           
                         
                                     <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
