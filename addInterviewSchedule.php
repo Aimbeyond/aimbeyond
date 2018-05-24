@@ -1,4 +1,5 @@
 <?php
+
 include("header.php");
 if (isset($_POST['submit']))
 {
@@ -21,10 +22,10 @@ if (isset($_POST['submit']))
   $run_employer= mysqli_query($conn, $insert_employer);
  
 
-  if($rundata)
-  {
-    echo"<script>alert('Interview Schedule successfully')</script>";
-  }
+  // if($run_data)
+  // {
+  //   echo "<script type='text/javascript'> alert('interview Schedule Successfully');</script>";
+  // }
 
 
 }
