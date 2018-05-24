@@ -137,7 +137,7 @@ include("header.php");
                         
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                         <button type="submit" class="cancelmaster">CANCEL</button>
+                                         <button type="submit" onclick="window.history.go(-1); return false;" class="cancelmaster">CANCEL</button>
                                 </div>
                                 
                                 <div class="col-lg-6 col-md-6 col-sm-6">   
@@ -152,7 +152,50 @@ include("header.php");
                      
                     </div>
                    
-                 
+                    <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                <div class="col-md-12">
+                    
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered table-responsive">
+                    <thead>
+                      <tr class="tbhead">
+                        <th class="th1">S No.</th>
+                        <th class="th2">Candidate Id</th>
+                        <th class="th3">Name</th>
+                        <th class="th4">Email Address</th>
+                        <th class="th5">Experience</th>
+                        <th class="th6">Contact No.</th>
+                        <th class="th7" >Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr> 
+                    <td>hsgajh</td>
+                    <td>hsgajh</td>
+                    <td>hsgajh</td>
+                    <td>hsgajh</td>
+                    <td>hsgajh</td>
+                   
+                    </tr>
+                    
+                    </tbody>
+                    
+        
+                  </table>
+                  <!-- pagination -->
+       
+
+                        </div>
+                    </div>
+                </div>
+      
+
+
+                </div>
+            </div>
 
 
             </div><!-- .animated -->
