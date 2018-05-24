@@ -163,24 +163,29 @@ include("header.php");
                     <thead>
                       <tr class="tbhead">
                         <th class="th1">S No.</th>
-                        <th class="th2">Candidate Id</th>
-                        <th class="th3">Name</th>
-                        <th class="th4">Email Address</th>
-                        <th class="th5">Experience</th>
-                        <th class="th6">Contact No.</th>
-                        <th class="th7" >Action</th>
+                        <th class="th2">Name</th>
+                        <th class="th2">Job Title</th>
+                        <th class="th4">Round Name</th>
+                        <th class="th5">Interviewer Name</th>
+                        <th class="th6">Interview Date</th>
                       </tr>
                     </thead>
                     <tbody>
+                    <?php 
+                       $i=1;
+                     while($data_IS=mysqli_fetch_array($fetch_app1))
+                     {     
+            
+                      ?>
                     <tr> 
-                    <td>hsgajh</td>
-                    <td>hsgajh</td>
-                    <td>hsgajh</td>
-                    <td>hsgajh</td>
-                    <td>hsgajh</td>
-                   
+                    <td><?php echo $i; ?></td>
+                    <td><?php echo $row2['APPLICANT_NAME'] ?></td>
+                    <td><?php echo $row3['JOB_TITLE']; ?></td>
+                    <td><?php echo $row4['ROUND_NAME'] ; ?></td>
+                    <td><?php echo $row7['EMPLOYER_NAME'];?></td>
+                    <td><?php echo $row1['INTERVIEW_DATE']; ?></td>
                     </tr>
-                    
+                    <?php $i++; } ?>
                     </tbody>
                     
         
