@@ -182,7 +182,7 @@ $result = mysqli_query($conn, $query);
         function myFunction(i) {
         if (confirm("Are you sure you want to delete data!!!!")) {
 
-            window.location='delete.php?id='+i;
+            window.location='deleteApplicant.php?id='+i;
                 
             } else {
                 window.location='viewProfiles.php';

@@ -5,7 +5,7 @@ include("connection.php");
     $id=$_GET['id'];
 
 
-$del3 = "DELETE FROM JOB_LOCATION WHERE JOB_ID= $id";
+$del3 = "DELETE FROM JOB_LOCATION WHERE LOCATION_ID= $id";
 $run_del3= mysqli_query($conn, $del3);
 
 $del2="DELETE FROM JOB_APPLY WHERE JOB_ID=$id";
