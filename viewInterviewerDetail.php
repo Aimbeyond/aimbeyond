@@ -80,7 +80,7 @@ $result = mysqli_query($conn, $sql);
                                     <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
                           
                         
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
+                                    <a href="#" onclick="myFunction(<?php echo $data['EMPLOYER_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
                       
@@ -129,3 +129,15 @@ $result = mysqli_query($conn, $sql);
 
 </body>
 </html>
+<script type="text/javascript">
+        function myFunction(i) {
+        if (confirm("Are you sure you want to delete data!!!!")) {
+
+            window.location='deleteInterviewerDetail.php?id='+i;
+                
+            } else {
+                window.location='viewInterviewerDetail.php';
+            }
+            
+        }
+        </script>

@@ -4,6 +4,31 @@ include("addApplicantStatusSource.php");
 include("header.php");
 ?>
 
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#jobTitle").change(function()
+	{
+		var id=$(this).val();
+		var dataString = 'id='+ id;
+		$("#applicantName").find('option').remove();
+		$.ajax
+		({
+			type: "POST",
+			url: "getApplicantName.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+			{
+
+				$("#applicantName").html(html);
+			} 
+		});
+	});
+	
+});
+</script>
+
     <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
@@ -23,10 +48,6 @@ include("header.php");
     </div>
 
 </header>
-
-
-       
-
         <div class="content mt-3">
             <div class="animated fadeIn">
 
@@ -45,7 +66,24 @@ include("header.php");
                           
                           <div class="row form-group">
                           
-                          <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="jobTitle" class=" form-control-label">Job Title</label>
+                              <select name="jobTitle" id="jobTitle" class="form-control">
+                            <option value="0" selected>Select Job Title</option>
+                            <?PHP 
+                             $fetch_job = "SELECT * FROM JOB_DETAIL";
+
+                             $fetch_job = mysqli_query($conn, $fetch_job);
+                           
+                             while($data_job = mysqli_fetch_array($fetch_job))
+                            {    
+                              
+                              ?>
+                                    <option value="<?php echo $data_job['JOB_ID'] ?>" ><?php echo $data_job['JOB_TITLE'] ?></option>
+                            <?php }  ?>
+                              </select>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="applicantName" class=" form-control-label">Applicant Name</label>
                             <select name="applicantName" id="applicantName" class="form-control">
                             <option value="0" selected>Select Applicant Name</option>
@@ -63,24 +101,6 @@ include("header.php");
                             </select>
                             </div>
 
-
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label for="status" class=" form-control-label">Status</label>
-                            <select name="status" id="status" class="form-control">
-                            <option value="0" selected>Select Interview Status</option>
-                            <?PHP 
-                             $fetch_status = "SELECT * FROM INTERVIEW_STATUS";
-
-                             $fetch_status = mysqli_query($conn, $fetch_status);
-                           
-                             while($data_status = mysqli_fetch_array($fetch_status))
-                            {    
-                              
-                              ?>
-                                    <option value="<?php echo $data_status['STATUS_ID'] ?>" ><?php echo $data_status['STATUS'] ?></option>
-                            <?php }  ?>
-                              </select>
-                            </div>
 
                             </div>
 
@@ -104,30 +124,24 @@ include("header.php");
                             </div>
                             
                         
-
-                          <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label for="jobTitle" class=" form-control-label">Job Title</label>
-                              <select name="jobTitle" id="jobTitle" class="form-control">
-                            <option value="0" selected>Select Job Title</option>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="status" class=" form-control-label">Status</label>
+                            <select name="status" id="status" class="form-control">
+                            <option value="0" selected>Select Interview Status</option>
                             <?PHP 
-                             $fetch_job = "SELECT * FROM JOB_DETAIL";
+                             $fetch_status = "SELECT * FROM INTERVIEW_STATUS";
 
-                             $fetch_job = mysqli_query($conn, $fetch_job);
+                             $fetch_status = mysqli_query($conn, $fetch_status);
                            
-                             while($data_job = mysqli_fetch_array($fetch_job))
+                             while($data_status = mysqli_fetch_array($fetch_status))
                             {    
                               
                               ?>
-                                    <option value="<?php echo $data_job['JOB_ID'] ?>" ><?php echo $data_job['JOB_TITLE'] ?></option>
+                                    <option value="<?php echo $data_status['STATUS_ID'] ?>" ><?php echo $data_status['STATUS'] ?></option>
                             <?php }  ?>
                               </select>
                             </div>
-
-                        </div>
-
-
-
-
+                          </div>
                          <div class="row form-group">
 
                           <div class="col-lg-6 col-md-6 col-sm-12">

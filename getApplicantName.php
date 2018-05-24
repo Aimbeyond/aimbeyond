@@ -4,9 +4,9 @@ if($_POST['id'])
 {
 	$id=$_POST['id'];
     
-    $jobsqsl="select a.*,b.*,c.* from APPLICANT_DETAIL as a join JOB_APPLY as b  on a.REG_ID=b.REG_ID join APPLICANT_STATUS as c on a.REG_ID=c.REG_ID  where b.JOB_ID=$id  &&c.STATUS_ID !=2";
+    $jobsql="select a.*,b.* from APPLICANT_DETAIL as a join JOB_APPLY as b  on a.REG_ID=b.REG_ID  where b.JOB_ID=$id ";
     //echo $jobsqsl; die();
-    $result=mysqli_query($conn,$jobsqsl);
+    $result=mysqli_query($conn,$jobsql);
       
 	?>
 	<option selected="selected">Select Name :</option>
