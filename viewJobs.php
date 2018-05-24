@@ -3,12 +3,7 @@ include("header.php");
 
             $sql = 'SELECT * FROM JOB_DETAIL';
 
-            $result = mysqli_query($conn, $sql);
-
-
-
-
-            
+            $result = mysqli_query($conn, $sql);          
             
 ?>
 
@@ -80,7 +75,7 @@ include("header.php");
                                     <a href="updateJob.php?id=<?php echo $data['JOB_ID']?>" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
                           
                         
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
+                                    <a href="#" onclick="myFunction(<?php echo $data['JOB_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
               
@@ -130,3 +125,16 @@ include("header.php");
 
 </body>
 </html>
+
+<script type="text/javascript">
+        function myFunction(i) {
+        if (confirm("Are you sure you want to delete data!!!!")) {
+
+            window.location='deleteJob.php?id='+i;
+                
+            } else {
+                window.location='viewJobs.php';
+            }
+            
+        }
+        </script>

@@ -13,7 +13,7 @@ include("header.php");
 
 
         <div class="col-sm-12">
-        <a id="menuToggle" class="menutoggle pull-left"> <img src="images/menu_bar.png" ></a>
+        <a id="menuToggle" class="menutoggle pull-left" > <img src="images/menu_bar.png" ></a>
             <p>View Qualifications</p>
         </div>
         
@@ -40,22 +40,23 @@ include("header.php");
                     </thead>
                     <tbody>
                     <?PHP 
+                    
                       $fetchQual="select * from QUALIFICATION";
                       $fetchQual=mysqli_query($conn,$fetchQual);
   while($rowQual = mysqli_fetch_array($fetchQual))
 {    ?>
                       <tr>
    
-                        
+                          
                           <td><?php echo $rowQual['QUALIFICATION'] ?></td>
                           <td>
-                         <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
+                         <a href="#" onclick="myFunction(<?php echo $rowQual['QUALIFICATION_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
                       <tr>
 <?php } ?>
                          
-                    
+
                    
                       
                     </tbody>
@@ -98,7 +99,18 @@ include("header.php");
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/main.js"></script>
 
-
-
 </body>
 </html>
+
+        <script type="text/javascript">
+        function myFunction(i) {
+        if (confirm("Are you sure you want to delete data!!!!")) {
+
+            window.location='deleteQualification.php?id='+i;
+                
+            } else {
+                window.location='viewQualification.php';
+            }
+            
+        }
+        </script>
