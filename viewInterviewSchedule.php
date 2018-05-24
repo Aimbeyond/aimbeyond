@@ -1,5 +1,9 @@
 <?php
 include("header.php");
+
+$sql = 'SELECT * FROM INTERVIEW_SCHEDULE';
+$result = mysqli_query($conn, $sql);
+
 ?>
 
     <!-- Right Panel -->
@@ -43,14 +47,50 @@ include("header.php");
                       </tr>
                     </thead>
                     <tbody>
+                    <?php 
+                      $j=1;
+                     while($data=mysqli_fetch_array($result))
+                     {  
+                     ?>
                       <tr>
-                     
-                          <td>1</td>
-                          <td>1</td>
-                          <td>Amit Rana</td>
-                          <td class="email-link">amit@gmail.com</td>
-                          <td>2 yrs</td>
-                          <td>898978979</td>
+                         <td><?php echo $j; ?></td>
+                         <?php 
+                          $sqlApplicant = "SELECT * FROM APPLICANT_DETAIL WHERE REG_ID='".$data['REG_ID']."'";
+                         // echo $sqlApplicant;die();
+                          $resultApplicant = mysqli_query($conn, $sqlApplicant);
+                          $dataApplicant=mysqli_fetch_array($resultApplicant);
+                          ?>
+                          <td><?php echo $dataApplicant['APPLICANT_NAME'];?></td>
+                          <?php 
+                          $sqlJob = "SELECT * FROM JOB_DETAIL WHERE JOB_ID='".$data['JOB_ID']."'";
+                         // echo $sqlApplicant;die();
+                          $resultJob = mysqli_query($conn, $sqlJob);
+                          $dataJob=mysqli_fetch_array($resultJob);
+                          ?>
+                          <td><?php echo $dataJob['JOB_TITLE'];?></td>
+                          <?php 
+                          $sqlRound = "SELECT * FROM INTERVIEW_ROUND WHERE ROUND_ID='".$data['ROUND_ID']."'";
+                         // echo $sqlApplicant;die();
+                          $resultRound = mysqli_query($conn, $sqlRound);
+                          $dataRound=mysqli_fetch_array($resultRound);
+                          ?>
+                          <td><?php echo $dataRound['ROUND_NAME'];?></td>
+                          <?php 
+
+                            $sqlEmployer = "SELECT * FROM INTERVIEWER_SCHEDULE WHERE SCHEDULE_ID='".$data['SCHEDULE_ID']."'";
+                            // echo $sqlEmployer;die();
+                            $resultEmployer = mysqli_query($conn, $sqlEmployer);
+                            $dataEmployer=mysqli_fetch_array($resultEmployer);
+
+
+                          $sqlEmp = "SELECT * FROM INTERVIEWER WHERE EMPLOYER_ID='".$dataEmployer['EMPLOYER_ID']."'";
+                         // echo $sqlApplicant;die();
+                          $resultEmp = mysqli_query($conn, $sqlEmp);
+                          $dataEmp=mysqli_fetch_array($resultEmp);
+                          ?>
+
+                          <td><?php echo $dataEmp['EMPLOYER_NAME'];?></td>
+                          <td><?php echo $data['INTERVIEW_DATE'];?></td>
                           <td>
                                     <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
@@ -61,23 +101,9 @@ include("header.php");
                                     <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
-                      <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>Amit Rana</td>
-                          <td class="email-link">amit@gmail.com</td>
-                          <td>2 yrs</td>
-                          <td>898978979</td>
-                          <td>
-                                    <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
-                          
-                          
-                                    <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
-                          
-                        
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
-                          </td>
-                      </tr>
+                      <?php 
+                        $j++; }
+                        ?>
                     
                    
                       
