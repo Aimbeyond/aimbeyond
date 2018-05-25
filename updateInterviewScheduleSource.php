@@ -21,7 +21,7 @@ $insertInterviewer="insert into INTERVIEWER_SCHEDULE (SCHEDULE_ID,EMPLOYER_ID) v
 $query2=mysqli_query($conn,$insertInterviewer);
 if ($query) {
   $message = "INTERVIEW SCHEDULE UPDATED SUCCESSFULLY";
-  echo "<script type='text/javascript'>  alert('$message');document.location='updateInterviewSchedule.php' </script>";
+  echo "<script type='text/javascript'>  alert('$message');document.location='viewInterviewSchedule.php' </script>";
 } else {
     echo "Error: " . $insertSchedule . "<br>" . $conn->error;
 }

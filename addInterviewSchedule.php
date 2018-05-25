@@ -18,7 +18,7 @@ if (isset($_POST['submit']))
   
 
   $insert_employer ="insert into INTERVIEWER_SCHEDULE (SCHEDULE_ID,EMPLOYER_ID) VALUES ('$SCHEDULE_ID','$interviewerName')";
-  //echo $insert_data; die();
+ //echo $insert_employer; die();
   $run_employer= mysqli_query($conn, $insert_employer);
  
 
@@ -39,7 +39,7 @@ $(document).ready(function()
 	{
 		var id=$(this).val();
 		var dataString = 'id='+ id;
-		$("#apllicantName").find('option').remove();
+		$("#applicantName").find('option').remove();
 		$.ajax
 		({
 			type: "POST",
@@ -49,7 +49,7 @@ $(document).ready(function()
 			success: function(html)
 			{
 
-				$("#apllicantName").html(html);
+				$("#applicantName").html(html);
 			} 
 		});
 	});
@@ -134,7 +134,7 @@ $(document).ready(function()
 
                              <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="apllicantName" class=" form-control-label">Applicant Name</label>
-                              <select name="apllicantName" id="apllicantName" class="form-control">
+                              <select name="apllicantName" id="applicantName" class="form-control">
                               <?php 
                               $fetch_data= "Select * from APPLICANT_DETAIL";
                               $run_data= mysqli_query($conn, $fetch_data);

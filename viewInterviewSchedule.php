@@ -95,7 +95,7 @@ $result = mysqli_query($conn, $sql);
                                     <a href="interviewScheduleDetail.php?schId=<?php echo $data['SCHEDULE_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
                           
-                                    <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
+                                    <a href="updateInterviewSchedule.php?id=<?php echo $data['SCHEDULE_ID']?>" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
                           
                         
                                     <a href="#" onclick="myFunction(<?php echo $data['SCHEDULE_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>

@@ -145,10 +145,7 @@ if(isset($_POST['search'])) {
                                         $jobresult = mysqli_query($conn,$jobquery);
                                         $dataSkill=mysqli_fetch_array($jobresult);
                                         ?>
-
-
-
-                                         <tr>
+                                    <tr>
                           <td><label class=" form-control-label">Skills:</label></td>
                           <td>
                           <?PHP 

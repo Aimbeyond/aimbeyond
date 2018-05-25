@@ -48,7 +48,7 @@ include ("candidateProfileSource.php");
              <tbody>
                     <tr>
                           <td><label class=" form-control-label">Resume:</label></td>
-                          <td><p><?php echo $row['APPLICANT_RESUME'] ?></p></td>
+                          <td><p><a href="resume/<?php echo $row['APPLICANT_RESUME'] ?>" target="_blank" style="margin-left:2%;">Download </a></p></td>
                     </tr>
                     <tr>
                           <td><label class=" form-control-label">Full name:</label></td>
@@ -65,9 +65,6 @@ include ("candidateProfileSource.php");
             </tbody>
         </table>
                           
-
-
-
                          <div class="card-header experienceDetail">
                         <strong>Experience Details</strong> 
                       </div>
