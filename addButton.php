@@ -15,7 +15,7 @@ if(isset($_POST['SUBMIT']))
     $package=$_POST['previous_package'];
     $file_name = $_FILES['image']['name'];
     $file_tmp =$_FILES['image']['tmp_name'];
-    move_uploaded_file($file_tmp,"images/".$file_name);
+    move_uploaded_file($file_tmp,"resume/".$file_name);
     $Institution_10=$_POST['institute1'];
     $YOP_10=$_POST['yop1'];
     $Percentage_10=$_POST['percentage1'];

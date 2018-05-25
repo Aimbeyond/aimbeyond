@@ -48,7 +48,7 @@ include ("candidateProfileSource.php");
              <tbody>
                     <tr>
                           <td><label class=" form-control-label">Resume:</label></td>
-                          <td><p><?php echo $row['APPLICANT_RESUME'] ?></p></td>
+                          <td><p><a href="resume/<?php echo $row['APPLICANT_RESUME'] ?>" target="_blank" style="margin-left:2%;">Download </a></p></td>
                     </tr>
                     <tr>
                           <td><label class=" form-control-label">Full name:</label></td>
@@ -65,9 +65,6 @@ include ("candidateProfileSource.php");
             </tbody>
         </table>
                           
-
-
-
                          <div class="card-header experienceDetail">
                         <strong>Experience Details</strong> 
                       </div>
@@ -85,6 +82,7 @@ include ("candidateProfileSource.php");
                         
                         <tr>
                           <td><label class=" form-control-label">Skills:</label></td>
+                          <td>
                           <?PHP 
                          $skill= explode(",", $row['SKILL_ID']);
                          $count=count($skill);  
@@ -95,13 +93,13 @@ include ("candidateProfileSource.php");
                                          $run_dataS = mysqli_query($conn, $fetch_dataS);
                                          $rowS = mysqli_fetch_array($run_dataS);
                          ?>
-                          <td><p><?php echo $rowS['SKILL_NAME'];
+                          <?php echo $rowS['SKILL_NAME'];
                                          $x=$count-1;
                                          if($x==$i){echo "";}
                                          else{
                                             echo ",";
                                          }
-                                         } ?></p></td>
+                                         } ?></td>
                         </tr> 
                         <tr>
                           <td><label class=" form-control-label">Previous Package:</label></td>

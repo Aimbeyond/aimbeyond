@@ -28,7 +28,7 @@ $notice=$_POST['notice_period'];
 $package=$_POST['previous_package'];
 $file_name = $_FILES['image']['name'];
 $file_tmp =$_FILES['image']['tmp_name'];
-move_uploaded_file($file_tmp,"images/".$file_name);
+move_uploaded_file($file_tmp,"resume/".$file_name);
 $update_ad ="UPDATE APPLICANT_DETAIL SET APPLICANT_NAME='$name' ,CONTACT_NUMBER='$contact_number', EMAIL_ID='$email_id' ,EXPERIENCE_IN_MONTH='$experience_month' , EXPERIENCE_IN_YEAR='$experience_year' ,LOCATION_ID = '$location',NOTICE_PERIOD = '$notice',PACKAGE='$package',SKILL_ID='$Skills_arr',APPLICANT_RESUME='$file_name' WHERE REG_ID=$REG_ID";
 $run_ad= mysqli_query($conn, $update_ad);
 $Institution_10=$_POST['institute1'];
