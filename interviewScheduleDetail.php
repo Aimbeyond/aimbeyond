@@ -1,5 +1,11 @@
 <?php
 include("header.php");
+$schId=$_GET['schId'];
+//echo $schId;die();
+$sql = "SELECT * FROM INTERVIEW_SCHEDULE WHERE SCHEDULE_ID='$schId'";
+//echo $sql;die();
+
+$result = mysqli_query($conn, $sql);
 ?>
 
     <!-- Right Panel -->
@@ -14,7 +20,7 @@ include("header.php");
 
         <div class="col-sm-6">
             <a id="menuToggle" class="menutoggle pull-left"> <img src="images/menu_bar.png" ></a>
-            <p>Job Description</p>
+            <p>Interview Schedule Detail</p>
           
         </div>
       
@@ -44,25 +50,58 @@ include("header.php");
                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                             <table class="table table-responsive table-detail">
                                 <tbody>
+                                <?php 
+                                $row = mysqli_fetch_array($result) 
+                                ?>
                                     <tr>
                                     <td><label class=" form-control-label">Applicant Name</label></td>
-                                    <td><p>Applicant Name</p></td>
+                                    <?php 
+                                        $sqlDetail = "SELECT * FROM APPLICANT_DETAIL WHERE REG_ID='".$row['REG_ID']."'";
+
+                                        $resultDetail = mysqli_query($conn, $sqlDetail);
+                                        $rowDetail = mysqli_fetch_array($resultDetail)
+                                        ?>
+                                    <td><p><?php echo $rowDetail['APPLICANT_NAME']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Job Title</label></td>
-                                    <td><p>Job Title</p></td>
+                                    <?php 
+                                    $sqlJob = "SELECT * FROM JOB_DETAIL WHERE JOB_ID='".$row['JOB_ID']."'";
+
+                                    $resultJob = mysqli_query($conn, $sqlJob);
+                                    $rowJob = mysqli_fetch_array($resultJob)
+                                    ?>
+                                    <td><p><?php echo $rowJob['JOB_TITLE']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Round Name</label></td>
-                                    <td><p>Round Name</p></td>
+                                    <?php 
+                                        $sqlRoundDetail = "SELECT * FROM INTERVIEW_ROUND WHERE ROUND_ID='".$row['ROUND_ID']."'";
+
+                                        $resultRoundDetail = mysqli_query($conn, $sqlRoundDetail);
+                                        $rowRoundDetail = mysqli_fetch_array($resultRoundDetail)
+                                        ?>
+                                    <td><p><?php echo $rowRoundDetail['ROUND_NAME']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Interviewer Name</label></td>
-                                    <td><p>Interviewer Name</p></td>
+                                    <?php 
+                                        $sqlInterviewerDetail = "SELECT * FROM INTERVIEWER WHERE EMPLOYER_ID='".$row['EMPLOYER_ID']."'";
+
+                                        $resultInterviewerDetail = mysqli_query($conn, $sqlInterviewerDetail);
+                                        $rowInterviewerDetail = mysqli_fetch_array($resultInterviewerDetail)
+                                        ?>
+                                    <td><p><?php echo $rowInterviewerDetail['EMPLOYER_NAME']; ?></p></td>
                                     </tr>
                                     <tr>
-                                    <td><label class=" form-control-label">Interviewer Date</label></td>
-                                    <td><p>Interviewer Date</p></td>
+                                    <td><label class=" form-control-label">Interview Date</label></td>
+                                    <?php 
+                                        $sqlInterviewerDetail = "SELECT * FROM INTERVIEW_SCHEDULE WHERE SCHEDULE_ID='".$row['SCHEDULE_ID']."'";
+
+                                        $resultInterviewerDetail = mysqli_query($conn, $sqlInterviewerDetail);
+                                        $rowInterviewerDetail = mysqli_fetch_array($resultInterviewerDetail)
+                                        ?>
+                                    <td><p><?php echo $rowInterviewerDetail['INTERVIEW_DATE']; ?></p></td>
                                     </tr>
                                 </tbody>
                             </table>

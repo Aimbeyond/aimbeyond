@@ -85,7 +85,7 @@ include ("candidateProfileSource.php");
                         
                         <tr>
                           <td><label class=" form-control-label">Skills:</label></td>
-                          <?PHP 
+                          <td> <?PHP 
                          $skill= explode(",", $row['SKILL_ID']);
                          $count=count($skill);  
                                          //echo $count;die();                             
@@ -95,13 +95,13 @@ include ("candidateProfileSource.php");
                                          $run_dataS = mysqli_query($conn, $fetch_dataS);
                                          $rowS = mysqli_fetch_array($run_dataS);
                          ?>
-                          <td><p><?php echo $rowS['SKILL_NAME'];
+                          <?php echo $rowS['SKILL_NAME'];
                                          $x=$count-1;
                                          if($x==$i){echo "";}
                                          else{
                                             echo ",";
                                          }
-                                         } ?></p></td>
+                                         } ?></td>
                         </tr> 
                         <tr>
                           <td><label class=" form-control-label">Previous Package:</label></td>

@@ -92,7 +92,7 @@ $result = mysqli_query($conn, $sql);
                           <td><?php echo $dataEmp['EMPLOYER_NAME'];?></td>
                           <td><?php echo $data['INTERVIEW_DATE'];?></td>
                           <td>
-                                    <a href="#" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
+                                    <a href="interviewScheduleDetail.php?schId=<?php echo $data['SCHEDULE_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>
                           
                           
                                     <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>

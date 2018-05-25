@@ -4,9 +4,6 @@ include("connection.php");
 // ini_set('display_errors', 1);
     $id=$_GET['id'];
 
-
-
-
 $del1="DELETE FROM INTERVIEWER_SCHEDULE WHERE SCHEDULE_ID= $id";
 $run_del1= mysqli_query($conn, $del1);
 
