@@ -98,7 +98,7 @@ $result = mysqli_query($conn, $sql);
                                     <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
                           
                         
-                                    <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
+                                    <a href="#" onclick="myFunction(<?php echo $data['SCHEDULE_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
                       <?php $j++; }  ?>
@@ -148,3 +148,16 @@ $result = mysqli_query($conn, $sql);
 
 </body>
 </html>
+
+<script type="text/javascript">
+        function myFunction(i) {
+        if (confirm("Are you sure you want to delete data!!!!")) {
+
+            window.location='deleteInterviewSchedule.php?id='+i;
+                
+            } else {
+                window.location='viewInterviewSchedule.php';
+            }
+            
+        }
+        </script>
