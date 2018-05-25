@@ -413,8 +413,10 @@ background:#062e46;
     }
     
     .addmore{
-        width: 12% ;
-        font-size: 12px ;
+        width: 14% !important;
+        font-size: 11px !important;
+        height: 20px !important;
+        margin-bottom: 8% !important;
        }
 }
 
@@ -436,9 +438,10 @@ background:#062e46;
         margin-top: 6%;
     }
     .addmore{
-        width:20% ;
-        font-size: 11px ;
-        height: 25px ;
+        width: 28% !important;
+        font-size: 11px !important;
+        height: 20px !important;
+        margin-bottom: 8% !important;
     }
     .cancel{
         font-size: 13px;
@@ -545,7 +548,7 @@ background:#062e46;
 /* job apply */
 .division{
     border: 1px solid #bebebe;
-    border-width: 1.5px;
+    border-width: 0.5px;
 
 }
 
@@ -620,4 +623,15 @@ background:#062e46;
         display:none;
      }
      
-     
+     /* Index */
+     @media (min-width: 375px) and (max-width: 685px) { 
+     .applied{
+         float: none;
+     }
+    }
+
+    @media (min-width: 720px) and (max-width: 800px) { 
+        .applied{
+            margin-top: -21px;
+        }
+       }
