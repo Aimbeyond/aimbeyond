@@ -1,6 +1,4 @@
 <?php
-
-
 include("header.php");
 $regId=$_GET['regId'];
 //echo $regId;die();
@@ -124,7 +122,7 @@ if(isset($_POST['search'])) {
                                 while($data=mysqli_fetch_array($result))
                                 {
                                 ?>
-                             <div class="col-lg-4 col-md-12 col-sm-12">
+                             <div class="col-lg-6 col-md-12 col-sm-12">
                               
                              <table class="table table-responsive table-detail division">
                              <thead><th><p><?php echo $data['JOB_TITLE']; ?></p></thead>
@@ -145,10 +143,7 @@ if(isset($_POST['search'])) {
                                         $jobresult = mysqli_query($conn,$jobquery);
                                         $dataSkill=mysqli_fetch_array($jobresult);
                                         ?>
-
-
-
-                                         <tr>
+                                    <tr>
                           <td><label class=" form-control-label">Skills:</label></td>
                           <td>
                           <?PHP 
@@ -181,7 +176,7 @@ if(isset($_POST['search'])) {
                                     <td><p><?php echo $data['EXPERIENCE']; ?></p></td>
                                     </tr>
                                     <tr>
-                                    <td><a href="jobApplySource.php?id=<?php echo $data['JOB_ID'];?>&regId=<?php echo $regId;?>"><button type="button" class="apply" name="add_<?php echo $i;?>" id="add">APPLY</button></a></td>
+                                    <td><a href="addProfile.php?jobId=<?php echo $data['JOB_ID'];?>"><button type="button" class="apply" name="add_<?php echo $data['JOB_ID'];?>" id="add">APPLY</button></a></td>
                                     
                                     </tr>
                                 </tbody>

@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-$sql = 'SELECT * FROM SKILL';
+$sql = 'SELECT * FROM SKILL where STATUS_ID=0';
 
 $result = mysqli_query($conn, $sql);
 
@@ -107,7 +107,7 @@ $result = mysqli_query($conn, $sql);
         function myFunction(i) {
         if (confirm("Are you sure you want to delete data!!!!")) {
 
-            window.location='deleteSkills.php?id='+i;
+            window.location='deleteInterviewStatus.php?id='+i;
                 
             } else {
                 window.location='viewSkill.php';

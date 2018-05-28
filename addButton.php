@@ -1,7 +1,8 @@
 <?php 
 include("connection.php");
 if(isset($_POST['SUBMIT']))
-{
+{       $jobId=$_POST['jobId'];
+    //echo $jobId;die();
     //echo "<pre>"; print_r($_POST); die();
     $name=$_POST['full_name'];
     $contact_number=$_POST['contact_no'];
@@ -15,7 +16,7 @@ if(isset($_POST['SUBMIT']))
     $package=$_POST['previous_package'];
     $file_name = $_FILES['image']['name'];
     $file_tmp =$_FILES['image']['tmp_name'];
-    move_uploaded_file($file_tmp,"images/".$file_name);
+    move_uploaded_file($file_tmp,"resume/".$file_name);
     $Institution_10=$_POST['institute1'];
     $YOP_10=$_POST['yop1'];
     $Percentage_10=$_POST['percentage1'];
@@ -51,6 +52,34 @@ $insert_M = "INSERT INTO APPLICANT_QUALIFICATION (REG_ID, QUALIFICATION_ID, INST
 $run4=mysqli_query($conn,$insert_M);
 $insert_O = "INSERT INTO APPLICANT_QUALIFICATION (REG_ID, QUALIFICATION_ID, INSTITUTION, PERCENTAGE, YEAR_OF_PASSING )VALUES ('$REG_ID','$DROPDOWN_O','$Institution_O','$Percentage_O','$YOP_O')";
 $run5=mysqli_query($conn,$insert_O);
+
+
+
+$query = "select * from JOB_APPLY where REG_ID = '$REG_ID'";
+//echo $q; die();
+$result = mysqli_query($conn,$query);
+$num = mysqli_num_rows($result);
+if($num == 1)
+{
+    $message = "You have already Applied  ";
+    echo "<script type='text/javascript'>alert('$message');document.location='jobApply.php' </script>";
+}
+else{
+$sql = "INSERT INTO JOB_APPLY (REG_ID,JOB_ID)VALUES ('$REG_ID','$jobId')";
+ //echo $sql; die();
+$run=mysqli_query($conn,$sql);
+
+
+// if ($run) {
+//     $message = "You have Applied Job Successfully";
+//     echo "<script type='text/javascript'>  alert('$message');document.location='jobApply.php' </script>";
+//   }
+  
+  
+}   
+     
+
+
 
 
 

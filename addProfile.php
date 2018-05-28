@@ -1,6 +1,8 @@
 <?php
 session_start();
 include("header.php");
+$jobId=$_GET['jobId'];
+//echo $jobId;
 ?>
 
     <!-- Right Panel -->
@@ -53,6 +55,7 @@ include("header.php");
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="disabled-input" class=" form-control-label">Full name</label>
                                 <input type="text" id="full_name" name="full_name" value="" placeholder="" class="form-control">
+                                <input type="hidden" class="form-control"  name ="jobId" id="jobId"   value=<?php echo $jobId ?> >
                             </div>
 
                             </div>

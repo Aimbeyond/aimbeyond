@@ -60,7 +60,7 @@ $result = mysqli_query($conn, $sql);
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Skills</label></td>
-                                    <?php 
+                                    <td><?php 
                                     $sqlJobDetail = "SELECT * FROM JOB_SKILL WHERE JOB_ID='".$row['JOB_ID']."'";
 
                                     //echo $sqlJobDetail;die();   
@@ -85,13 +85,13 @@ $result = mysqli_query($conn, $sql);
 
 
                                     ?>
-                                    <td><p><?php echo $rowS['SKILL_NAME']; 
+                                    <?php echo $rowS['SKILL_NAME']; 
                                     $x=$count-1;
                                     if($x==$i){echo "";}
                                     else{
                                        echo ",";
                                     }
-                                    }}?></p></td>
+                                    }}?></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Experience</label></td>

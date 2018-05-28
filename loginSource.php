@@ -16,7 +16,7 @@ $num = mysqli_num_rows($result);
 $queryStatus = "select * from USER where EMAIL_ID = '$emailId'";
 $resultStatus = mysqli_query($conn,$queryStatus);
 $row=mysqli_fetch_array($resultStatus);
-$userStatus=$row['USER_STATUS_ID'];
+$userStatus=$row['STATUS_ID'];
 $userType=$row['USER_TYPE_ID'];
 //echo $userStatus; die();
 if($userStatus == 0)
