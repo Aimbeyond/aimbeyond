@@ -40,15 +40,23 @@ elseif($num == 1 && $userType == 1)
 elseif($num == 1 && $userType == 2)
 
 { 
-    $queryRegId = "select * from APPLICANT_DETAIL where EMAIL_ID = '$emailId'";
-    $resultRegId = mysqli_query($conn,$queryRegId);
-    $rowRegId=mysqli_fetch_array($resultRegId);
-    $REG_ID=$rowRegId['REG_ID'];
-    $_SESSION['regId'] = $REG_ID;
+    // $queryRegId = "select * from APPLICANT_DETAIL where EMAIL_ID = '$emailId'";
+    // $resultRegId = mysqli_query($conn,$queryRegId);
+    // $rowRegId=mysqli_fetch_array($resultRegId);
+    // $REG_ID=$rowRegId['REG_ID'];
+    // $_SESSION['regId'] = $REG_ID;
     //echo $_SESSION['regId'];die();
     $_SESSION['emailId'] = $emailId;
     header('location: index.php');
 }
+elseif($num == 1 && $userType == 3)
+
+{ 
+    
+    $_SESSION['emailId'] = $emailId;
+    header('location:interviewerPanel.php ');
+}
+
 else
 {
     

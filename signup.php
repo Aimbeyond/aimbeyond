@@ -70,7 +70,7 @@
                         <div class="form-group">
                         <input type="text" class="form-control"  name="lastLogin" value="<?php echo "$today"; ?>"hidden>
                         <input type="int" class="form-control"  name="userStatus" value = "1" hidden>
-                        <input type="int" class="form-control"  name="userType" value = "1" hidden>
+                        <input type="int" class="form-control"  name="userType" value = "3" hidden>
                         <input type="int" class="form-control"  name="flag" value = "1" hidden>
                         </div>
                         

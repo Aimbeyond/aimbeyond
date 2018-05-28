@@ -30,7 +30,7 @@ else if($psw==$confirmPsw)
     //echo $query;die();
    $result= mysqli_query($conn,$query);
    $last_id = mysqli_insert_id($conn);
-   $insert  = "insert into APPLICANT_DETAIL (USER_ID,APPLICANT_NAME,EMAIL_ID) values('$last_id','$name','$emailId')";
+   $insert  = "insert into INTERVIEWER (EMPLOYER_NAME,EMAIL_ID) values('$name','$emailId')";
    $result= mysqli_query($conn,$insert);
    $reg_id = mysqli_insert_id($conn);
    $message = "Account Generated..... WELCOME";
