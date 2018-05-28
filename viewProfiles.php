@@ -10,10 +10,12 @@ $record_per_page = 5;
 if(isset($_GET["page"]))
 {
  $page = $_GET["page"];
+ $i=5*$page+1;
 }
 else
 {
  $page = 1;
+ $i=1;
 }
 
 $start_from = ($page-1)*$record_per_page;
@@ -68,7 +70,7 @@ $result = mysqli_query($conn, $query);
                     </thead>
                     <tbody>
                     <?php 
-                       $i=1;
+                       
                                 while($data=mysqli_fetch_array($result))
                                 {
                                   
