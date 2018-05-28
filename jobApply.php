@@ -1,6 +1,4 @@
 <?php
-
-
 include("header.php");
 $regId=$_GET['regId'];
 //echo $regId;die();
@@ -178,7 +176,7 @@ if(isset($_POST['search'])) {
                                     <td><p><?php echo $data['EXPERIENCE']; ?></p></td>
                                     </tr>
                                     <tr>
-                                    <td><a href="jobApplySource.php?id=<?php echo $data['JOB_ID'];?>&regId=<?php echo $regId;?>"><button type="button" class="apply" name="add_<?php echo $i;?>" id="add">APPLY</button></a></td>
+                                    <td><a href="addProfile.php?jobId=<?php echo $data['JOB_ID'];?>"><button type="button" class="apply" name="add_<?php echo $data['JOB_ID'];?>" id="add">APPLY</button></a></td>
                                     
                                     </tr>
                                 </tbody>
