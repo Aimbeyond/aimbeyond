@@ -194,9 +194,16 @@ $regId=$rowregId['REG_ID'];
                         </ul>   
                     </li>
 
-                        <h4 class="menu-title">JOB</h4>
 
-                       
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Refrence Form </a>
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="refrenceForm.php">Add Refrence Form</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewRefrence.php">View Refrence Form</a></li>
+                        </ul> 
+                        </li>
+
+                        <h4 class="menu-title">JOB</h4>
                         
                         <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-puzzle-piece"></i> <a href="jobApply.php?id=<?php echo $regId?>">Jobs</a></li>
