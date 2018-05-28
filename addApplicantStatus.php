@@ -137,7 +137,7 @@ $(document).ready(function()
                             {    
                               
                               ?>
-                                    <option value="<?php echo $data_status['STATUS_ID'] ?>" ><?php echo $data_status['STATUS'] ?></option>
+                                    <option value="<?php echo $data_status['INTERVIEW_STATUS_ID'] ?>" ><?php echo $data_status['INTERVIEW_STATUS'] ?></option>
                             <?php }  ?>
                               </select>
                             </div>
