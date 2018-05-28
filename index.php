@@ -17,9 +17,6 @@ $resultTotalInterviewer = mysqli_query($conn, $sqlTotalInterviewer);
 $countTotalInterviewer= mysqli_num_rows($resultTotalInterviewer);
 
 
-
-
-
 ?>
 
     <!-- Right Panel -->
@@ -188,7 +185,7 @@ $countTotalInterviewer= mysqli_num_rows($resultTotalInterviewer);
                                 ?>
                     <div class="card-footer">
                         
-                                <div class="col-lg-2">
+                                <div class="col-lg-4">
                                 <div class="text-muted"><?php echo $data['JOB_TITLE']; ?></div>
                                 </div>
                                 <?php 
@@ -197,8 +194,8 @@ $countTotalInterviewer= mysqli_num_rows($resultTotalInterviewer);
                                     $num_sql = mysqli_num_rows($result_sql);
                                     //echo $num_sql;die();
                              ?>
-                             <div class="col-lg-2">
-                            <a class="ancon" href="appliedCandidates.php?jobId=<?php echo $data['JOB_ID'];?>"><span class="badge badge-warning pull-right r-activity">Applied Candidate -<?php echo $num_sql; ?></span></a>
+                             <div class="col-lg-4">
+                            <a class="ancon" href="appliedCandidates.php?jobId=<?php echo $data['JOB_ID'];?>"><span class="badge badge-warning pull-right r-activity applied">Applied Candidate -<?php echo $num_sql; ?></span></a>
                              </div>
                                 
                                 

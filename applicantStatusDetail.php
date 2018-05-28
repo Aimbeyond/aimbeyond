@@ -66,7 +66,7 @@ $result = mysqli_query($conn, $sql);
                                     <tr>
                                     <td><label class=" form-control-label">Status</label></td>
                                     <?php 
-                                    $sqlStatusDetail = "SELECT * FROM INTERVIEW_STATUS WHERE STATUS_ID='".$row['STATUS_ID']."'";
+                                    $sqlStatusDetail = "SELECT * FROM INTERVIEW_STATUS WHERE INTERVIEW_STATUS_ID='".$row['INTERVIEW_STATUS_ID']."'";
 
                                     $resultStatusDetail = mysqli_query($conn, $sqlStatusDetail);
                                     $rowStatusDetail = mysqli_fetch_array($resultStatusDetail)

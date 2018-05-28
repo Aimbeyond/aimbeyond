@@ -3,7 +3,7 @@ if(isset($_POST['submit']))
 {
 $interviewStatus= $_POST['interviewStatus'];
 
-$sql= "INSERT INTO INTERVIEW_STATUS(STATUS) VALUES ('$interviewStatus')";
+$sql= "INSERT INTO INTERVIEW_STATUS(INTERVIEW_STATUS,STATUS_ID) VALUES ('$interviewStatus','0')";
 $run=mysqli_query($conn,$sql);
 
 if($run)

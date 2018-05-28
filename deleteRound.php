@@ -4,7 +4,7 @@ include("connection.php");
 // ini_set('display_errors', 1);
     $id=$_GET['id'];
 
-    $update_data ="UPDATE LOCATION  SET STATUS_ID ='1' WHERE LOCATION_ID=$id";
+    $update_data ="UPDATE INTERVIEW_ROUND  SET STATUS_ID ='1' WHERE ROUND_ID=$id";
     //echo $update_data ; die();
    $run_data= mysqli_query($conn, $update_data);
    
@@ -12,7 +12,7 @@ include("connection.php");
 if($run_data)
 {
     echo"<script>alert('data delete successfully')
-    window.location='viewLocation.php';
+    window.location='viewRound.php';
     </script>";
    
 }
