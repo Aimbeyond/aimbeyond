@@ -4,21 +4,21 @@ include("connection.php");
 // ini_set('display_errors', 1);
     $id=$_GET['id'];
 
-    $del1="DELETE FROM APPLICANT_QUALIFICATION WHERE REG_ID= $id";
-    $run_del1= mysqli_query($conn, $del1);
-    
-    if($run_del1){
 
-    $del = "DELETE FROM QUALIFICATION WHERE QUALIFICATION_ID= $id";
-    $run_del= mysqli_query($conn, $del);
+
+    $update_data ="UPDATE QUALIFICATION  SET STATUS_ID ='1' WHERE QUALIFICATION_ID=$id";
+    //echo $update_data ; die();
+   $run_data= mysqli_query($conn, $update_data);
+   
+
     
-    if($run_del)
+    if($run_data)
     {
         echo"<script>alert('data delete successfully')
         window.location='viewQualification.php';
         </script>";
     
     }
-        }
+        
 
 ?>

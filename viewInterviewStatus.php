@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 
-$sql = 'SELECT * FROM INTERVIEW_STATUS';
+$sql = 'SELECT * FROM INTERVIEW_STATUS where STATUS_ID=0';
 
 $result = mysqli_query($conn, $sql);
 
@@ -51,8 +51,8 @@ $result = mysqli_query($conn, $sql);
                        
                      ?>
                         <tr>
-                           <td><?php echo $data['STATUS']; ?></td>
-                          <td><a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a></td>
+                           <td><?php echo $data['INTERVIEW_STATUS']; ?></td>
+                          <td><a href="#" onclick="myFunction(<?php echo $data['INTERVIEW_STATUS_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a></td>
                         </tr>
                     
                         <?php 
@@ -103,3 +103,16 @@ $result = mysqli_query($conn, $sql);
 
 </body>
 </html>
+
+<script type="text/javascript">
+        function myFunction(i) {
+        if (confirm("Are you sure you want to delete data!!!!")) {
+
+            window.location='deleteInterviewStatus.php?id='+i;
+                
+            } else {
+                window.location='viewInterviewStatus.php';
+            }
+            
+        }
+        </script>

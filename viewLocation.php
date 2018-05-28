@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 
-$sql = 'SELECT * FROM LOCATION';
+$sql = 'SELECT * FROM LOCATION where STATUS_ID=0';
 
 $result = mysqli_query($conn, $sql);
 

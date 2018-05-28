@@ -41,7 +41,7 @@ include("header.php");
                     <tbody>
                     <?PHP 
                     
-                      $fetchQual="select * from QUALIFICATION";
+                      $fetchQual="select * from QUALIFICATION where STATUS_ID=0";
                       $fetchQual=mysqli_query($conn,$fetchQual);
   while($rowQual = mysqli_fetch_array($fetchQual))
 {    ?>

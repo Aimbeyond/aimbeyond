@@ -26,7 +26,7 @@ else if($psw==$confirmPsw)
 {
 
     
-    $query = "insert into USER (USER_NAME,PASSWORD,CONFIRM_PASSWORD,EMAIL_ID,LAST_LOGIN,USER_STATUS_ID,USER_TYPE_ID,FLAG) values('$name','$psw','$confirmPsw','$emailId','$lastLogin','$userStatus','$userType','$flag')";
+    $query = "insert into USER (USER_NAME,PASSWORD,CONFIRM_PASSWORD,EMAIL_ID,LAST_LOGIN,STATUS_ID,USER_TYPE_ID,FLAG) values('$name','$psw','$confirmPsw','$emailId','$lastLogin','$userStatus','$userType','$flag')";
     //echo $query;die();
    $result= mysqli_query($conn,$query);
    $last_id = mysqli_insert_id($conn);

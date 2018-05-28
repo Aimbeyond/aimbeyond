@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 
-$sql = 'SELECT * FROM INTERVIEW_ROUND';
+$sql = 'SELECT * FROM INTERVIEW_ROUND where STATUS_ID=0';
 $result = mysqli_query($conn, $sql);
 
 ?>
@@ -52,7 +52,7 @@ $result = mysqli_query($conn, $sql);
                       <tr>
                          <td><?php echo $data['ROUND_NAME']; ?></td>
                       <td>
-                         <a href="#"><img src="images/ico_delete.png" alt="User Avatar"></a>
+                      <a href="#" onclick="myFunction(<?php echo $data['ROUND_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
                      
@@ -103,3 +103,15 @@ $result = mysqli_query($conn, $sql);
 
 </body>
 </html>
+<script type="text/javascript">
+        function myFunction(i) {
+        if (confirm("Are you sure you want to delete data!!!!")) {
+
+            window.location='deleteRound.php?id='+i;
+                
+            } else {
+                window.location='viewRound.php';
+            }
+            
+        }
+        </script>
