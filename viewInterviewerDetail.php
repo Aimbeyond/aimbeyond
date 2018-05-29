@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-$sql = 'SELECT * FROM INTERVIEWER';
+$sql = 'SELECT * FROM INTERVIEWER where STATUS_ID=0';
 $result = mysqli_query($conn, $sql);
 ?>
 

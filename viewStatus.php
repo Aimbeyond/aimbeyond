@@ -81,12 +81,12 @@ include("header.php");
                           ?>
                           <td><?php echo $rowRoundDetail['ROUND_NAME']; ?></td>
                           <?php 
-                          $sqlStatusDetail = "SELECT * FROM INTERVIEW_STATUS WHERE STATUS_ID='".$data['STATUS_ID']."'";
+                          $sqlStatusDetail = "SELECT * FROM INTERVIEW_STATUS WHERE INTERVIEW_STATUS_ID='".$data['INTERVIEW_STATUS_ID']."'";
 
                           $resultStatusDetail = mysqli_query($conn, $sqlStatusDetail);
                           $rowStatusDetail = mysqli_fetch_array($resultStatusDetail)
                           ?>
-                          <td><?php echo $rowStatusDetail['STATUS']; ?></td>
+                          <td><?php echo $rowStatusDetail['INTERVIEW_STATUS']; ?></td>
                           <td><?php echo $data['STATUS_DATE']; ?></td>
                           <td>
                                  <a href="applicantStatusDetail.php?regId=<?php echo $data['REG_ID'];?>" class="view-tag" ><img src="images/ico_view.png" alt="User Avatar"></a>

@@ -42,21 +42,9 @@ include("header.php");
                           
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="employerName" class=" form-control-label">Employer Name</label>
-                              <select name="employerName" id="employerName" class="form-control">
-                            <option value="0" selected>Select Name</option>
-                            <?PHP 
-                             $fetch_employer = "SELECT * FROM INTERVIEWER";
-
-                             $fetch_employer = mysqli_query($conn, $fetch_employer);
-                           
-                             while($data_employer = mysqli_fetch_array($fetch_employer))
-                            {    
-                              
-                              ?>
-                                    <option value="<?php echo $data_employer['EMPLOYER_ID'] ?>" ><?php echo $data_employer['EMPLOYER_NAME'] ?></option>
-                            <?php }  ?>
-                              </select>
+                            <input type="text" id="employerName" name="employerName" value="" placeholder="" class="form-control">
                             </div>
+                            
                             <div class="col-lg-6 col-md-6 col-sm-12">
                             <label for="jobTitle" class=" form-control-label">Job Title</label>
                             <select name="jobTitle" id="jobTitle" class="form-control">

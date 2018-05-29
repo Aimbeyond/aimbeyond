@@ -1,14 +1,10 @@
 <?php 
 session_start();
-//$grad = $_POST['qualification5'];
-//$pgrad = $_POST['qualification6'];
-//echo $_POST['qualification5'];
-//echo $_POST['qualification6'];die();
 include("connection.php");
+//include("updateProfileSource.php");
 $_SESSION['emailId'] == $emailId;
-$fetch_data = "select * from APPLICANT_DETAIL where EMAIL_ID = '".$_SESSION['emailId']."'";
-   //echo $fetch_data; die();
-   //echo $emailId; die();
+$REG_ID=$_GET['REG_ID'];
+$fetch_data = "select * from APPLICANT_DETAIL where REG_ID = $REG_ID";
 $run_data = mysqli_query($conn,$fetch_data);
 $row=mysqli_fetch_array($run_data);
 $REG_ID=$row['REG_ID'];
@@ -105,7 +101,7 @@ $run_data6 = mysqli_query($conn, $update_data6);
 
 if ($run_ad) {
   $message = "RECORD UPDATED SUCCESSFULLY";
-  echo "<script type='text/javascript'>  alert('$message');document.location='updateProfile.php' </script>";
+  echo "<script type='text/javascript'>  alert('$message');document.location='viewProfiles.php' </script>";
 } else {
     echo "Error: " . $update_ad . "<br>" . $conn->error;
 }
