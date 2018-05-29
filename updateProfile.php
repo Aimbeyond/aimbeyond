@@ -48,7 +48,7 @@ include("updateProfileSource.php");
                         <strong>Personal Details</strong> 
                         </div>
                       <div class="card-body card-block">
-                        <form action="updateButton.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="updateButton.php?REG_ID=<?php echo $REG_ID ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
                           
                           <div class="row form-group">
                           
@@ -382,7 +382,7 @@ $(document).ready(function(){
     // $.get("grad1.php", function (data) {
     //                 $("#appendToThis").append(data);
     //             });
-   $("#grad").load("grad.php");
+   $("#grad").load("grad.php?REG_ID=<?php echo $REG_ID ?>");
    $("#addgrad").hide();  
    $("#addpg").show();   
    });
@@ -399,12 +399,12 @@ $(document).ready(function() {
         $('#multi-select-demo').multiselect();
     });
     function getPG(){
-        $("#pgrad").load("postgrad.php");
+        $("#pgrad").load("postgrad.php?REG_ID=<?php echo $REG_ID ?>");
         $("#addpg").hide(); 
         $("#addothers").show();
     }
     function getOTH(){
-        $("#ograd").load("others.php");
+        $("#ograd").load("others.php?REG_ID=<?php echo $REG_ID ?>");
         $("#addothers").hide(); 
      }
 </script>
