@@ -104,7 +104,7 @@ $result = mysqli_query($conn, $query);
      
      <div class="pag-float">
                   
-<?php
+    <?php
     $page_query = "SELECT * FROM APPLICANT_DETAIL ORDER BY REG_ID ASC";
     $page_result = mysqli_query($conn, $page_query);
     $total_records = mysqli_num_rows($page_result);
@@ -146,19 +146,7 @@ $result = mysqli_query($conn, $query);
 
                   <!-- pagination -->
                  
-                    <!-- <div class="pag-float">
-                  <div class="pagination">
-  <a class="pre1" href="#">Previous</a>
-  <a href="#">1</a>
-  <a href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a class="pre2" href="#">Next</a>
-
-                        </div>
-                    </div> -->
+                    
                 </div>
       
 
