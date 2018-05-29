@@ -9,7 +9,7 @@ $file_name = $_FILES['image']['name'];
 $file_tmp =$_FILES['image']['tmp_name'];
 move_uploaded_file($file_tmp,"resume/".$file_name);
 
-$sql = "INSERT INTO REFRENCE_TABLE (EMPLOYER_ID, JOB_ID, APPLICANT_NAME, APPLICANT_RESUME)VALUES ('$employerName', '$jobTitle', '$applicantName', '$file_name')";
+$sql = "INSERT INTO REFRENCE_TABLE (EMPLOYER_NAME, JOB_ID, APPLICANT_NAME, APPLICANT_RESUME)VALUES ('$employerName', '$jobTitle', '$applicantName', '$file_name')";
 //echo $sql; die();
 $run=mysqli_query($conn,$sql);
 }

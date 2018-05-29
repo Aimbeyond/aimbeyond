@@ -21,7 +21,7 @@ $result = mysqli_query($conn, $sql);
 
         <div class="col-sm-12">
         <a id="menuToggle" class="menutoggle pull-left"> <img src="images/menu_bar.png" ></a>
-            <p>View Profiles</p>
+            <p>View References</p>
         </div>
         
 
@@ -41,11 +41,11 @@ $result = mysqli_query($conn, $sql);
                     <thead>
                       <tr class="tbhead">
                         <th class="th1">S No.</th>
-                        <th class="th2">Employer Name</th>
+                        <th class="th3">Employer Name</th>
                        
                         <th class="th3">JOB_TITLE</th>
                       
-                        <th class="th4">Applicant Name</th>
+                        <th class="th8">Applicant Name</th>
                         <th class="th5">Resume</th>
                         
                       </tr>

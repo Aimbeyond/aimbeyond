@@ -4,6 +4,7 @@ include('updateProfileSource.php');
 $grad_quali="select * from QUALIFICATION where QUALIFICATION_TYPE ='Graduation'";
  $grad_query = mysqli_query($conn,$grad_quali);
  $q= "select * from APPLICANT_QUALIFICATION where REG_ID=$REG_ID";
+ echo $q;die();
           $run_q = mysqli_query($conn,$q);
           $num = mysqli_num_rows($run_q);
           //echo $q;
