@@ -1,6 +1,6 @@
 <?php 
-include('connection.php');
-include('updateProfileSource.php');
+include("connection.php");
+include("updateProfileSource.php");
 $grad_quali="select * from QUALIFICATION where QUALIFICATION_TYPE ='Graduation'";
  $grad_query = mysqli_query($conn,$grad_quali);
  $q= "select * from APPLICANT_QUALIFICATION where REG_ID=$REG_ID";

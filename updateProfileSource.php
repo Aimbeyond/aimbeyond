@@ -1,12 +1,12 @@
 <?php 
-session_start();
+//session_start();
 //$regId=$_GET['regId'];
 include("connection.php");
 $regId=$_GET['regId'];
 //echo $regId;die();
-$_SESSION['emailId'] == $emailId;
+//$_SESSION['emailId'] == $emailId;
 $fetch_data = "select * from APPLICANT_DETAIL where REG_ID =$regId";  
-//echo $fetch_data; die();
+
    //echo $emailId; die();
 $run_data = mysqli_query($conn,$fetch_data);
 $row=mysqli_fetch_array($run_data);

@@ -7,6 +7,7 @@ session_start();
 include("connection.php");
 $_SESSION['emailId'] == $emailId;
 $fetch_data = "select * from APPLICANT_DETAIL where EMAIL_ID = '".$_SESSION['emailId']."'";
+//$fetch_data = "select * from APPLICANT_DETAIL where REG_ID =$regId"; 
    //echo $fetch_data; die();
    //echo $emailId; die();
 $run_data = mysqli_query($conn,$fetch_data);
