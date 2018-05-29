@@ -121,7 +121,7 @@ $regId=$rowregId['REG_ID'];
                     </li>
 
 <?php 
-                    } else {
+                    } if($userType==2) {
                     
                     ?>
 
