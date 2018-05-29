@@ -10,12 +10,18 @@ $record_per_page = 5;
 if(isset($_GET["page"]))
 {
  $page = $_GET["page"];
- $i=5*$page+1;
+ 
 }
 else
 {
  $page = 1;
- $i=1;
+ 
+}
+if(isset($_GET["page"]) && $page>1){
+    $i=5*($page-1)+1;
+}
+else{
+    $i=1;
 }
 
 $start_from = ($page-1)*$record_per_page;
@@ -104,7 +110,7 @@ $result = mysqli_query($conn, $query);
      
      <div class="pag-float">
                   
-    <?php
+<?php
     $page_query = "SELECT * FROM APPLICANT_DETAIL ORDER BY REG_ID ASC";
     $page_result = mysqli_query($conn, $page_query);
     $total_records = mysqli_num_rows($page_result);
@@ -113,9 +119,11 @@ $result = mysqli_query($conn, $query);
     $difference = $total_pages - $page;
     if($difference <= 5)
     {
-     $start_loop = $total_pages - 5;
+    $start_loop = $total_pages - 5;
     }
-    $end_loop = $start_loop + 4;?>
+   $end_loop = $start_loop + 4;
+    $end_loop=$total_pages;
+    ?>
     <ul class="pagination">
     <?php
     if($page > 1)
@@ -126,7 +134,7 @@ $result = mysqli_query($conn, $query);
      <li><?php  echo "<a href='viewProfiles.php?page=".($page - 1)."'><<</a>";?></li>
          <?php
     }
-    for($i=$start_loop; $i<=$end_loop; $i++)
+    for($i=1; $i<=$total_pages; $i++)
     {      ?>
      <li><?php echo "<a href='viewProfiles.php?page=".$i."'>".$i."</a>"; ?></li>
      <?php 
@@ -146,7 +154,19 @@ $result = mysqli_query($conn, $query);
 
                   <!-- pagination -->
                  
-                    
+                    <!-- <div class="pag-float">
+                  <div class="pagination">
+  <a class="pre1" href="#">Previous</a>
+  <a href="#">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a class="pre2" href="#">Next</a>
+
+                        </div>
+                    </div> -->
                 </div>
       
 

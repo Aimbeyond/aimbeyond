@@ -1,6 +1,11 @@
 <?php
 include("header.php");
+$fetchQual="select * from QUALIFICATION where STATUS_ID=0";
+$fetchQual=mysqli_query($conn,$fetchQual);
 
+$sql = 'SELECT * FROM QUALIFICATION';
+
+$result = mysqli_query($conn, $sql);
 
 $record_per_page = 5;
 
@@ -20,7 +25,6 @@ $start_from = ($page-1)*$record_per_page;
 $query = "SELECT * FROM QUALIFICATION order by QUALIFICATION_ID DESC LIMIT $start_from, $record_per_page";
 
 $result = mysqli_query($conn, $query);
-
 
 
 ?>
@@ -64,8 +68,7 @@ $result = mysqli_query($conn, $query);
                     <tbody>
                     <?PHP 
                     
-                      $fetchQual="select * from QUALIFICATION where STATUS_ID=0";
-                      $fetchQual=mysqli_query($conn,$fetchQual);
+                     
                         while($rowQual = mysqli_fetch_array($fetchQual))
                         {    ?>
                        <tr>
@@ -85,66 +88,20 @@ $result = mysqli_query($conn, $query);
         
                   </table>
  
-                  <div class="pag-float">
-                  
-                  <?php
-                  $page_query = "SELECT * FROM QUALIFICATION ORDER BY QUALIFICATION_ID ASC";
-                  $page_result = mysqli_query($conn, $page_query);
-                  $total_records = mysqli_num_rows($page_result);
-                  $total_pages = ceil($total_records/$record_per_page);
-                  $start_loop = $page;
-                  $difference = $total_pages - $page;
-                  if($difference <= 5)
-                  {
-                   $start_loop = $total_pages - 5;
-                  }
-                  $end_loop = $start_loop + 4;?>
-                  <ul class="pagination">
-                  <?php
-                  if($page > 1)
-                  {?>
-                 
-                  <li><?php echo "<a href='viewQualification.php?page=1'>First</a>"?></li>
-                   
-                   <li><?php  echo "<a href='viewQualification.php?page=".($page - 1)."'><<</a>";?></li>
-                       <?php
-                  }
-                  for($i=$start_loop; $i<=$end_loop; $i++)
-                  {      ?>
-                   <li><?php echo "<a href='viewQualification.php?page=".$i."'>".$i."</a>"; ?></li>
-                   <?php 
-                  }
-                  if($page <= $end_loop)
-                  {?>
-                    <li> <?php echo "<a href='viewQualification.php?page=".($page + 1)."'>>></a>";?> </li>
-                    <li>  <?php echo "<a href='viewQualification.php?page=".$total_pages."'>Last</a>";?> </li></ul
-                    <?php
-                  }
-                  ?>
-              
-              
-              
-              
-              
-              
-                                <!-- pagination -->
-                               
-                                  
-                              </div>
-                    
-              
-              
-                              </div>
-                          </div>
-              
-               
-               </div><!-- /#right-panel -->
-              
-              <!-- Right Panel -->
-              </div>
-              </div>
-              </div>
-              
+        
+                    </div>
+                </div>
+      
+
+
+                </div>
+            </div>
+
+ 
+ </div><!-- /#right-panel -->
+
+</div><!-- Right Panel -->
+
 
 <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
