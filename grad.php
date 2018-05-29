@@ -1,10 +1,11 @@
 <?php 
 include("connection.php");
-include("updateProfileSource.php");
+//include("updateProfileSource.php");
 $grad_quali="select * from QUALIFICATION where QUALIFICATION_TYPE ='Graduation'";
  $grad_query = mysqli_query($conn,$grad_quali);
+ $REG_ID=$_GET['REG_ID'];
  $q= "select * from APPLICANT_QUALIFICATION where REG_ID=$REG_ID";
- echo $q;die();
+ //echo $q;
           $run_q = mysqli_query($conn,$q);
           $num = mysqli_num_rows($run_q);
           //echo $q;
