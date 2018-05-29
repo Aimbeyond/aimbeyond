@@ -18,7 +18,7 @@ if (isset($_POST['submit']))
   
 
   $insert_employer ="insert into INTERVIEWER_SCHEDULE (SCHEDULE_ID,EMPLOYER_ID) VALUES ('$SCHEDULE_ID','$interviewerName')";
- //echo $insert_employer; die();
+  //echo $insert_employer; die();
   $run_employer= mysqli_query($conn, $insert_employer);
  
 

@@ -7,9 +7,10 @@ $Skills=$_POST['Skills'];
 $Skills_arr=implode(",",$Skills);
 $designation=$_POST['designation'];
 $proficiency=$_POST['proficiency'];
+$status_id=$_POST['status_id'];
 
 
-$sql = "INSERT INTO INTERVIEWER (EMPLOYER_NAME, DESIGNATION)VALUES ('$employer_name', '$designation')";
+$sql = "INSERT INTO INTERVIEWER (EMPLOYER_NAME, DESIGNATION, STATUS_ID)VALUES ('$employer_name', '$designation', $status_id)";
 //echo $sql; die();
 $run=mysqli_query($conn,$sql);
 $EMPLOYER_ID=mysqli_insert_id($conn);
