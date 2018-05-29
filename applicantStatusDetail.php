@@ -71,7 +71,7 @@ $result = mysqli_query($conn, $sql);
                                     $resultStatusDetail = mysqli_query($conn, $sqlStatusDetail);
                                     $rowStatusDetail = mysqli_fetch_array($resultStatusDetail)
                                     ?>
-                                    <td><p><?php echo $rowStatusDetail['STATUS']; ?></p></td>
+                                    <td><p><?php echo $rowStatusDetail['INTERVIEW_STATUS']; ?></p></td>
                                     </tr>
                                     <tr>
                                     <td><label class=" form-control-label">Round</label></td>

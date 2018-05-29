@@ -48,6 +48,7 @@ include("header.php");
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <label for="employer_name" class=" form-control-label">Employer Name</label>
                                 <input type="text" id="employer_name" name="employer_name" placeholder="" class="form-control">
+                                <input type="hidden" id="status_id" name="status_id"  class="form-control" value="0">
                             </div>
 
                             
