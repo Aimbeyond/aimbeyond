@@ -46,7 +46,7 @@ if(isset($_POST['search'])) {
     
 }
  else{
-    $query = "select * from JOB_DETAIL";
+    $query = "select * from JOB_DETAIL where STATUS_ID=0";
     $result = mysqli_query($conn,$query);
     $count_search=mysqli_num_rows($result);
     //echo $count_search;die();
