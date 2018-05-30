@@ -1,7 +1,8 @@
 <?php
 include("header.php");
 
-$sql = 'SELECT * FROM JOB_DETAIL';
+$sql = 'SELECT * FROM JOB_DETAIL where STATUS_ID=0';
+//echo $sql;die();
 $result = mysqli_query($conn, $sql);          
 $record_per_page = 5;
 
