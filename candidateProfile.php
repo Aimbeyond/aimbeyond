@@ -62,6 +62,15 @@ include ("candidateProfileSource.php");
                           <td><label class=" form-control-label">Contact No.:</label></td>
                           <td><p><?php echo $row['CONTACT_NUMBER'] ?></p></td>
                     </tr>
+
+                     <?PHP $sql1 = "SELECT * FROM LOCATION WHERE LOCATION_ID='".$row['LOCATION_ID']."'";
+                    $retval1 = mysqli_query($conn, $sql1);
+                    $row1 = mysqli_fetch_array($retval1)
+                    ?> 
+                    <tr>
+                        <td><label class=" form-control-label">Location:</label></td>
+                        <td><p> <?php echo $row1['LOCATION']?></p></td>
+                    </tr>    
             </tbody>
         </table>
                           
@@ -74,10 +83,7 @@ include ("candidateProfileSource.php");
                         <tr>
                           <td><label class=" form-control-label">Experience:</label></td>
                           <td><p><?php echo $row['EXPERIENCE_IN_YEAR']?> year <?php echo $row['EXPERIENCE_IN_MONTH']?> month </p></td>
-                        </tr>
-                        
-                       
-                        
+                        </tr>                      
                         
                         
                         <tr>
