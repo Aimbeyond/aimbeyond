@@ -25,7 +25,7 @@ else{
 
 $start_from = ($page-1)*$record_per_page;
 
-$query = "SELECT * FROM JOB_DETAIL order by JOB_ID DESC LIMIT $start_from, $record_per_page";
+$query = "SELECT * FROM JOB_DETAIL where STATUS_ID=0 order by JOB_ID DESC LIMIT $start_from, $record_per_page";
 
 $result = mysqli_query($conn, $query);
             
