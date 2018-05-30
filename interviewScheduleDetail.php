@@ -43,7 +43,10 @@ $result = mysqli_query($conn, $sql);
                       
                      
                         <div class="card-header top">
-                        <strong>Interview Schedule</strong><button type="button" class="editProfile float-right" name="add" id="add">EDIT</button>
+                        <?php $res = mysqli_query($conn, $sql);
+                                $row2 = mysqli_fetch_array($res) 
+                                ?>
+                        <strong>Interview Schedule</strong><a href="updateInterviewSchedule.php?id=<?php echo $row2['SCHEDULE_ID']?>"><button type="button" class="editProfile float-right" name="add" id="add">EDIT</button></a>
                         </div>
                        
                       <div class="card-body card-block">

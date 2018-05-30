@@ -1,7 +1,9 @@
 <?php
 session_start();
 include('connection.php');
-
+if(! $_SESSION['emailId']){
+    header("location:login.php");
+    }
 $emailId=$_SESSION['emailId'];
 
 $query = "select * from USER where EMAIL_ID = '$emailId'";
@@ -247,5 +249,5 @@ $regId=$rowregId['REG_ID'];
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
-
+                    
     <!-- Left Panel -->

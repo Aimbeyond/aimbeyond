@@ -38,7 +38,8 @@ include ("candidateProfileSource.php");
                       
                      
                         <div class="card-header top">
-                        <strong>Personal Details</strong>  <button type="button" class="editProfile float-right" name="add" id="add">EDIT PROFILE</button>
+                        <?php  $retry = mysqli_query($conn, $sql); $row2 = mysqli_fetch_array($retry) ?>
+                        <strong>Personal Details</strong>  <a href="updateProfile.php?regId=<?php echo $row2['REG_ID'];?>"><button type="button" class="editProfile float-right" name="add" id="add">EDIT PROFILE</button></a>
                         </div>
                        
                       <div class="card-body card-block">
