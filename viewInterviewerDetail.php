@@ -104,7 +104,7 @@ $result = mysqli_query($conn, $query);
                           <td>
                                    
                           
-                                    <a href="#" class="edit-tag" ><img src="images/ico_edit.png" alt="User Avatar"></a>
+                                    
                           
                         
                                     <a href="#" onclick="myFunction(<?php echo $data['EMPLOYER_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>
@@ -158,8 +158,6 @@ $result = mysqli_query($conn, $query);
                       }
                       ?>
                         
-
-
                         </div>
                     </div>
                 </div>
