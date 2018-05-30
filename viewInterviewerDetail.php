@@ -24,7 +24,7 @@ else{
 
 $start_from = ($page-1)*$record_per_page;
 
-$query = "SELECT * FROM INTERVIEWER order by EMPLOYER_ID DESC LIMIT $start_from, $record_per_page";
+$query = "SELECT * FROM INTERVIEWER where STATUS_ID=0 order by EMPLOYER_ID DESC LIMIT $start_from, $record_per_page";
 
 $result = mysqli_query($conn, $query);
 
