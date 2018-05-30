@@ -8,6 +8,34 @@ $sql = "SELECT * FROM JOB_APPLY WHERE JOB_ID=$jobId";
 
 $result = mysqli_query($conn, $sql);
 
+
+$record_per_page = 5;
+
+if(isset($_GET["page"]))
+{
+ $page = $_GET["page"];
+ 
+}
+else
+{
+ $page = 1;
+ 
+}
+if(isset($_GET["page"]) && $page>1){
+    $j=5*($page-1)+1;
+}
+else{
+    $j=1;
+}
+
+$start_from = ($page-1)*$record_per_page;
+
+$query = "SELECT * FROM JOB_APPLY order by REG_ID DESC LIMIT $start_from, $record_per_page";
+
+$result = mysqli_query($conn, $query);
+
+
+
 ?>
 
     <!-- Right Panel -->
@@ -91,20 +119,46 @@ $result = mysqli_query($conn, $sql);
                     
         
                   </table>
-                  <!-- pagination -->
-                 
-                    <div class="pag-float">
-                  <div class="pagination">
-  <a class="pre1" href="#">Previous</a>
-  <a href="#">1</a>
-  <a href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a class="pre2" href="#">Next</a>
-</div>
-</div>
+                  <div class="pag-float">
+                  
+                  <?php
+                      $page_query = "SELECT * FROM JOB_APPLY ORDER BY REG_ID ASC";
+                      $page_result = mysqli_query($conn, $page_query);
+                      $total_records = mysqli_num_rows($page_result);
+                      $total_pages = ceil($total_records/$record_per_page);
+                      $start_loop = $page;
+                      $difference = $total_pages - $page;
+                      if($difference <= 5)
+                      {
+                      $start_loop = $total_pages - 5;
+                      }
+                     $end_loop = $start_loop + 4;
+                      $end_loop=$total_pages;
+                      ?>
+                      <ul class="pagination">
+                      <?php
+                      if($page > 1)
+                      {?>
+                     
+                      <li><?php echo "<a href='appliedcandidates.php?page=1'>First</a>"?></li>
+                       
+                       <li><?php  echo "<a href='appliedcandidates.php?page=".($page - 1)."'><<</a>";?></li>
+                           <?php
+                      }
+                      for($i=1; $i<=$total_pages; $i++)
+                      {      ?>
+                       <li><?php echo "<a href='appliedcandidates.php?page=".$i."'>".$i."</a>"; ?></li>
+                       <?php 
+                      }
+                      if($page <= $end_loop)
+                      {?>
+                        <li> <?php echo "<a href='appliedcandidates.php?page=".($page + 1)."'>>></a>";?> </li>
+                        <li>  <?php echo "<a href='appliedcandidates.php?page=".$total_pages."'>Last</a>";?> </li></ul>
+                        <?php
+                      }
+                      ?>
+                        
+
 
                         </div>
                     </div>
@@ -118,7 +172,7 @@ $result = mysqli_query($conn, $sql);
  
  </div><!-- /#right-panel -->
 
-<!-- Right Panel -->
+</div><!-- Right Panel -->
 
 
 <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
