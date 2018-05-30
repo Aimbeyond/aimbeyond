@@ -1,5 +1,89 @@
 <?php
-include("header.php");
+session_start();
+include('connection.php');
+
+$emailId=$_SESSION['emailId'];
+
+$query = "select * from USER where EMAIL_ID = '$emailId'";
+//echo $query; die();
+$result = mysqli_query($conn,$query);
+$row=mysqli_fetch_array($result);
+$userType=$row['USER_TYPE_ID'];
+//echo $userType;die();
+
+$queryregId = "select * from APPLICANT_DETAIL where EMAIL_ID = '$emailId'";
+//echo $queryregId;die();
+$resultregId = mysqli_query($conn,$queryregId);
+$rowregId=mysqli_fetch_array($resultregId);
+$regId=$rowregId['REG_ID'];
+//echo $regId;die();
+?>
+<!doctype html>
+<html class="no-js" lang=""> 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aimbeyond</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+ <script type="text/javascript" src="assets/js/bootstrap-filestyle.min.js"> </script>
+  
+
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <link rel="stylesheet" href="assets/css/bootstrap-multiselect.css" type="text/css">
+        <script type="text/javascript" src="assets/js/bootstrap-multiselect.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/form.css">
+    <link rel="stylesheet" href="assets/css/view.css">
+
+
+
+    <style>
+
+    .col-lg-9{
+        margin:0px auto;
+    }
+    .view{
+        margin:0px auto;
+    }
+    .fixed{
+        color:red;
+    }
+
+    </style>
+
+
+</head>
+<body>
+
+
+
+
+<?php
+//include("header.php");
 $regId=$_GET['regId'];
 //echo $regId;die();
 
