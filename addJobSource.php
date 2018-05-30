@@ -12,7 +12,7 @@ $location=$_POST['location'];
 $keywords=$_POST['keywords'];
 $roles_and_responsiblities=$_POST['roles_and_responsiblities'];
 
-$sql = "INSERT INTO JOB_DETAIL (JOB_TITLE, SALARY, EXPERIENCE, KEYWORDS, ROLES_AND_RESPONSIBLITIES)VALUES ('$job_title', '$salary', '$experience', '$keywords', '$roles_and_responsiblities' )";
+$sql = "INSERT INTO JOB_DETAIL (JOB_TITLE, SALARY, EXPERIENCE, KEYWORDS, ROLES_AND_RESPONSIBLITIES, STATUS_ID)VALUES ('$job_title', '$salary', '$experience', '$keywords', '$roles_and_responsiblities','0' )";
 //echo $sql; die();
 $run=mysqli_query($conn,$sql);
 $JOB_ID=mysqli_insert_id($conn);

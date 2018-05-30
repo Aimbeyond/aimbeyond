@@ -1,5 +1,32 @@
 <?php
 include("header.php");
+$fetchQual="select * from QUALIFICATION where STATUS_ID=0";
+$fetchQual=mysqli_query($conn,$fetchQual);
+
+$sql = 'SELECT * FROM QUALIFICATION';
+
+$result = mysqli_query($conn, $sql);
+
+$record_per_page = 5;
+
+if(isset($_GET["page"]))
+{
+ $page = $_GET["page"];
+ $i=5*$page+1;
+}
+else
+{
+ $page = 1;
+ $i=1;
+}
+
+$start_from = ($page-1)*$record_per_page;
+
+$query = "SELECT * FROM QUALIFICATION order by QUALIFICATION_ID DESC LIMIT $start_from, $record_per_page";
+
+$result = mysqli_query($conn, $query);
+
+
 ?>
 
     <!-- Right Panel -->
@@ -41,20 +68,17 @@ include("header.php");
                     <tbody>
                     <?PHP 
                     
-                      $fetchQual="select * from QUALIFICATION where STATUS_ID=0";
-                      $fetchQual=mysqli_query($conn,$fetchQual);
-  while($rowQual = mysqli_fetch_array($fetchQual))
-{    ?>
-                      <tr>
-   
-                          
+                     
+                        while($rowQual = mysqli_fetch_array($fetchQual))
+                        {    ?>
+                       <tr>
                           <td><?php echo $rowQual['QUALIFICATION'] ?></td>
                           <td>
                          <a href="#" onclick="myFunction(<?php echo $rowQual['QUALIFICATION_ID']?>)"><img src="images/ico_delete.png" alt="User Avatar"></a>
                           </td>
                       </tr>
                       <tr>
-<?php } ?>
+                        <?php } ?>
                          
 
                    
@@ -63,35 +87,20 @@ include("header.php");
                     
         
                   </table>
-
-                  <!-- pagination -->
-                 
-                    <div class="pag-float pagi">
-                  <div class="pagination">
-  <a class="pre1" href="#">Previous</a>
-  <a href="#">1</a>
-  <a href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a class="pre2" href="#">Next</a>
-</div>
-</div>
-
-                        </div>
+ 
+        
                     </div>
                 </div>
       
 
 
                 </div>
-          
+            </div>
 
  
  </div><!-- /#right-panel -->
 
-<!-- Right Panel -->
+</div><!-- Right Panel -->
 
 
 <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>

@@ -40,7 +40,7 @@ $result = mysqli_query($conn, $sql);
                       
                      
                         <div class="card-header top">
-                        <strong>Job Details</strong>  <button type="button" class="editProfile float-right" name="add" id="add">EDIT</button>
+                        <strong>Job Details</strong>  
                         </div>
                        
                       <div class="card-body card-block">

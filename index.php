@@ -3,7 +3,7 @@ session_start();
 include("header.php");
 
 
-$sqlJob = 'SELECT * FROM JOB_DETAIL';
+$sqlJob = 'SELECT * FROM JOB_DETAIL where STATUS_ID=0';
 $resultJob = mysqli_query($conn, $sqlJob);
 $countJob= mysqli_num_rows($resultJob);
 
@@ -12,7 +12,7 @@ $resultTotalCandidate = mysqli_query($conn, $sqlTotalCandidate);
 $countTotalCandidate= mysqli_num_rows($resultTotalCandidate);
 
 
-$sqlTotalInterviewer = 'SELECT * FROM INTERVIEWER';
+$sqlTotalInterviewer = 'SELECT * FROM INTERVIEWER where STATUS_ID=0';
 $resultTotalInterviewer = mysqli_query($conn, $sqlTotalInterviewer);
 $countTotalInterviewer= mysqli_num_rows($resultTotalInterviewer);
 

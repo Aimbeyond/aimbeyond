@@ -119,9 +119,11 @@ $result = mysqli_query($conn, $query);
     $difference = $total_pages - $page;
     if($difference <= 5)
     {
-     $start_loop = $total_pages - 5;
+    $start_loop = $total_pages - 5;
     }
-    $end_loop = $start_loop + 4;?>
+   $end_loop = $start_loop + 4;
+    $end_loop=$total_pages;
+    ?>
     <ul class="pagination">
     <?php
     if($page > 1)
@@ -132,7 +134,7 @@ $result = mysqli_query($conn, $query);
      <li><?php  echo "<a href='viewProfiles.php?page=".($page - 1)."'><<</a>";?></li>
          <?php
     }
-    for($i=$start_loop; $i<=$end_loop; $i++)
+    for($i=1; $i<=$total_pages; $i++)
     {      ?>
      <li><?php echo "<a href='viewProfiles.php?page=".$i."'>".$i."</a>"; ?></li>
      <?php 

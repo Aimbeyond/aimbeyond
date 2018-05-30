@@ -71,18 +71,7 @@ $result = mysqli_query($conn, $sql);
 
                   <!-- pagination -->
                  
-                    <div class="pag-float pagi">
-                  <div class="pagination">
-  <a class="pre1" href="#">Previous</a>
-  <a href="#">1</a>
-  <a href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a class="pre2" href="#">Next</a>
-</div>
-</div>
+                    
 
                         </div>
                     </div>
