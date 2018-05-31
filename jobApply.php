@@ -1,21 +1,21 @@
 <?php
-session_start();
-include('connection.php');
+// session_start();
+// include('connection.php');
 
-$emailId=$_SESSION['emailId'];
+// $emailId=$_SESSION['emailId'];
 
-$query = "select * from USER where EMAIL_ID = '$emailId'";
-//echo $query; die();
-$result = mysqli_query($conn,$query);
-$row=mysqli_fetch_array($result);
-$userType=$row['USER_TYPE_ID'];
-//echo $userType;die();
+// $query = "select * from USER where EMAIL_ID = '$emailId'";
+// //echo $query; die();
+// $result = mysqli_query($conn,$query);
+// $row=mysqli_fetch_array($result);
+// $userType=$row['USER_TYPE_ID'];
+// //echo $userType;die();
 
-$queryregId = "select * from APPLICANT_DETAIL where EMAIL_ID = '$emailId'";
-//echo $queryregId;die();
-$resultregId = mysqli_query($conn,$queryregId);
-$rowregId=mysqli_fetch_array($resultregId);
-$regId=$rowregId['REG_ID'];
+// $queryregId = "select * from APPLICANT_DETAIL where EMAIL_ID = '$emailId'";
+// //echo $queryregId;die();
+// $resultregId = mysqli_query($conn,$queryregId);
+// $rowregId=mysqli_fetch_array($resultregId);
+// $regId=$rowregId['REG_ID'];
 //echo $regId;die();
 ?>
 <!doctype html>
