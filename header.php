@@ -110,13 +110,13 @@ $regId=$rowregId['REG_ID'];
                     <ul class="nav navbar-nav">
                                 
               <?php if($userType==3){ ?>
-                         <h4 class="menu-title">CANDIDATE</h4>
+                         <h4 class="menu-title">WELCOME <?php echo $row['USER_NAME'];?></h4>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Your Schedule Interviews</a>
                         
                         <ul class="sub-menu children dropdown-menu">
               
-                        <li> <i class="fa fa-plus"></i> <a href="interviewerPanel.php">View Sheduled Interviews</a> </li>
+                        <li> <i class="fa fa-plus"></i> <a href="interviewerPanel.php">View Scheduled Interviews</a> </li>
                                 
                                 
                         </ul>
@@ -163,14 +163,7 @@ $regId=$rowregId['REG_ID'];
                         </ul>   
                     </li>
 
-                        <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Applicant Status </a>
-                        
-                        <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus"></i><a href="addApplicantStatus.php">Add Applicant Status</a></li>
-                        <li><i class="fa fa-building"></i><a href="viewStatus.php">View Applicant Status</a></li>
-                        </ul>   
-                    </li>
+
 
 
                         <li class="menu-item-has-children dropdown">
@@ -205,6 +198,16 @@ $regId=$rowregId['REG_ID'];
                         <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-plus"></i><a href="addInterviewSchedule.php">Add Schedule</a></li>
                         <li><i class="fa fa-building"></i><a href="viewInterviewSchedule.php">View Schedule</a></li>
+                        </ul>   
+                    </li>
+
+
+                        <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Applicant Status </a>
+                        
+                        <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i><a href="addApplicantStatus.php">Add Applicant Status</a></li>
+                        <li><i class="fa fa-building"></i><a href="viewStatus.php">View Applicant Status</a></li>
                         </ul>   
                     </li>
 

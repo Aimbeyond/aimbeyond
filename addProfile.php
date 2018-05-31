@@ -1,7 +1,7 @@
 <?php
 session_start();
 //include("header.php");
-//$jobId=$_GET['jobId'];
+$jobId=$_GET['jobId'];
 //echo $jobId;
 
 ?>

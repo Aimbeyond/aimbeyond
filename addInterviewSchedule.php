@@ -109,7 +109,7 @@ $(document).ready(function()
                             <label for="jobTitle" class=" form-control-label">Job Title</label>
                               <select name="jobTitle"  id="jobTitle" class="form-control">
                               <?php 
-                              $fetch_job= "Select * from JOB_DETAIL";
+                              $fetch_job= "Select * from JOB_DETAIL where STATUS_ID=0";
                               $run_job= mysqli_query($conn, $fetch_job);
                               ?>
                            

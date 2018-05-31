@@ -2,7 +2,7 @@
 include("connection.php");
 if(isset($_POST['SUBMIT']))
 {       $jobId=$_POST['jobId'];
-    echo $jobId;die();
+   // echo $jobId;die();
     //echo "<pre>"; print_r($_POST); die();
     $name=$_POST['full_name'];
     $contact_number=$_POST['contact_no'];

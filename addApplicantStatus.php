@@ -71,7 +71,7 @@ $(document).ready(function()
                               <select name="jobTitle" id="jobTitle" class="form-control">
                             <option value="0" selected>Select Job Title</option>
                             <?PHP 
-                             $fetch_job = "SELECT * FROM JOB_DETAIL";
+                             $fetch_job = "SELECT * FROM JOB_DETAIL where STATUS_ID=0";
 
                              $fetch_job = mysqli_query($conn, $fetch_job);
                            
