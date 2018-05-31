@@ -1,22 +1,5 @@
 <?php
-// session_start();
-// include('connection.php');
-
-// $emailId=$_SESSION['emailId'];
-
-// $query = "select * from USER where EMAIL_ID = '$emailId'";
-// //echo $query; die();
-// $result = mysqli_query($conn,$query);
-// $row=mysqli_fetch_array($result);
-// $userType=$row['USER_TYPE_ID'];
-// //echo $userType;die();
-
-// $queryregId = "select * from APPLICANT_DETAIL where EMAIL_ID = '$emailId'";
-// //echo $queryregId;die();
-// $resultregId = mysqli_query($conn,$queryregId);
-// $rowregId=mysqli_fetch_array($resultregId);
-// $regId=$rowregId['REG_ID'];
-//echo $regId;die();
+include('connection.php');
 ?>
 <!doctype html>
 <html class="no-js" lang=""> 
@@ -80,11 +63,10 @@
 <body>
 
 
-
-
 <?php
-//include("header.php");
-//$regId=$_GET['regId'];
+
+
+// include("header.php");
 //echo $regId;die();
 
 
@@ -130,7 +112,7 @@ if(isset($_POST['search'])) {
     
 }
  else{
-    $query = "select * from JOB_DETAIL where STATUS_ID=0";
+    $query = "select * from JOB_DETAIL";
     $result = mysqli_query($conn,$query);
     $count_search=mysqli_num_rows($result);
     //echo $count_search;die();
@@ -197,7 +179,7 @@ if(isset($_POST['search'])) {
 
                       <div class="card-body card-block">
                      
-                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <form action="addProfile.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                           
                           <div class="row form-group">
                           <?php 
@@ -206,13 +188,15 @@ if(isset($_POST['search'])) {
                                 while($data=mysqli_fetch_array($result))
                                 {
                                 ?>
-                             <div class="col-lg-6 col-md-12 col-sm-12">
+                             <div class="col-lg-4 col-md-12 col-sm-12">
                               
                              <table class="table table-responsive table-detail division">
                              <thead><th><p><?php echo $data['JOB_TITLE']; ?></p></thead>
                                 <tbody>
                                     <tr>
+                                 
                                     <td><label class=" form-control-label">Job Title</label></td>
+                            
                                     <td><p><?php echo $data['JOB_TITLE']; ?></p></td>
                                     </tr>
                                     <tr>
@@ -260,7 +244,7 @@ if(isset($_POST['search'])) {
                                     <td><p><?php echo $data['EXPERIENCE']; ?></p></td>
                                     </tr>
                                     <tr>
-                                    <td><a href="addProfile.php?jobId=<?php echo $data['JOB_ID'];?>"><button type="button" class="apply" name="add_<?php echo $data['JOB_ID'];?>" id="add">APPLY</button></a></td>
+                                    <td><a href="addProfile.php?jobId=<?php echo $data['JOB_ID'];?>"><button type="button" class="apply" name="add_<?php echo $i;?>" id="add">APPLY</button></a></td>
                                     
                                     </tr>
                                 </tbody>
@@ -274,10 +258,6 @@ if(isset($_POST['search'])) {
                             
                         </form>
 
-                                      
-                                
-                             
-                            
                                 
                         
                       </div>
