@@ -188,7 +188,7 @@ if(isset($_POST['search'])) {
                                 while($data=mysqli_fetch_array($result))
                                 {
                                 ?>
-                             <div class="col-lg-4 col-md-12 col-sm-12">
+                             <div class="col-lg-6 col-md-12 col-sm-12">
                               
                              <table class="table table-responsive table-detail division">
                              <thead><th><p><?php echo $data['JOB_TITLE']; ?></p></thead>
